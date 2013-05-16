@@ -1,0 +1,74 @@
+# Project specific
+
+# Build products
+
+*.[oa]
+DerivedData/
+[Bb]uild/
+[Pp]re-[Bb]uild/
+[Dd]eliverables/
+[Dd]istribution/
+[Dd]ocumentation/
+
+# Backup files
+
+*~
+*~.nib
+*.swp
+*(Autosaved).rtfd/
+Backup[ ]of[ ]*.pages/
+Backup[ ]of[ ]*.key/
+Backup[ ]of[ ]*.numbers/
+
+# Other VCS
+
+.hg
+.svn
+*.prej
+*.mine
+CVS
+
+# MacOSX Finder
+
+.DS_Store
+.DS_Store?
+._*
+.~*
+~$*
+*.lock
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+
+# Xcode
+
+xcuserdata/
+project.xcworkspace/
+*.mode1
+*.mode1v3
+*.mode2v3
+*.perspective
+*.perspectivev3
+*.pbxuser
+
+# JetBrains
+
+.idea/
+
+# Qt
+
+*.pro.user
+*.autosave
+moc_*
+qrc_*
+ui_*
+
+# CocoaPods
+
+Pods/Documentation
+
+# VersionX
+
+VersionX-revision.h
