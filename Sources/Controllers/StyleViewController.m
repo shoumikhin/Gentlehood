@@ -15,12 +15,16 @@
 //==============================================================================
 @implementation StyleViewController
 //------------------------------------------------------------------------------
+- (void)awakeFromNib
+{
+    self.updateAddress = [NSString stringWithFormat:@"%@/%@/?id=%i", GH_API, GH_API_GET_CATEGORY, GHPostStyle];
+}
+//------------------------------------------------------------------------------
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
     self.navigationItem.titleView = [UIImageView.alloc initWithImage:[UIImage imageNamed:@"style_title"]];
-    self.view.backgroundColor = [UIColor.alloc initWithPatternImage:[UIImage imageNamed:@"background"]];
 }
 //------------------------------------------------------------------------------
 @end

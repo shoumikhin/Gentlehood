@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ThoughtsViewController : UIViewController
+#import "GHContentViewController.h"
+
+@interface ThoughtsViewController : GHContentViewController
 
 @end

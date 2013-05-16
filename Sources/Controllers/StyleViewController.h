@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface StyleViewController : UIViewController
+#import "GHContentViewController.h"
+
+@interface StyleViewController : GHContentViewController
 
 @end

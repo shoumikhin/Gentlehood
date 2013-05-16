@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface VocabularyViewController : UITableViewController
+#import "GHContentViewController.h"
+
+@interface VocabularyViewController : GHContentViewController
 
 @end

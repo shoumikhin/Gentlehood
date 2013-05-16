@@ -79,3 +79,22 @@ SYNTHESIZE_SINGLETON_RETAIN_METHODS
 
 #define SYNTHESIZE_SINGLETON_FOR_CLASS(classname) SYNTHESIZE_SINGLETON_FOR_CLASS_WITH_ACCESSOR(classname, shared)
 //==============================================================================
+#define SHOW_ALERT(__title__, __message__, __delegate__, __cancel__, __other__) \
+do \
+{ \
+    [[[UIAlertView alloc] initWithTitle:__title__ message:__message__ delegate:__delegate__ cancelButtonTitle:__cancel__ otherButtonTitles:__other__, nil] show]; \
+} \
+while(0)
+//==============================================================================
+FOUNDATION_EXPORT NSString * const GH_API;
+FOUNDATION_EXPORT NSString * const GH_API_GET_CATEGORY;
+FOUNDATION_EXPORT NSString * const GH_WEB_CELL_ID;
+
+typedef NS_ENUM(NSInteger, GHPostCategory)
+{
+    GHPostThought = 57,
+    GHPostStyle = 58,
+    GHPostVocabulary = 59,
+    GHPostAphorism = 60
+};
+//==============================================================================

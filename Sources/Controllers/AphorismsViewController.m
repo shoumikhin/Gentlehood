@@ -15,12 +15,16 @@
 //==============================================================================
 @implementation AphorismsViewController
 //------------------------------------------------------------------------------
+- (void)awakeFromNib
+{
+    self.updateAddress = [NSString stringWithFormat:@"%@/%@/?id=%i", GH_API, GH_API_GET_CATEGORY, GHPostAphorism];
+}
+//------------------------------------------------------------------------------
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
     self.navigationItem.titleView = [UIImageView.alloc initWithImage:[UIImage imageNamed:@"aphorisms_title"]];
-    self.view.backgroundColor = [UIColor.alloc initWithPatternImage:[UIImage imageNamed:@"background"]];
 }
 //------------------------------------------------------------------------------
 @end

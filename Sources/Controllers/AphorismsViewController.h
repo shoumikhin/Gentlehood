@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AphorismsViewController : UIViewController
+#import "GHContentViewController.h"
+
+@interface AphorismsViewController : GHContentViewController
 
 @end

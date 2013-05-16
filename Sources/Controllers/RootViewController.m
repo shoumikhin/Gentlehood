@@ -1,30 +1,25 @@
 //
-//  ThoughtsViewController.m
+//  RootViewController.m
 //  Gentlehood
 //
-//  Created by Anthony Shoumikhin on 2013-15-05.
+//  Created by Anthony Shoumikhin on 2013-16-05.
 //  Copyright (c) 2013 Anthony Shoumikhin. All rights reserved.
 //
 
-#import "ThoughtsViewController.h"
+#import "RootViewController.h"
 
 //==============================================================================
-@interface ThoughtsViewController ()
+@interface RootViewController ()
 
 @end
 //==============================================================================
-@implementation ThoughtsViewController
-//------------------------------------------------------------------------------
-- (void)awakeFromNib
-{
-    self.updateAddress = [NSString stringWithFormat:@"%@/%@/?id=%i", GH_API, GH_API_GET_CATEGORY, GHPostThought];
-}
+@implementation RootViewController
 //------------------------------------------------------------------------------
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
-    self.navigationItem.titleView = [UIImageView.alloc initWithImage:[UIImage imageNamed:@"thoughts_title"]];
+    self.selectedIndex = 2;
 }
 //------------------------------------------------------------------------------
 @end

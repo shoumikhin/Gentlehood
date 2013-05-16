@@ -50,7 +50,7 @@ package()
 {
     cp -r "$PRODUCTS_DIR/${RELEASE}-${IPHONEOS}/${PROJECT_NAME}.app" "$OUTPUT_DIR" || die
     xcrun -sdk iphoneos PackageApplication -v "$OUTPUT_DIR/${PROJECT_NAME}.app" -o "$OUTPUT_DIR/${PROJECT_NAME}.ipa" >/dev/null || die
-    ./build_manifest.py -f "$OUTPUT_DIR/${PROJECT_NAME}.app" -d "$OUTPUT_DIR/${PROJECT_NAME}.ipa.plist" -a "" -c "manifest_log.txt" -i  "$OUTPUT_DIR/${PROJECT_NAME}.ipa" || die
+    ./manifest.py -f "$OUTPUT_DIR/${PROJECT_NAME}.app" -d "$OUTPUT_DIR/${PROJECT_NAME}.ipa.plist" -a "" -c "manifest_log.txt" -i  "$OUTPUT_DIR/${PROJECT_NAME}.ipa" || die
     rm -rf "$OUTPUT_DIR/${PROJECT_NAME}.app"
 }
 

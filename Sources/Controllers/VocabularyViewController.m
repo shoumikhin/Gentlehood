@@ -15,13 +15,16 @@
 //==============================================================================
 @implementation VocabularyViewController
 //------------------------------------------------------------------------------
+- (void)awakeFromNib
+{
+    self.updateAddress = [NSString stringWithFormat:@"%@/%@/?id=%i", GH_API, GH_API_GET_CATEGORY, GHPostVocabulary];
+}
+//------------------------------------------------------------------------------
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
     self.navigationItem.titleView = [UIImageView.alloc initWithImage:[UIImage imageNamed:@"vocabulary_title"]];
-    self.tableView.backgroundView = [UIImageView.alloc initWithImage:[UIImage imageNamed:@"background"]];
-    self.tableView.separatorColor = [UIColor colorWithRed:20.0/256 green:49.0/256 blue:97.0/256 alpha:0.25];
 }
 //------------------------------------------------------------------------------
 @end
