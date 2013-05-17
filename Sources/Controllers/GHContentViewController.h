@@ -11,5 +11,6 @@
 @interface GHContentViewController : UITableViewController
 
 @property (nonatomic) NSString *updateAddress;
+@property (nonatomic) NSMutableArray *posts;
 
 @end

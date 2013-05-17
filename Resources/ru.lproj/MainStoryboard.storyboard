@@ -8,12 +8,12 @@
         <scene sceneID="LXh-Cr-cLY">
             <objects>
                 <tableViewController id="pn7-cb-hQY" customClass="StyleViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="1ep-UV-sMU">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="1ep-UV-sMU">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell opaque="NO" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="WebCell" id="TgW-Xn-LAF">
+                            <tableViewCell opaque="NO" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="WebCell" id="TgW-Xn-LAF" customClass="GHWebCell">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -23,7 +23,7 @@
                                         <webView opaque="NO" contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ffA-Oc-pqU">
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="43" id="V2A-f7-60r"/>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" type="user" id="V2A-f7-60r"/>
                                             </constraints>
                                             <dataDetectorType key="dataDetectorTypes"/>
                                         </webView>
@@ -35,7 +35,11 @@
                                     <constraint firstItem="ffA-Oc-pqU" firstAttribute="trailing" secondItem="TgW-Xn-LAF" secondAttribute="trailing" type="default" id="7Wv-0Q-Iwb"/>
                                     <constraint firstItem="ffA-Oc-pqU" firstAttribute="top" secondItem="TgW-Xn-LAF" secondAttribute="top" type="default" id="LKZ-xV-tcL"/>
                                     <constraint firstItem="ffA-Oc-pqU" firstAttribute="leading" secondItem="TgW-Xn-LAF" secondAttribute="leading" type="default" id="WF4-M4-pvN"/>
+                                    <constraint firstItem="ffA-Oc-pqU" firstAttribute="bottom" secondItem="TgW-Xn-LAF" secondAttribute="bottom" type="default" id="bI9-YN-dty"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="webView" destination="ffA-Oc-pqU" id="IXs-k6-2NP"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -105,22 +109,22 @@
         <scene sceneID="Rdi-bF-gzo">
             <objects>
                 <tableViewController id="npy-Ve-REx" customClass="ThoughtsViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="45" sectionHeaderHeight="22" sectionFooterHeight="22" id="CwS-7j-HlO">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="45" sectionHeaderHeight="22" sectionFooterHeight="22" id="CwS-7j-HlO">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell opaque="NO" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="WebCell" rowHeight="45" id="VfA-IO-Inf">
-                                <rect key="frame" x="0.0" y="22" width="320" height="45"/>
+                            <tableViewCell opaque="NO" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="WebCell" rowHeight="44" id="VfA-IO-Inf" customClass="GHWebCell">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <webView opaque="NO" tag="1" contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LQL-mO-e6a">
+                                        <webView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LQL-mO-e6a">
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="44" id="H1y-mb-0wb"/>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" type="user" id="fuO-32-jek"/>
                                             </constraints>
                                             <dataDetectorType key="dataDetectorTypes"/>
                                         </webView>
@@ -131,8 +135,12 @@
                                 <constraints>
                                     <constraint firstItem="LQL-mO-e6a" firstAttribute="leading" secondItem="VfA-IO-Inf" secondAttribute="leading" type="default" id="A4M-Mz-bkh"/>
                                     <constraint firstItem="LQL-mO-e6a" firstAttribute="top" secondItem="VfA-IO-Inf" secondAttribute="top" type="default" id="ggg-Jb-vNw"/>
+                                    <constraint firstItem="LQL-mO-e6a" firstAttribute="bottom" secondItem="VfA-IO-Inf" secondAttribute="bottom" type="default" id="jmI-hX-eTZ"/>
                                     <constraint firstItem="LQL-mO-e6a" firstAttribute="trailing" secondItem="VfA-IO-Inf" secondAttribute="trailing" type="default" id="jyP-5T-45g"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="webView" destination="LQL-mO-e6a" id="h0F-1n-7cg"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -233,12 +241,12 @@
         <scene sceneID="EUp-83-e0d">
             <objects>
                 <tableViewController title="Vocabulary" id="rtc-c5-av6" customClass="VocabularyViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="v2I-Bb-Ovg">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="v2I-Bb-Ovg">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell opaque="NO" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="WebCell" id="dlb-jv-DHg">
+                            <tableViewCell opaque="NO" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="WebCell" id="dlb-jv-DHg" customClass="GHWebCell">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -248,7 +256,7 @@
                                         <webView opaque="NO" contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hDd-s5-pn2">
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="43" id="fvD-Mj-6WB"/>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" type="user" id="fvD-Mj-6WB"/>
                                             </constraints>
                                             <dataDetectorType key="dataDetectorTypes"/>
                                         </webView>
@@ -257,10 +265,14 @@
                                 </view>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="hDd-s5-pn2" firstAttribute="bottom" secondItem="dlb-jv-DHg" secondAttribute="bottom" type="default" id="1q8-nm-SQ7"/>
                                     <constraint firstItem="hDd-s5-pn2" firstAttribute="top" secondItem="dlb-jv-DHg" secondAttribute="top" type="default" id="2EK-BM-EEo"/>
                                     <constraint firstItem="hDd-s5-pn2" firstAttribute="trailing" secondItem="dlb-jv-DHg" secondAttribute="trailing" type="default" id="C9f-Vn-NAG"/>
                                     <constraint firstItem="hDd-s5-pn2" firstAttribute="leading" secondItem="dlb-jv-DHg" secondAttribute="leading" type="default" id="DgG-P2-5He"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="webView" destination="hDd-s5-pn2" id="fMg-ZU-PXE"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -312,34 +324,37 @@
         <scene sceneID="HQB-uT-d2z">
             <objects>
                 <tableViewController id="eag-9D-z00" customClass="AphorismsViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="WkJ-zA-wkv">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="WkJ-zA-wkv">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell opaque="NO" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="WebCell" id="N2M-qo-ITU">
+                            <tableViewCell opaque="NO" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="WebCell" id="N2M-qo-ITU" customClass="GHWebCell">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <webView opaque="NO" contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZOG-7z-yex">
+                                        <webView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dVT-Us-zyR">
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="320" id="Hmw-AE-pt8"/>
-                                                <constraint firstAttribute="height" constant="44" id="mt9-rn-kQG"/>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" type="user" id="VQk-vI-0Fy"/>
                                             </constraints>
-                                            <dataDetectorType key="dataDetectorTypes"/>
                                         </webView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="ZOG-7z-yex" firstAttribute="leading" secondItem="N2M-qo-ITU" secondAttribute="leading" constant="-3" id="OQF-GA-8w4"/>
-                                    <constraint firstItem="ZOG-7z-yex" firstAttribute="top" secondItem="N2M-qo-ITU" secondAttribute="top" constant="-1" id="QVh-J8-zNC"/>
+                                    <constraint firstItem="dVT-Us-zyR" firstAttribute="top" secondItem="N2M-qo-ITU" secondAttribute="top" type="default" id="eYE-DZ-Wjk"/>
+                                    <constraint firstItem="dVT-Us-zyR" firstAttribute="trailing" secondItem="N2M-qo-ITU" secondAttribute="trailing" type="default" id="fzh-PB-fsf"/>
+                                    <constraint firstItem="dVT-Us-zyR" firstAttribute="bottom" secondItem="N2M-qo-ITU" secondAttribute="bottom" type="default" id="sS4-d1-E3V"/>
+                                    <constraint firstItem="dVT-Us-zyR" firstAttribute="leading" secondItem="N2M-qo-ITU" secondAttribute="leading" type="default" id="sl3-uj-AB6"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="webView" destination="dVT-Us-zyR" id="BnJ-q0-emu"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -402,32 +417,6 @@
         <image name="thoughts.png" width="30" height="30"/>
         <image name="vocabulary.png" width="32" height="30"/>
     </resources>
-    <classes>
-        <class className="AphorismsViewController" superclassName="GHContentViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AphorismsViewController.h"/>
-        </class>
-        <class className="GHContentViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GHContentViewController.h"/>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="RootViewController" superclassName="UITabBarController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RootViewController.h"/>
-        </class>
-        <class className="SettingsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsViewController.h"/>
-        </class>
-        <class className="StyleViewController" superclassName="GHContentViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/StyleViewController.h"/>
-        </class>
-        <class className="ThoughtsViewController" superclassName="GHContentViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ThoughtsViewController.h"/>
-        </class>
-        <class className="VocabularyViewController" superclassName="GHContentViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/VocabularyViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

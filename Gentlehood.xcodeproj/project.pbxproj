@@ -59,6 +59,7 @@
 		92D359A2174536430059A902 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92D359A1174536430059A902 /* MobileCoreServices.framework */; };
 		92D359A417453C090059A902 /* Definitions.m in Sources */ = {isa = PBXBuildFile; fileRef = 92D359A317453C090059A902 /* Definitions.m */; };
 		92D359A7174541720059A902 /* GHContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92D359A6174541710059A902 /* GHContentViewController.m */; };
+		92D359AA1745FD890059A902 /* GHWebCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92D359A91745FD890059A902 /* GHWebCell.m */; };
 		92E857491743B4E300D61C42 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92E857481743B4E300D61C42 /* UIKit.framework */; };
 		92E8574B1743B4E300D61C42 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92E8574A1743B4E300D61C42 /* Foundation.framework */; };
 		92E8574D1743B4E300D61C42 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92E8574C1743B4E300D61C42 /* CoreGraphics.framework */; };
@@ -128,6 +129,8 @@
 		92D359A317453C090059A902 /* Definitions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Definitions.m; sourceTree = "<group>"; };
 		92D359A5174541710059A902 /* GHContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHContentViewController.h; sourceTree = "<group>"; };
 		92D359A6174541710059A902 /* GHContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHContentViewController.m; sourceTree = "<group>"; };
+		92D359A81745FD890059A902 /* GHWebCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHWebCell.h; sourceTree = "<group>"; };
+		92D359A91745FD890059A902 /* GHWebCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHWebCell.m; sourceTree = "<group>"; };
 		92E857451743B4E300D61C42 /* Gentlehood.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gentlehood.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92E857481743B4E300D61C42 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		92E8574A1743B4E300D61C42 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -158,10 +161,10 @@
 			children = (
 				9293406C1743C31800802420 /* AppDelegate.h */,
 				9293406D1743C31800802420 /* AppDelegate.m */,
+				929340751743C31800802420 /* main.m */,
+				929340741743C31800802420 /* Gentlehood-Prefix.pch */,
 				929340731743C31800802420 /* Definitions.h */,
 				92D359A317453C090059A902 /* Definitions.m */,
-				929340741743C31800802420 /* Gentlehood-Prefix.pch */,
-				929340751743C31800802420 /* main.m */,
 				9293406E1743C31800802420 /* Controllers */,
 				929340761743C31800802420 /* Models */,
 				929340771743C31800802420 /* Views */,
@@ -200,6 +203,8 @@
 		929340771743C31800802420 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				92D359A81745FD890059A902 /* GHWebCell.h */,
+				92D359A91745FD890059A902 /* GHWebCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -468,6 +473,7 @@
 				92D3594517452F120059A902 /* RootViewController.m in Sources */,
 				92D359A417453C090059A902 /* Definitions.m in Sources */,
 				92D359A7174541720059A902 /* GHContentViewController.m in Sources */,
+				92D359AA1745FD890059A902 /* GHWebCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

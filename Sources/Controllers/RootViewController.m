@@ -19,7 +19,7 @@
 {
     [super viewDidLoad];
 
-    self.selectedIndex = 2;
+    self.selectedIndex = 2;  //switch to @Thoughts" tab
 }
 //------------------------------------------------------------------------------
 @end
