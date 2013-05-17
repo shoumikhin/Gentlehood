@@ -1,0 +1,13 @@
+PODS:
+  - AFNetworking (1.2.1)
+  - NSXtensions (0.4)
+
+DEPENDENCIES:
+  - AFNetworking
+  - NSXtensions
+
+SPEC CHECKSUMS:
+  AFNetworking: d1ba5908b233189e424e101721acef7905b58efb
+  NSXtensions: 4544c05031818caf93391ee8b891ad1b39e50978
+
+COCOAPODS: 0.19.1

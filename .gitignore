@@ -67,6 +67,8 @@ ui_*
 
 # CocoaPods
 
+!Podfile.lock
+!Pods/Manifest.lock
 Pods/Documentation
 
 # VersionX
