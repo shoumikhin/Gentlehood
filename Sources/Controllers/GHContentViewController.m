@@ -18,7 +18,8 @@ static NSUInteger const kContentWidth = 305;
 @interface GHContentViewController () <GHWebCellDelegate, UIGestureRecognizerDelegate>
 
 @property (nonatomic) NSMutableDictionary *heights;
-@property (nonatomic) UITapGestureRecognizer *tapRecogniser;
+@property (nonatomic) UITapGestureRecognizer *tapRecognizer;
+@property (nonatomic) BOOL isLoaded;
 
 @end
 //==============================================================================
@@ -28,9 +29,9 @@ static NSUInteger const kContentWidth = 305;
 {
     [super awakeFromNib];
 
-    self.tapRecogniser = [UITapGestureRecognizer.alloc initWithTarget:self action:@selector(onTap:)];
-    self.tapRecogniser.numberOfTapsRequired = 2;
-    self.tapRecogniser.delegate = self;
+    self.tapRecognizer = [UITapGestureRecognizer.alloc initWithTarget:self action:@selector(onTap:)];
+    self.tapRecognizer.numberOfTapsRequired = 2;
+    self.tapRecognizer.delegate = self;
 }
 //------------------------------------------------------------------------------
 - (void)viewDidLoad
@@ -40,14 +41,22 @@ static NSUInteger const kContentWidth = 305;
     self.view.backgroundColor = [UIColor.alloc initWithPatternImage:[UIImage imageNamed:@"background"]];
     self.refreshControl = UIRefreshControl.new;
     [self.refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
-    [self.view addGestureRecognizer:self.tapRecogniser];
-
-    [self refresh];
+    [self.view addGestureRecognizer:self.tapRecognizer];
 }
 //------------------------------------------------------------------------------
 - (void)viewDidUnload
 {
-    [self.view removeGestureRecognizer:self.tapRecogniser];
+    [super viewDidUnload];
+
+    [self.view removeGestureRecognizer:self.tapRecognizer];
+}
+//------------------------------------------------------------------------------
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+
+    if (!self.isLoaded && !self.refreshControl.refreshing)
+        [self refresh];
 }
 //------------------------------------------------------------------------------
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
@@ -58,9 +67,8 @@ static NSUInteger const kContentWidth = 305;
     return YES;
 }
 //------------------------------------------------------------------------------
-- (void)onTap:(UIGestureRecognizer*)tap
+- (void)onTap:(UIGestureRecognizer *)gestureRecognizer
 {
-    [self.navigationController setNavigationBarHidden:!self.navigationController.isNavigationBarHidden animated:YES];
     [self.tabBarController setTabBarHidden:!self.tabBarController.isTabBarHidden animated:YES];
 }
 //------------------------------------------------------------------------------
@@ -69,6 +77,13 @@ static NSUInteger const kContentWidth = 305;
     self.heights = NSMutableDictionary.new;
     [self.refreshControl beginRefreshing];
 
+    if (0.0 == self.tableView.contentOffset.y)
+        [UIView animateWithDuration:UINavigationControllerHideShowBarDuration delay:0.0 options:UIViewAnimationOptionBeginFromCurrentState animations:^(void)
+        {
+            self.tableView.contentOffset = CGPointMake(0.0, - self.refreshControl.frame.size.height);
+        }
+        completion:nil];
+
     GHContentViewController __block __weak *this = self;
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:this.updateAddress]];
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON)
@@ -76,15 +91,19 @@ static NSUInteger const kContentWidth = 305;
         this.posts = NSMutableArray.new;
 
         for (NSDictionary *post in JSON[@"posts"])
-            [this.posts addObject:[NSString stringWithFormat:@"<html><head><meta name=\"viewport\" content=\"user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0\"/><meta name=\"apple-mobile-web-app-capable\" content=\"yes\" /><style type=\"text/css\">p { max-width:%upx;font-family: \"%@\"; font-size: %f; text-align:center;} img {max-width:%upx; height:auto; margin-left:auto; margin-right:auto;}</style></head><body>%@</body></html>", kContentWidth, kFontFamily, kFontSize, kContentWidth, post[@"content"]]];
+            [this.posts addObject:[NSString.alloc initWithFormat:@"<html><head><meta name=\"viewport\" content=\"user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0\"/><meta name=\"apple-mobile-web-app-capable\" content=\"yes\" /><style type=\"text/css\">p { max-width:%upx; font-family: \"%@\"; font-size: %f; text-align:center; } img {max-width:%upx; height:auto; margin-left:auto; margin-right:auto; }</style></head><body>%@</body></html>", kContentWidth, kFontFamily, kFontSize, kContentWidth, post[@"content"]]];
 
+        this.isLoaded = this.posts.count > 0;
         [this.tableView reloadData];
         [this.refreshControl endRefreshing];
     }
     failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON)
     {
-        SHOW_ALERT(nil, NSLocalizedString(@"UPDATE_FAILURE", nil), nil, NSLocalizedString(@"OK", nil), nil);
         [this.refreshControl endRefreshing];
+        this.isLoaded = NO;
+
+        if (this == this.tabBarController.selectedViewController)
+            SHOW_ALERT(nil, NSLocalizedString(@"UPDATE_FAILURE", nil), nil, NSLocalizedString(@"OK", nil), nil);
     }];
 
     [operation start];
