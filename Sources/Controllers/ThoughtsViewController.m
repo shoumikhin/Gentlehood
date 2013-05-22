@@ -17,6 +17,8 @@
 //------------------------------------------------------------------------------
 - (void)awakeFromNib
 {
+    [super awakeFromNib];
+
     self.updateAddress = [NSString stringWithFormat:@"%@/%@/?id=%i", GH_API, GH_API_GET_CATEGORY, GHPostThought];
 }
 //------------------------------------------------------------------------------

@@ -11,13 +11,27 @@
 #import "GHWebCell.h"
 
 //==============================================================================
-@interface GHContentViewController () <GHWebCellDelegate>
+static NSString * const kFontFamily = @"Georgia";
+static CGFloat const kFontSize = 20.0;
+static NSUInteger const kContentWidth = 305;
+//==============================================================================
+@interface GHContentViewController () <GHWebCellDelegate, UIGestureRecognizerDelegate>
 
 @property (nonatomic) NSMutableDictionary *heights;
+@property (nonatomic) UITapGestureRecognizer *tapRecogniser;
 
 @end
 //==============================================================================
 @implementation GHContentViewController
+//------------------------------------------------------------------------------
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+
+    self.tapRecogniser = [UITapGestureRecognizer.alloc initWithTarget:self action:@selector(onTap:)];
+    self.tapRecogniser.numberOfTapsRequired = 2;
+    self.tapRecogniser.delegate = self;
+}
 //------------------------------------------------------------------------------
 - (void)viewDidLoad
 {
@@ -26,8 +40,28 @@
     self.view.backgroundColor = [UIColor.alloc initWithPatternImage:[UIImage imageNamed:@"background"]];
     self.refreshControl = UIRefreshControl.new;
     [self.refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
+    [self.view addGestureRecognizer:self.tapRecogniser];
 
     [self refresh];
+}
+//------------------------------------------------------------------------------
+- (void)viewDidUnload
+{
+    [self.view removeGestureRecognizer:self.tapRecogniser];
+}
+//------------------------------------------------------------------------------
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
+{
+    if ([otherGestureRecognizer isKindOfClass:UITapGestureRecognizer.class] && 2 == ((UITapGestureRecognizer *)otherGestureRecognizer).numberOfTapsRequired)
+            [otherGestureRecognizer.view removeGestureRecognizer:otherGestureRecognizer];
+
+    return YES;
+}
+//------------------------------------------------------------------------------
+- (void)onTap:(UIGestureRecognizer*)tap
+{
+    [self.navigationController setNavigationBarHidden:!self.navigationController.isNavigationBarHidden animated:YES];
+    [self.tabBarController setTabBarHidden:!self.tabBarController.isTabBarHidden animated:YES];
 }
 //------------------------------------------------------------------------------
 - (void)refresh
@@ -42,7 +76,7 @@
         this.posts = NSMutableArray.new;
 
         for (NSDictionary *post in JSON[@"posts"])
-            [this.posts addObject:[NSString stringWithFormat:@"<html><head><style type=\"text/css\">body {font-family: \"%@\"; font-size: %i; text-align:center;}</style></head><body>%@</body></html>", @"Georgia", 20, post[@"content"]]];
+            [this.posts addObject:[NSString stringWithFormat:@"<html><head><meta name=\"viewport\" content=\"user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0\"/><meta name=\"apple-mobile-web-app-capable\" content=\"yes\" /><style type=\"text/css\">p { max-width:%upx;font-family: \"%@\"; font-size: %f; text-align:center;} img {max-width:%upx; height:auto; margin-left:auto; margin-right:auto;}</style></head><body>%@</body></html>", kContentWidth, kFontFamily, kFontSize, kContentWidth, post[@"content"]]];
 
         [this.tableView reloadData];
         [this.refreshControl endRefreshing];

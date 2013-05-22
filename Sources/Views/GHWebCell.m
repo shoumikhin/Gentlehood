@@ -17,23 +17,21 @@
 //------------------------------------------------------------------------------
 - (void)awakeFromNib
 {
+    [super awakeFromNib];
+
     self.webView.suppressesIncrementalRendering = YES;
     self.webView.scrollView.scrollEnabled = NO;
+    self.webView.scrollView.minimumZoomScale = 1.0;
+    self.webView.scrollView.maximumZoomScale = 1.0;
+    self.webView.scrollView.zoomScale = 1.0;
     self.webView.delegate = self;
 }
 //------------------------------------------------------------------------------
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
-    CGSize contentSize = webView.scrollView.contentSize;
     CGSize viewSize = self.contentView.bounds.size;
 
-    float factor = viewSize.width / contentSize.width;
-
-    webView.scrollView.minimumZoomScale = factor;
-    webView.scrollView.maximumZoomScale = factor;
-    webView.scrollView.zoomScale = factor;
-    viewSize.height = contentSize.height * factor;
-    webView.scrollView.contentSize = viewSize;
+    viewSize.height = webView.scrollView.contentSize.height;
 
     if ([self.delegate respondsToSelector:@selector(updateCell:atIndexPath:)])
         [self.delegate updateCell:self atIndexPath:self.indexPath];
