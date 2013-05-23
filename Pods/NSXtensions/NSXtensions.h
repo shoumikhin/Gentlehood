@@ -9,6 +9,7 @@
 #import "NSSetX.h"
 #import "NSStringX.h"
 #import "NSURLX.h"
+#import "NSUUIDX.h"
 #import "UIApplicationX.h"
 #import "UIDeviceX.h"
 #import "UIImageX.h"

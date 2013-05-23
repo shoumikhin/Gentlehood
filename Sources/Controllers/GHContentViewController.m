@@ -49,6 +49,7 @@ static NSUInteger const kContentWidth = 305;
     [super viewDidUnload];
 
     [self.view removeGestureRecognizer:self.tapRecognizer];
+    self.isLoaded = NO;
 }
 //------------------------------------------------------------------------------
 - (void)viewDidAppear:(BOOL)animated
@@ -85,7 +86,7 @@ static NSUInteger const kContentWidth = 305;
         completion:nil];
 
     GHContentViewController __block __weak *this = self;
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:this.updateAddress]];
+    NSURLRequest *request = [NSURLRequest.alloc initWithURL:[NSURL.alloc initWithString:this.updateAddress]];
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON)
     {
         this.posts = NSMutableArray.new;

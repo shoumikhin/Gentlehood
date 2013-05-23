@@ -49,20 +49,16 @@
 {
     NSUInteger index = self.selectedIndex - 1;
     
-    if (index > self.viewControllers.count - 2)  //do not switch to "Settings" tab
-        return;
-    
-    [self swipeToIndex:index];
+    if (index < self.viewControllers.count - 2)  //do not switch to "Settings" tab
+        [self swipeToIndex:index];
 }
 //------------------------------------------------------------------------------
 - (void)onSwipeLeft:(UIGestureRecognizer *)gestureRecognizer
 {
     NSUInteger index = self.selectedIndex + 1;
 
-    if (index > self.viewControllers.count - 2)  //do not switch to "Settings" tab
-        return;
-
-    [self swipeToIndex:index];
+    if (index < self.viewControllers.count - 1)  //do not switch to "Settings" tab
+        [self swipeToIndex:index];
 }
 //------------------------------------------------------------------------------
 @end
