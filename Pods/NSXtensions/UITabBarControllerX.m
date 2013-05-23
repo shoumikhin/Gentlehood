@@ -9,7 +9,7 @@
     if (self.isTabBarHidden == hidden)
         return;
 
-    CGFloat height = UIApplication.frame.size.height + UIApplication.sharedApplication.statusBarFrame.size.height;
+    CGFloat height = UIApplication.frame.size.height + 20.0;  //status bar height
 
     height -= hidden ? 0.0 : self.tabBar.frame.size.height;
 
@@ -47,6 +47,31 @@
 - (BOOL)isTabBarHidden
 {
     return self.tabBar.hidden;
+}
+
+- (void)swipeToIndex:(NSUInteger)index
+{
+    if (self.selectedIndex == index || index > self.viewControllers.count - 1)
+        return;
+
+    UIView *fromView = self.selectedViewController.view;
+    UIView *toView = [self.viewControllers[index] view];
+    CGRect viewSize = fromView.frame;
+    CGFloat screenWidth = UIApplication.frame.size.width;
+
+    [fromView.superview addSubview:toView];
+    toView.frame = CGRectMake(index > self.selectedIndex ? screenWidth : - screenWidth, viewSize.origin.y, screenWidth, viewSize.size.height);
+
+    [UIView animateWithDuration:0.33 animations:^
+     {
+         fromView.frame = CGRectMake(index > self.selectedIndex ? - screenWidth : screenWidth, viewSize.origin.y, screenWidth, viewSize.size.height);
+         toView.frame = CGRectMake(0.0, viewSize.origin.y, screenWidth, viewSize.size.height);
+     }
+                     completion:^(BOOL finished)
+     {
+         [fromView removeFromSuperview];
+         self.selectedIndex = index;
+     }];
 }
 
 @end

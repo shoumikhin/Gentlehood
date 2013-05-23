@@ -22,4 +22,11 @@
  */
 - (void)setTabBarHidden:(BOOL)hidden animated:(BOOL)animated;
 
+/**
+ Switch between view controllers with swipe-like transition.
+ 
+ @param index An index of a destination view controller.
+ */
+- (void)swipeToIndex:(NSUInteger)index;
+
 @end
