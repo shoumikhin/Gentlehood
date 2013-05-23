@@ -1,5 +1,5 @@
 //
-//  ThoughtsViewController.h
+//  GHAphorismsViewController.h
 //  Gentlehood
 //
 //  Created by Anthony Shoumikhin on 2013-15-05.
@@ -10,6 +10,6 @@
 
 #import "GHContentViewController.h"
 
-@interface ThoughtsViewController : GHContentViewController
+@interface GHAphorismsViewController : GHContentViewController
 
 @end

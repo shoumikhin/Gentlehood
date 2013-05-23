@@ -1,5 +1,5 @@
 //
-//  SettingsViewController.h
+//  GHVocabularyViewController.h
 //  Gentlehood
 //
 //  Created by Anthony Shoumikhin on 2013-15-05.
@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SettingsViewController : UIViewController
+#import "GHContentViewController.h"
+
+@interface GHVocabularyViewController : GHContentViewController
 
 @end

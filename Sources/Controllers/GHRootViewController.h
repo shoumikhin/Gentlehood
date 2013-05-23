@@ -1,5 +1,5 @@
 //
-//  RootViewController.h
+//  GHRootViewController.h
 //  Gentlehood
 //
 //  Created by Anthony Shoumikhin on 2013-16-05.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RootViewController : UITabBarController
+@interface GHRootViewController : UITabBarController
 
 @end

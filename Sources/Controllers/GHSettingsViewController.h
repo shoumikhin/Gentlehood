@@ -1,5 +1,5 @@
 //
-//  AphorismsViewController.h
+//  GHSettingsViewController.h
 //  Gentlehood
 //
 //  Created by Anthony Shoumikhin on 2013-15-05.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-#import "GHContentViewController.h"
-
-@interface AphorismsViewController : GHContentViewController
+@interface GHSettingsViewController : UIViewController
 
 @end

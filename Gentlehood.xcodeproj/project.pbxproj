@@ -10,12 +10,12 @@
 		1018EE22605747D48DFDFCCB /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DEA58BB861794819B54340DB /* libPods.a */; };
 		929340821743C31800802420 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9293406D1743C31800802420 /* AppDelegate.m */; };
 		929340851743C31800802420 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 929340751743C31800802420 /* main.m */; };
-		9293413117441A7300802420 /* AphorismsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9293412817441A7300802420 /* AphorismsViewController.m */; };
-		9293413217441A7300802420 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9293412A17441A7300802420 /* SettingsViewController.m */; };
-		9293413317441A7300802420 /* StyleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9293412C17441A7300802420 /* StyleViewController.m */; };
-		9293413417441A7300802420 /* ThoughtsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9293412E17441A7300802420 /* ThoughtsViewController.m */; };
-		9293413517441A7300802420 /* VocabularyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9293413017441A7300802420 /* VocabularyViewController.m */; };
-		92D3594517452F120059A902 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92D3594417452F120059A902 /* RootViewController.m */; };
+		9293413117441A7300802420 /* GHAphorismsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9293412817441A7300802420 /* GHAphorismsViewController.m */; };
+		9293413217441A7300802420 /* GHSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9293412A17441A7300802420 /* GHSettingsViewController.m */; };
+		9293413317441A7300802420 /* GHStyleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9293412C17441A7300802420 /* GHStyleViewController.m */; };
+		9293413417441A7300802420 /* GHThoughtsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9293412E17441A7300802420 /* GHThoughtsViewController.m */; };
+		9293413517441A7300802420 /* GHVocabularyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9293413017441A7300802420 /* GHVocabularyViewController.m */; };
+		92D3594517452F120059A902 /* GHRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92D3594417452F120059A902 /* GHRootViewController.m */; };
 		92D359781745351D0059A902 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 92D3594A1745351D0059A902 /* background.png */; };
 		92D359791745351D0059A902 /* background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 92D3594B1745351D0059A902 /* background@2x.png */; };
 		92D3597A1745351D0059A902 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 92D3594C1745351D0059A902 /* logo.png */; };
@@ -72,18 +72,18 @@
 		929340731743C31800802420 /* Definitions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Definitions.h; sourceTree = "<group>"; };
 		929340741743C31800802420 /* Gentlehood-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Gentlehood-Prefix.pch"; sourceTree = "<group>"; };
 		929340751743C31800802420 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		9293412717441A7300802420 /* AphorismsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AphorismsViewController.h; sourceTree = "<group>"; };
-		9293412817441A7300802420 /* AphorismsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AphorismsViewController.m; sourceTree = "<group>"; };
-		9293412917441A7300802420 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
-		9293412A17441A7300802420 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
-		9293412B17441A7300802420 /* StyleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StyleViewController.h; sourceTree = "<group>"; };
-		9293412C17441A7300802420 /* StyleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StyleViewController.m; sourceTree = "<group>"; };
-		9293412D17441A7300802420 /* ThoughtsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThoughtsViewController.h; sourceTree = "<group>"; };
-		9293412E17441A7300802420 /* ThoughtsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThoughtsViewController.m; sourceTree = "<group>"; };
-		9293412F17441A7300802420 /* VocabularyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VocabularyViewController.h; sourceTree = "<group>"; };
-		9293413017441A7300802420 /* VocabularyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VocabularyViewController.m; sourceTree = "<group>"; };
-		92D3594317452F120059A902 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
-		92D3594417452F120059A902 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		9293412717441A7300802420 /* GHAphorismsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHAphorismsViewController.h; sourceTree = "<group>"; };
+		9293412817441A7300802420 /* GHAphorismsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHAphorismsViewController.m; sourceTree = "<group>"; };
+		9293412917441A7300802420 /* GHSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHSettingsViewController.h; sourceTree = "<group>"; };
+		9293412A17441A7300802420 /* GHSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHSettingsViewController.m; sourceTree = "<group>"; };
+		9293412B17441A7300802420 /* GHStyleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHStyleViewController.h; sourceTree = "<group>"; };
+		9293412C17441A7300802420 /* GHStyleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHStyleViewController.m; sourceTree = "<group>"; };
+		9293412D17441A7300802420 /* GHThoughtsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHThoughtsViewController.h; sourceTree = "<group>"; };
+		9293412E17441A7300802420 /* GHThoughtsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHThoughtsViewController.m; sourceTree = "<group>"; };
+		9293412F17441A7300802420 /* GHVocabularyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHVocabularyViewController.h; sourceTree = "<group>"; };
+		9293413017441A7300802420 /* GHVocabularyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHVocabularyViewController.m; sourceTree = "<group>"; };
+		92D3594317452F120059A902 /* GHRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHRootViewController.h; sourceTree = "<group>"; };
+		92D3594417452F120059A902 /* GHRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHRootViewController.m; sourceTree = "<group>"; };
 		92D359471745351D0059A902 /* Gentlehood-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Gentlehood-Info.plist"; sourceTree = "<group>"; };
 		92D3594A1745351D0059A902 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		92D3594B1745351D0059A902 /* background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background@2x.png"; sourceTree = "<group>"; };
@@ -177,18 +177,18 @@
 			children = (
 				92D359A5174541710059A902 /* GHContentViewController.h */,
 				92D359A6174541710059A902 /* GHContentViewController.m */,
-				92D3594317452F120059A902 /* RootViewController.h */,
-				92D3594417452F120059A902 /* RootViewController.m */,
-				9293412F17441A7300802420 /* VocabularyViewController.h */,
-				9293413017441A7300802420 /* VocabularyViewController.m */,
-				9293412B17441A7300802420 /* StyleViewController.h */,
-				9293412C17441A7300802420 /* StyleViewController.m */,
-				9293412D17441A7300802420 /* ThoughtsViewController.h */,
-				9293412E17441A7300802420 /* ThoughtsViewController.m */,
-				9293412717441A7300802420 /* AphorismsViewController.h */,
-				9293412817441A7300802420 /* AphorismsViewController.m */,
-				9293412917441A7300802420 /* SettingsViewController.h */,
-				9293412A17441A7300802420 /* SettingsViewController.m */,
+				92D3594317452F120059A902 /* GHRootViewController.h */,
+				92D3594417452F120059A902 /* GHRootViewController.m */,
+				9293412F17441A7300802420 /* GHVocabularyViewController.h */,
+				9293413017441A7300802420 /* GHVocabularyViewController.m */,
+				9293412B17441A7300802420 /* GHStyleViewController.h */,
+				9293412C17441A7300802420 /* GHStyleViewController.m */,
+				9293412D17441A7300802420 /* GHThoughtsViewController.h */,
+				9293412E17441A7300802420 /* GHThoughtsViewController.m */,
+				9293412717441A7300802420 /* GHAphorismsViewController.h */,
+				9293412817441A7300802420 /* GHAphorismsViewController.m */,
+				9293412917441A7300802420 /* GHSettingsViewController.h */,
+				9293412A17441A7300802420 /* GHSettingsViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -465,12 +465,12 @@
 			files = (
 				929340821743C31800802420 /* AppDelegate.m in Sources */,
 				929340851743C31800802420 /* main.m in Sources */,
-				9293413117441A7300802420 /* AphorismsViewController.m in Sources */,
-				9293413217441A7300802420 /* SettingsViewController.m in Sources */,
-				9293413317441A7300802420 /* StyleViewController.m in Sources */,
-				9293413417441A7300802420 /* ThoughtsViewController.m in Sources */,
-				9293413517441A7300802420 /* VocabularyViewController.m in Sources */,
-				92D3594517452F120059A902 /* RootViewController.m in Sources */,
+				9293413117441A7300802420 /* GHAphorismsViewController.m in Sources */,
+				9293413217441A7300802420 /* GHSettingsViewController.m in Sources */,
+				9293413317441A7300802420 /* GHStyleViewController.m in Sources */,
+				9293413417441A7300802420 /* GHThoughtsViewController.m in Sources */,
+				9293413517441A7300802420 /* GHVocabularyViewController.m in Sources */,
+				92D3594517452F120059A902 /* GHRootViewController.m in Sources */,
 				92D359A417453C090059A902 /* Definitions.m in Sources */,
 				92D359A7174541720059A902 /* GHContentViewController.m in Sources */,
 				92D359AA1745FD890059A902 /* GHWebCell.m in Sources */,

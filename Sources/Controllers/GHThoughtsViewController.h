@@ -1,5 +1,5 @@
 //
-//  StyleViewController.h
+//  GHThoughtsViewController.h
 //  Gentlehood
 //
 //  Created by Anthony Shoumikhin on 2013-15-05.
@@ -10,6 +10,6 @@
 
 #import "GHContentViewController.h"
 
-@interface StyleViewController : GHContentViewController
+@interface GHThoughtsViewController : GHContentViewController
 
 @end

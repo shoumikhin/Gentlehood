@@ -7,7 +7,7 @@
         <!--Style View Controller - СТИЛЬ-->
         <scene sceneID="LXh-Cr-cLY">
             <objects>
-                <tableViewController id="pn7-cb-hQY" customClass="StyleViewController" sceneMemberID="viewController">
+                <tableViewController id="pn7-cb-hQY" customClass="GHStyleViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="1ep-UV-sMU">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -20,7 +20,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <webView opaque="NO" contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ffA-Oc-pqU">
+                                        <webView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ffA-Oc-pqU">
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" type="user" id="V2A-f7-60r"/>
@@ -108,7 +108,7 @@
         <!--Thoughts View Controller - МЫСЛИ-->
         <scene sceneID="Rdi-bF-gzo">
             <objects>
-                <tableViewController id="npy-Ve-REx" customClass="ThoughtsViewController" sceneMemberID="viewController">
+                <tableViewController id="npy-Ve-REx" customClass="GHThoughtsViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="45" sectionHeaderHeight="22" sectionFooterHeight="22" id="CwS-7j-HlO">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -121,7 +121,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <webView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LQL-mO-e6a">
+                                        <webView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LQL-mO-e6a">
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" type="user" id="fuO-32-jek"/>
@@ -191,7 +191,7 @@
         <!--Settings View Controller - Settings-->
         <scene sceneID="fRM-qX-1Hg">
             <objects>
-                <viewController title="Settings" id="rlB-h6-zlG" customClass="SettingsViewController" sceneMemberID="viewController">
+                <viewController title="Settings" id="rlB-h6-zlG" customClass="GHSettingsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="psA-SR-xAO">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -240,7 +240,7 @@
         <!--Vocabulary View Controller - Vocabulary-->
         <scene sceneID="EUp-83-e0d">
             <objects>
-                <tableViewController title="Vocabulary" id="rtc-c5-av6" customClass="VocabularyViewController" sceneMemberID="viewController">
+                <tableViewController title="Vocabulary" id="rtc-c5-av6" customClass="GHVocabularyViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="v2I-Bb-Ovg">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -323,7 +323,7 @@
         <!--Aphorisms View Controller - АФОРИЗМЫ-->
         <scene sceneID="HQB-uT-d2z">
             <objects>
-                <tableViewController id="eag-9D-z00" customClass="AphorismsViewController" sceneMemberID="viewController">
+                <tableViewController id="eag-9D-z00" customClass="GHAphorismsViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="WkJ-zA-wkv">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -336,7 +336,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <webView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dVT-Us-zyR">
+                                        <webView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dVT-Us-zyR">
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" type="user" id="VQk-vI-0Fy"/>
@@ -387,7 +387,7 @@
         <!--Root View Controller-->
         <scene sceneID="15">
             <objects>
-                <tabBarController storyboardIdentifier="RootController" id="4" customClass="RootViewController" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="RootController" id="4" customClass="GHRootViewController" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="5">
                         <rect key="frame" x="0.0" y="431" width="320" height="49"/>
@@ -417,38 +417,6 @@
         <image name="thoughts.png" width="30" height="30"/>
         <image name="vocabulary.png" width="32" height="30"/>
     </resources>
-    <classes>
-        <class className="AphorismsViewController" superclassName="GHContentViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AphorismsViewController.h"/>
-        </class>
-        <class className="GHContentViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GHContentViewController.h"/>
-        </class>
-        <class className="GHWebCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GHWebCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="RootViewController" superclassName="UITabBarController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RootViewController.h"/>
-        </class>
-        <class className="SettingsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsViewController.h"/>
-        </class>
-        <class className="StyleViewController" superclassName="GHContentViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/StyleViewController.h"/>
-        </class>
-        <class className="ThoughtsViewController" superclassName="GHContentViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ThoughtsViewController.h"/>
-        </class>
-        <class className="VocabularyViewController" superclassName="GHContentViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/VocabularyViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

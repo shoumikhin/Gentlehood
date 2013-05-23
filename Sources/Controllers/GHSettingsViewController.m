@@ -1,19 +1,19 @@
 //
-//  SettingsViewController.m
+//  GHSettingsViewController.m
 //  Gentlehood
 //
 //  Created by Anthony Shoumikhin on 2013-15-05.
 //  Copyright (c) 2013 Anthony Shoumikhin. All rights reserved.
 //
 
-#import "SettingsViewController.h"
+#import "GHSettingsViewController.h"
 
 //==============================================================================
-@interface SettingsViewController ()
+@interface GHSettingsViewController ()
 
 @end
 //==============================================================================
-@implementation SettingsViewController
+@implementation GHSettingsViewController
 //------------------------------------------------------------------------------
 - (void)viewDidLoad
 {
