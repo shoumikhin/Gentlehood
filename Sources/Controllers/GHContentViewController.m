@@ -94,16 +94,20 @@ static NSUInteger const kContentWidth = 305;
         for (NSDictionary *post in JSON[@"posts"])
             [this.posts addObject:[NSString.alloc initWithFormat:@"<html><head><meta name=\"viewport\" content=\"user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0\"/><meta name=\"apple-mobile-web-app-capable\" content=\"yes\" /><style type=\"text/css\">p { max-width:%upx; font-family: \"%@\"; font-size: %f; text-align:center; } img {max-width:%upx; height:auto; margin-left:auto; margin-right:auto; }</style></head><body>%@</body></html>", kContentWidth, kFontFamily, kFontSize, kContentWidth, post[@"content"]]];
 
+        [this.refreshControl endRefreshing];
         this.isLoaded = this.posts.count > 0;
         [this.tableView reloadData];
-        [this.refreshControl endRefreshing];
     }
     failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON)
     {
         [this.refreshControl endRefreshing];
         this.isLoaded = NO;
+        
+        UIViewController *selectedController = this.tabBarController.selectedViewController;
 
-        if (this == this.tabBarController.selectedViewController)
+        if (selectedController == this ||
+            ([selectedController isKindOfClass:UINavigationController.class] &&
+             ((UINavigationController *)selectedController).visibleViewController == this))
             SHOW_ALERT(nil, NSLocalizedString(@"UPDATE_FAILURE", nil), nil, NSLocalizedString(@"OK", nil), nil);
     }];
 
