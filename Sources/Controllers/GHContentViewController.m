@@ -11,10 +11,6 @@
 #import "GHWebCell.h"
 
 //==============================================================================
-static NSString * const kFontFamily = @"Georgia";
-static CGFloat const kFontSize = 20.0;
-static NSUInteger const kContentWidth = 305;
-//==============================================================================
 @interface GHContentViewController () <GHWebCellDelegate, UIGestureRecognizerDelegate>
 
 @property (nonatomic) NSMutableDictionary *heights;
@@ -86,13 +82,13 @@ static NSUInteger const kContentWidth = 305;
         completion:nil];
 
     GHContentViewController __block __weak *this = self;
-    NSURLRequest *request = [NSURLRequest.alloc initWithURL:[NSURL.alloc initWithString:this.updateAddress]];
-    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON)
+    [[AFJSONRequestOperation JSONRequestOperationWithRequest:[NSURLRequest.alloc initWithURL:[NSURL.alloc initWithString:this.updateAddress]]
+    success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON)
     {
         this.posts = NSMutableArray.new;
 
         for (NSDictionary *post in JSON[@"posts"])
-            [this.posts addObject:[NSString.alloc initWithFormat:@"<html><head><meta name=\"viewport\" content=\"user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0\"/><meta name=\"apple-mobile-web-app-capable\" content=\"yes\" /><style type=\"text/css\">p { max-width:%upx; font-family: \"%@\"; font-size: %f; text-align:center; } img {max-width:%upx; height:auto; margin-left:auto; margin-right:auto; }</style></head><body>%@</body></html>", kContentWidth, kFontFamily, kFontSize, kContentWidth, post[@"content"]]];
+            [this.posts addObject:post[@"content"]];
 
         [this.refreshControl endRefreshing];
         this.isLoaded = this.posts.count > 0;
@@ -109,9 +105,8 @@ static NSUInteger const kContentWidth = 305;
             ([selectedController isKindOfClass:UINavigationController.class] &&
              ((UINavigationController *)selectedController).visibleViewController == this))
             SHOW_ALERT(nil, NSLocalizedString(@"UPDATE_FAILURE", nil), nil, NSLocalizedString(@"OK", nil), nil);
-    }];
-
-    [operation start];
+    }]
+    start];
 }
 //------------------------------------------------------------------------------
 - (void)updateCell:(GHWebCell *)cell atIndexPath:(NSIndexPath *)indexPath
@@ -146,7 +141,7 @@ static NSUInteger const kContentWidth = 305;
     cell.indexPath = indexPath;
 
     if (!self.heights[@(indexPath.row)])
-        [cell.webView loadHTMLString:self.posts[indexPath.row] baseURL:nil];
+        [cell loadContent:self.posts[indexPath.row]];
 
     return cell;
 }

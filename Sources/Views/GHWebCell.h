@@ -23,4 +23,6 @@
 @property (nonatomic, weak) id <GHWebCellDelegate> delegate;
 @property (nonatomic, copy) NSIndexPath *indexPath;
 
+- (void)loadContent:(NSString *)content;
+
 @end
