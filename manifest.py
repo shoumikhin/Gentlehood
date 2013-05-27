@@ -107,7 +107,7 @@ class IPAGenerator(object):
                     .link a {text-decoration:none;font-size:15px;display:block;color:#069;}
                 </style>
             </head>
-                
+
             <body>
                 <div id="container">
                 <h1>iOS 6.0+ Users:</h1>

@@ -9,7 +9,7 @@
     if (self.isTabBarHidden == hidden)
         return;
 
-    CGFloat height = UIApplication.frame.size.height + 20.0;  //status bar height
+    CGFloat height = UIApplication.frame.size.height + UIApplication.statusBarHeight;
 
     height -= hidden ? 0.0 : self.tabBar.frame.size.height;
 
