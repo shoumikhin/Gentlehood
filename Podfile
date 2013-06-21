@@ -1,7 +1,13 @@
 platform :ios, '6.0'
 
-xcodeproj 'Gentlehood.xcodeproj'
+xcodeproj 'Gentlehood'
 
-pod 'TestFlightSDK'
+pod 'libextobjc'
 pod 'NSXtensions'
-pod 'AFNetworking'
+pod 'RestKit'
+pod 'SVProgressHUD'
+
+target :debug  do
+  link_with 'Gentlehood'
+  pod 'Reveal-iOS-SDK'
+end

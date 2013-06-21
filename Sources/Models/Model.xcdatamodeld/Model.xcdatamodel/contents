@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2061" systemVersion="12E55" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="GHCategory" representedClassName="GHCategory" syncable="YES">
+        <attribute name="identifier" optional="YES" attributeType="Integer 64" defaultValueString="0" indexed="YES" syncable="YES"/>
+        <attribute name="postCount" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <relationship name="posts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="GHPost" inverseName="categories" inverseEntity="GHPost" syncable="YES"/>
+    </entity>
+    <entity name="GHPost" representedClassName="GHPost" syncable="YES">
+        <attribute name="content" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="date" attributeType="Date" indexed="YES" syncable="YES"/>
+        <attribute name="favorite" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="height" optional="YES" attributeType="Float" defaultValueString="66" syncable="YES"/>
+        <attribute name="identifier" optional="YES" attributeType="Integer 64" defaultValueString="0" indexed="YES" syncable="YES"/>
+        <relationship name="categories" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="GHCategory" inverseName="posts" inverseEntity="GHCategory" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="GHCategory" positionX="160" positionY="192" width="128" height="90"/>
+        <element name="GHPost" positionX="160" positionY="192" width="128" height="135"/>
+    </elements>
+</model>

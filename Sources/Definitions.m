@@ -1,5 +1,13 @@
 #import "Definitions.h"
 
-NSString * const GH_API = @"http://gentlehood.ru/api";
-NSString * const GH_API_GET_CATEGORY = @"get_category_posts";
-NSString * const GH_WEB_CELL_ID = @"WebCell";
+NSString * const kStorageFilename = @"Gentlehood.sqlite";
+NSString * const kGHAPI = @"http://gentlehood.ru/api/";
+NSString * const kGHAPIGetCategory = @"get_category_posts/";
+NSString * const kGHWebCellID = @"WebCell";
+NSString * const kFetchCacheName = @"Cache";
+CGFloat const kUITableViewCellHeightDefault = 66.0;
+NSString * const kFontFamily = @"Georgia";
+NSString * const kFontFamilyItalic = @"Georgia-Italic";
+CGFloat const kFontSize = 20.0;
+CGFloat const kFontSizeSmall = 18.0;
+NSString * const kHTMLColorDefault = @"#102D5E";

@@ -1,0 +1,39 @@
+
+/* Class = "IBUITabBarItem"; title = "Избранное"; ObjectID = "6hA-B8-NEf"; */
+"6hA-B8-NEf.title" = "Избранное";
+
+/* Class = "IBUINavigationItem"; title = "АФОРИЗМЫ"; ObjectID = "7Sx-eH-ILQ"; */
+"7Sx-eH-ILQ.title" = "АФОРИЗМЫ";
+
+/* Class = "IBUITabBarItem"; title = "Словарь"; ObjectID = "Auc-KB-CMz"; */
+"Auc-KB-CMz.title" = "Словарь";
+
+/* Class = "IBUINavigationItem"; title = "ИЗБРАННОЕ"; ObjectID = "E3w-WU-WjP"; */
+"E3w-WU-WjP.title" = "ИЗБРАННОЕ";
+
+/* Class = "IBUINavigationItem"; title = "СЛОВАРЬ"; ObjectID = "Ea7-jQ-x4m"; */
+"Ea7-jQ-x4m.title" = "СЛОВАРЬ";
+
+/* Class = "IBUINavigationItem"; title = "СТИЛЬ"; ObjectID = "KzT-Gn-YMB"; */
+"KzT-Gn-YMB.title" = "СТИЛЬ";
+
+/* Class = "IBUITabBarItem"; title = "Стиль"; ObjectID = "NNJ-Sr-EXf"; */
+"NNJ-Sr-EXf.title" = "Стиль";
+
+/* Class = "IBUILabel"; text = "*отметьте понравившийся пост двойным прикосновением"; ObjectID = "NRH-Gq-aUn"; */
+"NRH-Gq-aUn.text" = "*отметьте понравившийся пост двойным прикосновением";
+
+/* Class = "IBUITabBarItem"; title = "Мысли"; ObjectID = "ecC-PP-AXB"; */
+"ecC-PP-AXB.title" = "Мысли";
+
+/* Class = "IBUITabBarItem"; title = "Афоризмы"; ObjectID = "kzc-mX-kbc"; */
+"kzc-mX-kbc.title" = "Афоризмы";
+
+/* Class = "IBUINavigationItem"; title = "МЫСЛИ"; ObjectID = "lgw-Rn-Wvi"; */
+"lgw-Rn-Wvi.title" = "МЫСЛИ";
+
+/* Class = "IBUIViewController"; title = "Favorites"; ObjectID = "rlB-h6-zlG"; */
+"rlB-h6-zlG.title" = "Favorites";
+
+/* Class = "IBUITableViewController"; title = "Vocabulary"; ObjectID = "rtc-c5-av6"; */
+"rtc-c5-av6.title" = "Vocabulary";

@@ -1,0 +1,18 @@
+//Images
+
+"VOCABULARY_TITLE" = "vocabulary_title_en";
+"STYLE_TITLE" = "style_title_en";
+"THOSUGHTS_TITLE" = "thoughts_title_en";
+"APHORISMS_TITLE" = "aphorisms_title_en";
+"FAVORITES_TITLE" = "favorites_title_en";
+
+//Alerts
+
+"OK" = "OK";
+"UPDATE_FAILURE" = "Cannot update the page";
+
+//Cells
+
+"CELL_LOADING" = " Loading…";
+"NO_IMAGE" = "Image unavailable";
+"NO_CONTENT" = "Page is empty";

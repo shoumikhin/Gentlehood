@@ -123,6 +123,10 @@ to your precompiled header, and you'll boost Cocoa with the following stuff (in 
 
     + (NSArray *)backtrace;  //pretty-formatted backtrace of current point of execution
 
+#### UIColor
+
+	+ (UIColor *)colorWithHTMLColor:(NSString *)HTMLColor;  //convert "#RRGGBB" to UIColor
+
 #### UIDevice
 
     //check the device type

@@ -10,7 +10,9 @@
 
 @interface GHContentViewController : UITableViewController
 
-@property (nonatomic) NSString *updateAddress;
-@property (nonatomic) NSMutableArray *posts;
+@property (nonatomic) NSInteger category;
+@property (nonatomic) NSPredicate *predicate;
+
+- (void)bookmarkContentAtPoint:(CGPoint)point;
 
 @end

@@ -13,15 +13,15 @@
 @protocol GHWebCellDelegate <NSObject>
 
 @optional
-- (void)updateCell:(GHWebCell *)cell atIndexPath:(NSIndexPath *)indexPath;
+- (void)webCellHeight:(CGFloat)height forIndexPath:(NSIndexPath *)indexPath;
 
 @end
 
 @interface GHWebCell : UITableViewCell
 
-@property (nonatomic, weak) IBOutlet UIWebView *webView;
 @property (nonatomic, weak) id <GHWebCellDelegate> delegate;
 @property (nonatomic, copy) NSIndexPath *indexPath;
+@property (nonatomic) BOOL bookmarked;
 
 - (void)loadContent:(NSString *)content;
 

@@ -9,24 +9,24 @@
 #import "GHVocabularyViewController.h"
 
 //==============================================================================
-@interface GHVocabularyViewController ()
-
-@end
-//==============================================================================
 @implementation GHVocabularyViewController
 //------------------------------------------------------------------------------
 - (void)awakeFromNib
 {
     [super awakeFromNib];
 
-    self.updateAddress = [NSString stringWithFormat:@"%@/%@/?id=%i", GH_API, GH_API_GET_CATEGORY, GHPostVocabulary];
+    self.category = GHPostVocabulary;
+    self.predicate = [NSPredicate predicateWithFormat:@"ANY categories.identifier == %i", self.category];
 }
 //------------------------------------------------------------------------------
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
-    self.navigationItem.titleView = [UIImageView.alloc initWithImage:[UIImage imageNamed:@"vocabulary_title"]];
+    UIImage *image = [UIImage imageNamed:NSLocalizedString(@"VOCABULARY_TITLE", nil)];
+
+    if (image)
+        self.navigationItem.titleView = [UIImageView.alloc initWithImage:image];
 }
 //------------------------------------------------------------------------------
 @end

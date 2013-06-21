@@ -71,6 +71,10 @@ ui_*
 !Pods/Manifest.lock
 Pods/Documentation
 
+# Gems
+
+!Gemfile.lock
+
 # VersionX
 
 VersionX-revision.h

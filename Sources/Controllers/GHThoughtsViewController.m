@@ -9,24 +9,24 @@
 #import "GHThoughtsViewController.h"
 
 //==============================================================================
-@interface GHThoughtsViewController ()
-
-@end
-//==============================================================================
 @implementation GHThoughtsViewController
 //------------------------------------------------------------------------------
 - (void)awakeFromNib
 {
     [super awakeFromNib];
 
-    self.updateAddress = [NSString stringWithFormat:@"%@/%@/?id=%i", GH_API, GH_API_GET_CATEGORY, GHPostThought];
+    self.category = GHPostThought;
+    self.predicate = [NSPredicate predicateWithFormat:@"ANY categories.identifier == %i", self.category];
 }
 //------------------------------------------------------------------------------
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
-    self.navigationItem.titleView = [UIImageView.alloc initWithImage:[UIImage imageNamed:@"thoughts_title"]];
+    UIImage *image = [UIImage imageNamed:NSLocalizedString(@"THOSUGHTS_TITLE", nil)];
+
+    if (image)
+        self.navigationItem.titleView = [UIImageView.alloc initWithImage:image];
 }
 //------------------------------------------------------------------------------
 @end

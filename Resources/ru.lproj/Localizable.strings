@@ -1,2 +1,18 @@
+//Images
+
+"VOCABULARY_TITLE" = "vocabulary_title_ru";
+"STYLE_TITLE" = "style_title_ru";
+"THOSUGHTS_TITLE" = "thoughts_title_ru";
+"APHORISMS_TITLE" = "aphorisms_title_ru";
+"FAVORITES_TITLE" = "favorites_title_ru";
+
+//Alerts
+
 "OK" = "OK";
-"UPDATE_FAILURE" = "Страница временно недоступна";
+"UPDATE_FAILURE" = "Невозможно обновить страницу";
+
+//Cells
+
+"CELL_LOADING" = " Загрузка…";
+"NO_IMAGE" = "Изображение недоступно";
+"NO_CONTENT" = "Страница пуста";

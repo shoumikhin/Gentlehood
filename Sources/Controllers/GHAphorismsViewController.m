@@ -9,25 +9,24 @@
 #import "GHAphorismsViewController.h"
 
 //==============================================================================
-@interface GHAphorismsViewController ()
-
-@end
-//==============================================================================
 @implementation GHAphorismsViewController
 //------------------------------------------------------------------------------
 - (void)awakeFromNib
 {
     [super awakeFromNib];
     
-    self.updateAddress = [NSString stringWithFormat:@"%@/%@/?id=%i", GH_API, GH_API_GET_CATEGORY, GHPostAphorism];
+    self.category = GHPostAphorism;
+    self.predicate = [NSPredicate predicateWithFormat:@"ANY categories.identifier == %i", self.category];
 }
 //------------------------------------------------------------------------------
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
-    self.navigationItem.titleView = [UIImageView.alloc initWithImage:[UIImage imageNamed:@"aphorisms_title"]];
-}
+    UIImage *image = [UIImage imageNamed:NSLocalizedString(@"APHORISMS_TITLE", nil)];
+
+    if (image)
+        self.navigationItem.titleView = [UIImageView.alloc initWithImage:image];}
 //------------------------------------------------------------------------------
 @end
 //==============================================================================

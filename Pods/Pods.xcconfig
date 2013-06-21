@@ -1,9 +1,8 @@
 ALWAYS_SEARCH_USER_PATHS = YES
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
 HEADER_SEARCH_PATHS = ${PODS_HEADERS_SEARCH_PATHS}
-LIBRARY_SEARCH_PATHS = "$(PODS_ROOT)/TestFlightSDK"
-OTHER_LDFLAGS = -ObjC -lTestFlight -lz -framework CoreData -framework Foundation -framework MapKit -framework MobileCoreServices -framework Security -framework SystemConfiguration -framework UIKit
-PODS_BUILD_HEADERS_SEARCH_PATHS = "${PODS_ROOT}/BuildHeaders" "${PODS_ROOT}/BuildHeaders/AFNetworking" "${PODS_ROOT}/BuildHeaders/NSXtensions" "${PODS_ROOT}/BuildHeaders/TestFlightSDK"
+OTHER_LDFLAGS = -ObjC -Wl,-no_compact_unwind -framework CFNetwork -framework CoreData -framework CoreGraphics -framework Foundation -framework MapKit -framework MobileCoreServices -framework QuartzCore -framework Security -framework SystemConfiguration -framework UIKit
+PODS_BUILD_HEADERS_SEARCH_PATHS = "${PODS_ROOT}/BuildHeaders" "${PODS_ROOT}/BuildHeaders/AFNetworking" "${PODS_ROOT}/BuildHeaders/NSXtensions" "${PODS_ROOT}/BuildHeaders/RestKit" "${PODS_ROOT}/BuildHeaders/RestKit/RestKit" "${PODS_ROOT}/BuildHeaders/RestKit/RestKit/CoreData" "${PODS_ROOT}/BuildHeaders/RestKit/RestKit/Network" "${PODS_ROOT}/BuildHeaders/RestKit/RestKit/ObjectMapping" "${PODS_ROOT}/BuildHeaders/RestKit/RestKit/Support" "${PODS_ROOT}/BuildHeaders/Reveal-iOS-SDK" "${PODS_ROOT}/BuildHeaders/SOCKit" "${PODS_ROOT}/BuildHeaders/SVProgressHUD" "${PODS_ROOT}/BuildHeaders/TransitionKit" "${PODS_ROOT}/BuildHeaders/libextobjc" "${PODS_ROOT}/BuildHeaders/libffi"
 PODS_HEADERS_SEARCH_PATHS = ${PODS_PUBLIC_HEADERS_SEARCH_PATHS}
-PODS_PUBLIC_HEADERS_SEARCH_PATHS = "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/AFNetworking" "${PODS_ROOT}/Headers/NSXtensions" "${PODS_ROOT}/Headers/TestFlightSDK"
+PODS_PUBLIC_HEADERS_SEARCH_PATHS = "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/AFNetworking" "${PODS_ROOT}/Headers/NSXtensions" "${PODS_ROOT}/Headers/RestKit" "${PODS_ROOT}/Headers/RestKit/RestKit" "${PODS_ROOT}/Headers/RestKit/RestKit/CoreData" "${PODS_ROOT}/Headers/RestKit/RestKit/Network" "${PODS_ROOT}/Headers/RestKit/RestKit/ObjectMapping" "${PODS_ROOT}/Headers/RestKit/RestKit/Support" "${PODS_ROOT}/Headers/Reveal-iOS-SDK" "${PODS_ROOT}/Headers/SOCKit" "${PODS_ROOT}/Headers/SVProgressHUD" "${PODS_ROOT}/Headers/TransitionKit" "${PODS_ROOT}/Headers/libextobjc" "${PODS_ROOT}/Headers/libffi"
 PODS_ROOT = ${SRCROOT}/Pods

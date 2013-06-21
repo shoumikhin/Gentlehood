@@ -9,24 +9,24 @@
 #import "GHStyleViewController.h"
 
 //==============================================================================
-@interface GHStyleViewController ()
-
-@end
-//==============================================================================
 @implementation GHStyleViewController
 //------------------------------------------------------------------------------
 - (void)awakeFromNib
 {
     [super awakeFromNib];
 
-    self.updateAddress = [NSString stringWithFormat:@"%@/%@/?id=%i", GH_API, GH_API_GET_CATEGORY, GHPostStyle];
+    self.category = GHPostStyle;
+    self.predicate = [NSPredicate predicateWithFormat:@"ANY categories.identifier == %i", self.category];
 }
 //------------------------------------------------------------------------------
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
-    self.navigationItem.titleView = [UIImageView.alloc initWithImage:[UIImage imageNamed:@"style_title"]];
+    UIImage *image = [UIImage imageNamed:NSLocalizedString(@"STYLE_TITLE", nil)];
+
+    if (image)
+        self.navigationItem.titleView = [UIImageView.alloc initWithImage:image];
 }
 //------------------------------------------------------------------------------
 @end

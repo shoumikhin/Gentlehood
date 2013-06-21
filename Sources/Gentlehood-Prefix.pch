@@ -14,9 +14,10 @@
 #import <SystemConfiguration/SystemConfiguration.h>
 #import <MobileCoreServices/MobileCoreServices.h>
 
-#import <TestFlightSDK/TestFlight.h>
+#import <extobjc.h>
 #import <NSXtensions.h>
-#import <AFNetworking/AFNetworking.h>
+#import <RestKit/RestKit.h>
+#import <SVProgressHUD/SVProgressHUD.h>
 
 #import "Definitions.h"
 #endif
