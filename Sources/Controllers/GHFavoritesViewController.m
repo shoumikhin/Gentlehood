@@ -26,8 +26,6 @@
 {
     [super viewDidLoad];
 
-    self.refreshControl = nil;
-
     UIImage *image = [UIImage imageNamed:NSLocalizedString(@"FAVORITES_TITLE", nil)];
 
     if (image)

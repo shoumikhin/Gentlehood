@@ -1,0 +1,5 @@
+[
+  "-workspace", "Gentlehood.xcworkspace",
+  "-scheme", "Gentlehood",
+  "-configuration", "Debug"
+]

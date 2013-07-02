@@ -1,2 +1,9 @@
 language: objective-c
-xcode_sdk: iphonesimulator
+before_install:
+    - cd `brew --prefix` && git fetch origin && git reset --hard origin/master && cd $TRAVIS_BUILD_DIR
+    - brew update
+    - brew install mogenerator --HEAD
+    - brew install xctool --HEAD
+install: true
+script:
+    - xctool build

@@ -73,6 +73,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="СТИЛЬ" id="KzT-Gn-YMB"/>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="n3z-p2-CUw">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </refreshControl>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nCH-Jk-fkq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -183,6 +186,10 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="МЫСЛИ" id="lgw-Rn-Wvi"/>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="GbO-ya-moh">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <attributedString key="attributedTitle"/>
+                    </refreshControl>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ePl-vC-Rwa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -369,6 +376,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="СЛОВАРЬ" id="Ea7-jQ-x4m"/>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="ZGI-P1-rNC">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </refreshControl>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mGB-ly-Wty" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -460,6 +470,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="АФОРИЗМЫ" id="7Sx-eH-ILQ"/>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="iSB-ik-oky">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </refreshControl>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RWZ-WX-Hse" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -497,6 +510,44 @@
         <image name="thoughts.png" width="30" height="30"/>
         <image name="vocabulary.png" width="32" height="30"/>
     </resources>
+    <classes>
+        <class className="GHAphorismsViewController" superclassName="GHContentViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GHAphorismsViewController.h"/>
+        </class>
+        <class className="GHContentViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GHContentViewController.h"/>
+        </class>
+        <class className="GHFavoritesViewController" superclassName="GHContentViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GHFavoritesViewController.h"/>
+        </class>
+        <class className="GHRootViewController" superclassName="UITabBarController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GHRootViewController.h"/>
+        </class>
+        <class className="GHStyleViewController" superclassName="GHContentViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GHStyleViewController.h"/>
+        </class>
+        <class className="GHThoughtsViewController" superclassName="GHContentViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GHThoughtsViewController.h"/>
+        </class>
+        <class className="GHVocabularyViewController" superclassName="GHContentViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GHVocabularyViewController.h"/>
+        </class>
+        <class className="GHWebCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GHWebCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="bookmarkedView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="loadingActivityView" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="loadingLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="UIRefreshControl" superclassName="UIControl">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIRefreshControl.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

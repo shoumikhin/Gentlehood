@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1018EE22605747D48DFDFCCB /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DEA58BB861794819B54340DB /* libPods.a */; };
-		923AAD9C176F9FC000752657 /* GHCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 923AAD9B176F9FC000752657 /* GHCategory.m */; };
 		92810CBD176A077000C0A53C /* favorites_title_ru.png in Resources */ = {isa = PBXBuildFile; fileRef = 92810CBB176A077000C0A53C /* favorites_title_ru.png */; };
 		92810CBE176A077000C0A53C /* favorites_title_ru@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 92810CBC176A077000C0A53C /* favorites_title_ru@2x.png */; };
 		92810CCA176A079E00C0A53C /* aphorisms_title_en.png in Resources */ = {isa = PBXBuildFile; fileRef = 92810CC0176A079E00C0A53C /* aphorisms_title_en.png */; };
@@ -27,6 +26,10 @@
 		9293413317441A7300802420 /* GHStyleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9293412C17441A7300802420 /* GHStyleViewController.m */; };
 		9293413417441A7300802420 /* GHThoughtsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9293412E17441A7300802420 /* GHThoughtsViewController.m */; };
 		9293413517441A7300802420 /* GHVocabularyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9293413017441A7300802420 /* GHVocabularyViewController.m */; };
+		92A6FC851783736A00B911BD /* GHCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 92A6FC7D1783736A00B911BD /* GHCategory.m */; };
+		92A6FC861783736A00B911BD /* GHPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 92A6FC7F1783736A00B911BD /* GHPost.m */; };
+		92A6FC871783736A00B911BD /* _GHCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 92A6FC821783736A00B911BD /* _GHCategory.m */; };
+		92A6FC881783736A00B911BD /* _GHPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 92A6FC841783736A00B911BD /* _GHPost.m */; };
 		92D3594517452F120059A902 /* GHRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92D3594417452F120059A902 /* GHRootViewController.m */; };
 		92D359A417453C090059A902 /* Definitions.m in Sources */ = {isa = PBXBuildFile; fileRef = 92D359A317453C090059A902 /* Definitions.m */; };
 		92D359A7174541720059A902 /* GHContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92D359A6174541710059A902 /* GHContentViewController.m */; };
@@ -73,7 +76,6 @@
 		92DB6343175CE52C000C2343 /* vocabulary_title_ru@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 92DB6315175CE52C000C2343 /* vocabulary_title_ru@2x.png */; };
 		92DB6348175D0C35000C2343 /* GHFavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92DB6347175D0C35000C2343 /* GHFavoritesViewController.m */; };
 		92DB634B175D0EE7000C2343 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 92DB6349175D0EE7000C2343 /* Model.xcdatamodeld */; };
-		92DB6351175D10B1000C2343 /* GHPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 92DB6350175D10B1000C2343 /* GHPost.m */; };
 		92DB635E175D405A000C2343 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92DB635D175D405A000C2343 /* CoreGraphics.framework */; };
 /* End PBXBuildFile section */
 
@@ -82,8 +84,6 @@
 		19BACE9F98D54A6E91E3FCC0 /* libPods-debug.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-debug.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A07159A96B949DBB3F854CD /* libPods-debug.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-debug.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8400C6D1A8BF4345B46DC7E0 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
-		923AAD9A176F9FC000752657 /* GHCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHCategory.h; sourceTree = "<group>"; };
-		923AAD9B176F9FC000752657 /* GHCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHCategory.m; sourceTree = "<group>"; };
 		925EF36317730F53005B0158 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/MainStoryboard.strings; sourceTree = "<group>"; };
 		925EF36517730F6E005B0158 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MainStoryboard.strings; sourceTree = "<group>"; };
 		92810CBB176A077000C0A53C /* favorites_title_ru.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favorites_title_ru.png; sourceTree = "<group>"; };
@@ -111,6 +111,14 @@
 		9293412E17441A7300802420 /* GHThoughtsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHThoughtsViewController.m; sourceTree = "<group>"; };
 		9293412F17441A7300802420 /* GHVocabularyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHVocabularyViewController.h; sourceTree = "<group>"; };
 		9293413017441A7300802420 /* GHVocabularyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHVocabularyViewController.m; sourceTree = "<group>"; };
+		92A6FC7C1783736A00B911BD /* GHCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHCategory.h; sourceTree = "<group>"; };
+		92A6FC7D1783736A00B911BD /* GHCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHCategory.m; sourceTree = "<group>"; };
+		92A6FC7E1783736A00B911BD /* GHPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHPost.h; sourceTree = "<group>"; };
+		92A6FC7F1783736A00B911BD /* GHPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHPost.m; sourceTree = "<group>"; };
+		92A6FC811783736A00B911BD /* _GHCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _GHCategory.h; sourceTree = "<group>"; };
+		92A6FC821783736A00B911BD /* _GHCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _GHCategory.m; sourceTree = "<group>"; };
+		92A6FC831783736A00B911BD /* _GHPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _GHPost.h; sourceTree = "<group>"; };
+		92A6FC841783736A00B911BD /* _GHPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _GHPost.m; sourceTree = "<group>"; };
 		92D3594317452F120059A902 /* GHRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHRootViewController.h; sourceTree = "<group>"; };
 		92D3594417452F120059A902 /* GHRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHRootViewController.m; sourceTree = "<group>"; };
 		92D359A317453C090059A902 /* Definitions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Definitions.m; sourceTree = "<group>"; };
@@ -165,8 +173,6 @@
 		92DB6346175D0C35000C2343 /* GHFavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHFavoritesViewController.h; sourceTree = "<group>"; };
 		92DB6347175D0C35000C2343 /* GHFavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHFavoritesViewController.m; sourceTree = "<group>"; };
 		92DB634A175D0EE7000C2343 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		92DB634F175D10B1000C2343 /* GHPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHPost.h; sourceTree = "<group>"; };
-		92DB6350175D10B1000C2343 /* GHPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHPost.m; sourceTree = "<group>"; };
 		92DB635D175D405A000C2343 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		92E857451743B4E300D61C42 /* Gentlehood.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gentlehood.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93F399108C2049E28975B2EC /* libPods-debug.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-debug.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -245,11 +251,9 @@
 		929340761743C31800802420 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				92A6FC7B1783736A00B911BD /* Human */,
+				92A6FC801783736A00B911BD /* Machine */,
 				92DB6349175D0EE7000C2343 /* Model.xcdatamodeld */,
-				923AAD9A176F9FC000752657 /* GHCategory.h */,
-				923AAD9B176F9FC000752657 /* GHCategory.m */,
-				92DB634F175D10B1000C2343 /* GHPost.h */,
-				92DB6350175D10B1000C2343 /* GHPost.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -261,6 +265,28 @@
 				92D359A91745FD890059A902 /* GHWebCell.m */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		92A6FC7B1783736A00B911BD /* Human */ = {
+			isa = PBXGroup;
+			children = (
+				92A6FC7C1783736A00B911BD /* GHCategory.h */,
+				92A6FC7D1783736A00B911BD /* GHCategory.m */,
+				92A6FC7E1783736A00B911BD /* GHPost.h */,
+				92A6FC7F1783736A00B911BD /* GHPost.m */,
+			);
+			path = Human;
+			sourceTree = "<group>";
+		};
+		92A6FC801783736A00B911BD /* Machine */ = {
+			isa = PBXGroup;
+			children = (
+				92A6FC811783736A00B911BD /* _GHCategory.h */,
+				92A6FC821783736A00B911BD /* _GHCategory.m */,
+				92A6FC831783736A00B911BD /* _GHPost.h */,
+				92A6FC841783736A00B911BD /* _GHPost.m */,
+			);
+			path = Machine;
 			sourceTree = "<group>";
 		};
 		92DB62DD175CE52B000C2343 /* Resources */ = {
@@ -423,6 +449,7 @@
 			buildPhases = (
 				8FA1B5071B604A90B50DFC8F /* Check Pods Manifest.lock */,
 				818DC31892B24733BE6006EE /* Check Pods Manifest.lock */,
+				92A6FC89178373BB00B911BD /* ShellScript */,
 				92E857411743B4E300D61C42 /* Sources */,
 				92E857421743B4E300D61C42 /* Frameworks */,
 				92E857431743B4E300D61C42 /* Resources */,
@@ -557,6 +584,19 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 		};
+		92A6FC89178373BB00B911BD /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd Sources/Models\n/usr/local/bin/mogenerator --template-var arc=true -m Model.xcdatamodeld/Model.xcdatamodel -M Machine/ -H Human/\ncd -";
+		};
 		DFA18D84DD6F425CB0134DC8 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -604,8 +644,10 @@
 				92D359AA1745FD890059A902 /* GHWebCell.m in Sources */,
 				92DB6348175D0C35000C2343 /* GHFavoritesViewController.m in Sources */,
 				92DB634B175D0EE7000C2343 /* Model.xcdatamodeld in Sources */,
-				92DB6351175D10B1000C2343 /* GHPost.m in Sources */,
-				923AAD9C176F9FC000752657 /* GHCategory.m in Sources */,
+				92A6FC851783736A00B911BD /* GHCategory.m in Sources */,
+				92A6FC861783736A00B911BD /* GHPost.m in Sources */,
+				92A6FC871783736A00B911BD /* _GHCategory.m in Sources */,
+				92A6FC881783736A00B911BD /* _GHPost.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

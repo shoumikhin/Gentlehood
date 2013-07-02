@@ -34,7 +34,6 @@
     self.isLoaded = self.isLoading = self.isAppendTriggered = NO;
     self.currentPage = 1;
     self.orientation = UIApplication.sharedApplication.statusBarOrientation;
-    self.refreshControl = UIRefreshControl.new;
     [self.refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
 }
 //------------------------------------------------------------------------------
@@ -259,7 +258,7 @@
     
     webCell.delegate = self;
     webCell.indexPath = indexPath;
-    webCell.bookmarked = post.favorite;
+    webCell.bookmarked = post.favoriteValue;
     [webCell loadContent:post.content];
 }
 //------------------------------------------------------------------------------
@@ -272,8 +271,8 @@
     GHPost *post = [self.fetchedResultsController objectAtIndexPath:indexPath];
     GHWebCell *webCell = (GHWebCell *)[self.tableView cellForRowAtIndexPath:indexPath];
 
-    post.favorite = !post.favorite;
-    webCell.bookmarked = post.favorite;
+    post.favoriteValue = !post.favoriteValue;
+    webCell.bookmarked = post.favoriteValue;
     [RKManagedObjectStore.defaultStore.mainQueueManagedObjectContext saveToPersistentStore:nil];
 
     [SVProgressHUD showImage:[UIImage imageNamed:@"anchor"] status:nil];
