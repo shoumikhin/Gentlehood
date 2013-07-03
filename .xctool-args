@@ -1,5 +1,6 @@
 [
   "-workspace", "Gentlehood.xcworkspace",
   "-scheme", "Gentlehood",
-  "-configuration", "Debug"
+  "-configuration", "Debug",
+  "-sdk", "iphonesimulator"
 ]
