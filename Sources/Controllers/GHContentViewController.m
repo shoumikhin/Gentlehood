@@ -275,9 +275,13 @@ static NSUInteger const kPostsPerPage = 10;
     if (!self.fetchedResultsController.sections.count)
         return;
 
-    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:[self.view.window convertPoint:point toView:self.tableView]];
-    GHPost *post = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:[self.tabBarController.view convertPoint:point toView:self.tableView]];
     GHWebCell *webCell = (GHWebCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+
+    if (!webCell)
+        return;
+
+    GHPost *post = [self.fetchedResultsController objectAtIndexPath:indexPath];
 
     post.favoriteValue = !post.favoriteValue;
     webCell.bookmarked = post.favoriteValue;

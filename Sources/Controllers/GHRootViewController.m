@@ -44,11 +44,12 @@ static NSTimeInterval const kIntervalToHideTabBar = 3.0;
     self.singleTapRecognizer.numberOfTapsRequired = 1;
     self.singleTapRecognizer.delegate = self;
     self.singleTapRecognizer.delaysTouchesBegan = YES;
+    self.singleTapRecognizer.delaysTouchesEnded = YES;
 
     self.doubleTapRecognizer = [UITapGestureRecognizer.alloc initWithTarget:self action:@selector(onDoubleTap:)];
     self.doubleTapRecognizer.numberOfTapsRequired = 2;
     self.doubleTapRecognizer.delegate = self;
-    self.doubleTapRecognizer.delaysTouchesBegan = YES;
+    self.singleTapRecognizer.delaysTouchesBegan = YES;
 
     [self.singleTapRecognizer requireGestureRecognizerToFail:self.doubleTapRecognizer];
 }
@@ -106,10 +107,17 @@ static NSTimeInterval const kIntervalToHideTabBar = 3.0;
 //------------------------------------------------------------------------------
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
 {
-    if ([otherGestureRecognizer isKindOfClass:UITapGestureRecognizer.class] && 1 == ((UITapGestureRecognizer *)otherGestureRecognizer).numberOfTapsRequired)
+    if ([gestureRecognizer isKindOfClass:UITapGestureRecognizer.class] &&
+        [otherGestureRecognizer isKindOfClass:UITapGestureRecognizer.class] &&
+        1 == ((UITapGestureRecognizer *)otherGestureRecognizer).numberOfTapsRequired)
         [otherGestureRecognizer.view removeGestureRecognizer:otherGestureRecognizer];
 
-    if ([otherGestureRecognizer isKindOfClass:UISwipeGestureRecognizer.class])
+    if ([gestureRecognizer isKindOfClass:UISwipeGestureRecognizer.class] &&
+        [otherGestureRecognizer isKindOfClass:UISwipeGestureRecognizer.class])
+        return NO;
+
+    if ([gestureRecognizer isKindOfClass:UITapGestureRecognizer.class] &&
+        [otherGestureRecognizer isKindOfClass:NSClassFromString(@"UIScrollViewPanGestureRecognizer")])
         return NO;
 
     return YES;
