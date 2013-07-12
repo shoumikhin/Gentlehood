@@ -35,8 +35,10 @@ static NSTimeInterval const kIntervalToHideTabBar = 3.0;
 
     self.swipeRightRecognizer = [UISwipeGestureRecognizer.alloc initWithTarget:self action:@selector(onSwipeRight:)];
     self.swipeRightRecognizer.direction = UISwipeGestureRecognizerDirectionRight;
+    self.swipeRightRecognizer.delegate= self;
     self.swipeLeftRecognizer = [UISwipeGestureRecognizer.alloc initWithTarget:self action:@selector(onSwipeLeft:)];
     self.swipeLeftRecognizer.direction = UISwipeGestureRecognizerDirectionLeft;
+    self.swipeLeftRecognizer.delegate = self;
 
     self.singleTapRecognizer = [UITapGestureRecognizer.alloc initWithTarget:self action:@selector(onSingleTap:)];
     self.singleTapRecognizer.numberOfTapsRequired = 1;
@@ -106,6 +108,9 @@ static NSTimeInterval const kIntervalToHideTabBar = 3.0;
 {
     if ([otherGestureRecognizer isKindOfClass:UITapGestureRecognizer.class] && 1 == ((UITapGestureRecognizer *)otherGestureRecognizer).numberOfTapsRequired)
         [otherGestureRecognizer.view removeGestureRecognizer:otherGestureRecognizer];
+
+    if ([otherGestureRecognizer isKindOfClass:UISwipeGestureRecognizer.class])
+        return NO;
 
     return YES;
 }
