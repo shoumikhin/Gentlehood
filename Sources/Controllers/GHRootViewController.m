@@ -46,6 +46,7 @@ static NSTimeInterval const kIntervalToHideTabBar = 3.0;
     self.doubleTapRecognizer = [UITapGestureRecognizer.alloc initWithTarget:self action:@selector(onDoubleTap:)];
     self.doubleTapRecognizer.numberOfTapsRequired = 2;
     self.doubleTapRecognizer.delegate = self;
+    self.doubleTapRecognizer.delaysTouchesBegan = YES;
 
     [self.singleTapRecognizer requireGestureRecognizerToFail:self.doubleTapRecognizer];
 }

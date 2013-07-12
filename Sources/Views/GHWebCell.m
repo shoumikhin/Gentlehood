@@ -60,7 +60,7 @@
             <meta name=\"apple-mobile-web-app-capable\" content=\"yes\" />\
             <style type=\"text/css\">\
                 p { max-width:%upx; font-family:\"%@\"; font-size:%f; text-align:center; }\
-                img { max-width:%upx; height:auto; margin-left:auto; margin-right:auto; font-family:\"%@\"; font-size:%f; color:%@}\
+                img { max-width:%upx; height:auto; margin-left:auto; margin-right:auto; padding-bottom:5px; font-family:\"%@\"; font-size:%f; color:%@}\
             </style>\
         </head>\
         <body>%@</body>\

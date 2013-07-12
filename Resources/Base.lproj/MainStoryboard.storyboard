@@ -482,8 +482,8 @@
                     <tabBar key="tabBar" opaque="NO" contentMode="scaleToFill" id="5">
                         <rect key="frame" x="0.0" y="431" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <color key="tintColor" red="0.082352943720000002" green="0.19215688110000001" blue="0.37254902719999999" alpha="1" colorSpace="deviceRGB"/>
+                        <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
                         <segue destination="E1e-NX-TCd" kind="relationship" relationship="viewControllers" id="b0B-dF-1Hs"/>

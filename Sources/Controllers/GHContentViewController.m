@@ -309,5 +309,21 @@ static NSUInteger const kPostsPerPage = 10;
     self.isAppendTriggered = NO;
 }
 //------------------------------------------------------------------------------
+- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset
+{
+    if (!self.tableView.indexPathsForVisibleRows.count)
+        return;
+
+    NSIndexPath *indexPath = self.tableView.indexPathsForVisibleRows[0];
+
+    if (velocity.y >= 0.0 && self.tableView.indexPathsForVisibleRows.count > 1)
+        indexPath = [NSIndexPath indexPathForRow:indexPath.row + 1 inSection:indexPath.section];
+
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+
+    if (ABS(velocity.y) > 1.0)
+        *targetContentOffset = CGPointMake(cell.frame.origin.x, cell.frame.origin.y + (velocity.y >= 0.0 && self.tableView.indexPathsForVisibleRows.count == 1 ? cell.frame.size.height : 0.0));
+}
+//------------------------------------------------------------------------------
 @end
 //==============================================================================
