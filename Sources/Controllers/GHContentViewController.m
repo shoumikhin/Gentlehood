@@ -13,6 +13,8 @@
 #import "GHWebCell.h"
 
 //==============================================================================
+static NSUInteger const kPostsPerPage = 10;
+//==============================================================================
 @interface GHContentViewController () <NSFetchedResultsControllerDelegate, GHWebCellDelegate, UIScrollViewDelegate>
 
 @property (nonatomic) NSFetchedResultsController *fetchedResultsController;
@@ -97,7 +99,8 @@
     [RKObjectManager.sharedManager getObjectsAtPath:kGHAPIGetCategory parameters:
     @{
         @"id":@(self.category),
-        @"page":@(self.currentPage)
+        @"page":@(self.currentPage),
+        @"count":@(kPostsPerPage)
     }
     success:^
     (RKObjectRequestOperation *operation, RKMappingResult *mappingResult)
