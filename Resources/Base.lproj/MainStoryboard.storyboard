@@ -7,7 +7,7 @@
         <!--Style View Controller - СТИЛЬ-->
         <scene sceneID="LXh-Cr-cLY">
             <objects>
-                <tableViewController id="pn7-cb-hQY" customClass="GHStyleViewController" sceneMemberID="viewController">
+                <tableViewController wantsFullScreenLayout="YES" id="pn7-cb-hQY" customClass="GHStyleViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="1ep-UV-sMU">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -88,7 +88,6 @@
                     <tabBarItem key="tabBarItem" title="Избранное" image="favorites.png" id="6hA-B8-NEf"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="B1i-j1-ooD">
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="0.082352943720000002" green="0.19215688110000001" blue="0.37254902719999999" alpha="1" colorSpace="deviceRGB"/>
                         <color key="tintColor" red="0.082352943720000002" green="0.19215688110000001" blue="0.37254902719999999" alpha="1" colorSpace="deviceRGB"/>
                     </navigationBar>
                     <connections>
@@ -106,7 +105,6 @@
                     <tabBarItem key="tabBarItem" title="Мысли" image="thoughts.png" id="ecC-PP-AXB"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="eqE-B1-Nl6">
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="0.082352943720000002" green="0.19215688110000001" blue="0.37254902719999999" alpha="1" colorSpace="deviceRGB"/>
                         <color key="tintColor" red="0.082352943720000002" green="0.19215688110000001" blue="0.37254902719999999" alpha="1" colorSpace="deviceRGB"/>
                     </navigationBar>
                     <connections>
@@ -120,7 +118,7 @@
         <!--Thoughts View Controller - МЫСЛИ-->
         <scene sceneID="Rdi-bF-gzo">
             <objects>
-                <tableViewController id="npy-Ve-REx" customClass="GHThoughtsViewController" sceneMemberID="viewController">
+                <tableViewController wantsFullScreenLayout="YES" id="npy-Ve-REx" customClass="GHThoughtsViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="45" sectionHeaderHeight="22" sectionFooterHeight="22" id="CwS-7j-HlO">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -202,7 +200,6 @@
                     <tabBarItem key="tabBarItem" title="Стиль" image="style.png" id="NNJ-Sr-EXf"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="EKk-zi-xE5">
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="0.082352943720000002" green="0.19215688110000001" blue="0.37254902719999999" alpha="1" colorSpace="deviceRGB"/>
                         <color key="tintColor" red="0.082352943720000002" green="0.19215688110000001" blue="0.37254902719999999" alpha="1" colorSpace="deviceRGB"/>
                     </navigationBar>
                     <connections>
@@ -216,7 +213,7 @@
         <!--Favorites View Controller - Favorites-->
         <scene sceneID="fRM-qX-1Hg">
             <objects>
-                <viewController title="Favorites" id="rlB-h6-zlG" customClass="GHFavoritesViewController" sceneMemberID="viewController">
+                <viewController title="Favorites" wantsFullScreenLayout="YES" id="rlB-h6-zlG" customClass="GHFavoritesViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="45" sectionHeaderHeight="22" sectionFooterHeight="22" id="UbV-wK-U44">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -310,7 +307,7 @@
         <!--Vocabulary View Controller - Vocabulary-->
         <scene sceneID="EUp-83-e0d">
             <objects>
-                <tableViewController title="Vocabulary" id="rtc-c5-av6" customClass="GHVocabularyViewController" sceneMemberID="viewController">
+                <tableViewController title="Vocabulary" wantsFullScreenLayout="YES" id="rtc-c5-av6" customClass="GHVocabularyViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="v2I-Bb-Ovg">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -391,7 +388,6 @@
                     <tabBarItem key="tabBarItem" title="Афоризмы" image="aphorisms.png" id="kzc-mX-kbc"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZbF-Ag-6Wh">
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="0.08235294371843338" green="0.19215688109397888" blue="0.37254902720451355" alpha="1" colorSpace="deviceRGB"/>
                         <color key="tintColor" red="0.082352943720000002" green="0.19215688110000001" blue="0.37254902719999999" alpha="1" colorSpace="deviceRGB"/>
                     </navigationBar>
                     <connections>
@@ -405,7 +401,7 @@
         <!--Aphorisms View Controller - АФОРИЗМЫ-->
         <scene sceneID="HQB-uT-d2z">
             <objects>
-                <tableViewController id="eag-9D-z00" customClass="GHAphorismsViewController" sceneMemberID="viewController">
+                <tableViewController wantsFullScreenLayout="YES" id="eag-9D-z00" customClass="GHAphorismsViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="WkJ-zA-wkv">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -483,12 +479,11 @@
             <objects>
                 <tabBarController storyboardIdentifier="RootController" id="4" customClass="GHRootViewController" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="5">
+                    <tabBar key="tabBar" opaque="NO" contentMode="scaleToFill" id="5">
                         <rect key="frame" x="0.0" y="431" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <color key="tintColor" red="0.082352943720000002" green="0.19215688110000001" blue="0.37254902719999999" alpha="1" colorSpace="deviceRGB"/>
-                        <color key="selectedImageTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="E1e-NX-TCd" kind="relationship" relationship="viewControllers" id="b0B-dF-1Hs"/>

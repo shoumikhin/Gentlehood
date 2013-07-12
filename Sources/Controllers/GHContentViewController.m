@@ -27,6 +27,11 @@
 //==============================================================================
 @implementation GHContentViewController
 //------------------------------------------------------------------------------
+- (void)awakeFromNib
+{
+    self.navigationController.navigationBar.translucent = YES;
+}
+//------------------------------------------------------------------------------
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -161,7 +166,7 @@
 
     if (!sectionInfo.numberOfObjects)
     {
-        self.emptyLabel = [UILabel.alloc initWithFrame:CGRectMake(0.0, 0.0, self.tableView.frame.size.width, kUITableViewCellHeightDefault)];
+        self.emptyLabel = [UILabel.alloc initWithFrame:CGRectMake(0.0, 0.0, self.tableView.frame.size.width, kUITableViewCellHeightDefault + kUITableViewCellHeightDefault / 2)];
         self.emptyLabel.center = self.tableView.center;
         self.emptyLabel.backgroundColor = UIColor.clearColor;
         self.emptyLabel.textColor = [UIColor colorWithHTMLColor:kHTMLColorDefault];
@@ -281,7 +286,7 @@
 //------------------------------------------------------------------------------
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    if (-kUITableViewCellHeightDefault / 2 > scrollView.contentSize.height - scrollView.frame.size.height - scrollView.contentOffset.y)
+    if (-kUITableViewCellHeightDefault > scrollView.contentSize.height - scrollView.frame.size.height - scrollView.contentOffset.y)
         if (!self.isLoading && !self.isAppendTriggered)
         {
             id <NSFetchedResultsSectionInfo> sectionInfo = self.fetchedResultsController.sections[0];

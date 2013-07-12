@@ -7,7 +7,8 @@ pod 'NSXtensions'
 pod 'RestKit'
 pod 'SVProgressHUD'
 
-target :debug  do
+target :debug do
   link_with 'Gentlehood'
   pod 'Reveal-iOS-SDK'
+  pod 'PonyDebugger'
 end

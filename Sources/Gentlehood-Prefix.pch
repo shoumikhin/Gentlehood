@@ -18,6 +18,7 @@
 #import <NSXtensions.h>
 #import <RestKit/RestKit.h>
 #import <SVProgressHUD/SVProgressHUD.h>
+#import <PonyDebugger/PonyDebugger.h>
 
 #import "Definitions.h"
 #endif

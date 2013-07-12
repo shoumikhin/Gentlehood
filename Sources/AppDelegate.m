@@ -15,10 +15,30 @@
 //------------------------------------------------------------------------------
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    application.statusBarStyle = UIStatusBarStyleBlackTranslucent;
+
     [self setupRestKit];
+    [self setupPonyDebugger];
     [self deleteObsoleteContent];
 
     return YES;
+}
+//------------------------------------------------------------------------------
+- (void)setupPonyDebugger
+{
+#if DEBUG
+    PDDebugger *debugger = PDDebugger.defaultInstance;
+
+    [debugger enableNetworkTrafficDebugging];
+    [debugger forwardAllNetworkTraffic];
+
+    [debugger enableCoreDataDebugging];
+    [debugger addManagedObjectContext:RKManagedObjectStore.defaultStore.mainQueueManagedObjectContext withName:@"main"];
+    
+    [debugger enableViewHierarchyDebugging];
+
+    [debugger connectToURL:[NSURL URLWithString:@"ws://localhost:9000/device"]];
+#endif
 }
 //------------------------------------------------------------------------------
 - (void)setupRestKit

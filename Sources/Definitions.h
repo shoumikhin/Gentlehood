@@ -5,6 +5,7 @@ FOUNDATION_EXPORT NSString * const kGHAPIGetCategory;
 FOUNDATION_EXPORT NSString * const kGHWebCellID;
 FOUNDATION_EXPORT NSString * const kFetchCacheName;
 FOUNDATION_EXPORT CGFloat const kUITableViewCellHeightDefault;
+FOUNDATION_EXPORT CGFloat const kUINavigationBarTranslucentAlphaDefault;
 FOUNDATION_EXPORT NSString * const kFontFamily;
 FOUNDATION_EXPORT NSString * const kFontFamilyItalic;
 FOUNDATION_EXPORT CGFloat const kFontSize;

@@ -20,7 +20,8 @@ static NSTimeInterval const kIntervalToHideTabBar = 3.0;
 @property (nonatomic) UISwipeGestureRecognizer *swipeLeftRecognizer;
 @property (nonatomic) UITapGestureRecognizer *singleTapRecognizer;
 @property (nonatomic) UITapGestureRecognizer *doubleTapRecognizer;
-@property (nonatomic) NSTimer *tabBarTimer;
+@property (nonatomic) NSTimer *barsTimer;
+@property (nonatomic, getter = isBarsHidden) BOOL barsHidden;
 
 @end
 //==============================================================================
@@ -51,12 +52,14 @@ static NSTimeInterval const kIntervalToHideTabBar = 3.0;
 //------------------------------------------------------------------------------
 - (void)dealloc
 {
-    [self.tabBarTimer invalidate];
+    [self.barsTimer invalidate];
 }
 //------------------------------------------------------------------------------
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+    ((UIView *)self.view.subviews[0]).frame = UIScreen.mainScreen.bounds;
 
     self.view.backgroundColor = [UIColor.alloc initWithPatternImage:[UIImage imageNamed:@"background"]];
 
@@ -65,6 +68,8 @@ static NSTimeInterval const kIntervalToHideTabBar = 3.0;
     [self.view addGestureRecognizer:self.swipeLeftRecognizer];
     [self.view addGestureRecognizer:self.singleTapRecognizer];
     [self.view addGestureRecognizer:self.doubleTapRecognizer];
+
+    self.barsHidden = NO;
 }
 //------------------------------------------------------------------------------
 - (void)viewDidUnload
@@ -81,7 +86,7 @@ static NSTimeInterval const kIntervalToHideTabBar = 3.0;
 {
     [super viewDidAppear:animated];
 
-    [self autoHideTabBar];
+    [self autoHideBars];
 }
 //------------------------------------------------------------------------------
 - (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController
@@ -93,7 +98,7 @@ static NSTimeInterval const kIntervalToHideTabBar = 3.0;
 //------------------------------------------------------------------------------
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
 {
-    [self autoHideTabBar];
+    [self autoHideBars];
 }
 //------------------------------------------------------------------------------
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
@@ -130,12 +135,8 @@ static NSTimeInterval const kIntervalToHideTabBar = 3.0;
 //------------------------------------------------------------------------------
 - (void)onSingleTap:(UIGestureRecognizer *)gestureRecognizer
 {
-    for (UIViewController *controller in self.viewControllers)
-        if ([controller isKindOfClass:UINavigationController.class])
-            [((UINavigationController *)controller) setNavigationBarHidden:!((UINavigationController *)controller).isNavigationBarHidden animated:YES];
-
-    [self setTabBarHidden:!self.isTabBarHidden animated:YES];
-    [self autoHideTabBar];
+    self.barsHidden = !self.barsHidden;
+    [self autoHideBars];
 }
 //------------------------------------------------------------------------------
 - (void)onDoubleTap:(UIGestureRecognizer *)gestureRecognizer
@@ -145,26 +146,60 @@ static NSTimeInterval const kIntervalToHideTabBar = 3.0;
         [(GHContentViewController *)((UINavigationController *)self.selectedViewController).topViewController bookmarkContentAtPoint:[gestureRecognizer locationInView:gestureRecognizer.view]];
 }
 //------------------------------------------------------------------------------
-- (void)autoHideTabBar
+- (void)setBarsHidden:(BOOL)hidden
 {
-    [self.tabBarTimer invalidate];
+    _barsHidden = hidden;
+    [self.barsTimer invalidate];
 
-    if (!self.isTabBarHidden)
-        self.tabBarTimer = [NSTimer scheduledTimerWithTimeInterval:kIntervalToHideTabBar target:self selector:@selector(hideTabBar) userInfo:nil repeats:NO];
-}
-//------------------------------------------------------------------------------
-- (void)hideTabBar
-{
-    [self.tabBarTimer invalidate];
+    [UIApplication.sharedApplication setStatusBarHidden:_barsHidden withAnimation:UIStatusBarAnimationFade];
 
-    if (!self.isTabBarHidden)
-    {
+    @weakify(self)
+
+    [UIView animateWithDuration:_barsHidden ? UINavigationControllerHideShowBarDuration : 0.0 animations:
+    ^{
+        @strongify(self)
+
+        if ([self.selectedViewController isKindOfClass:UINavigationController.class])
+        {
+            CGRect frame = ((UINavigationController *)self.selectedViewController).navigationBar.frame;
+
+            frame.origin.y = _barsHidden ? 0.0 : UIApplication.statusBarHeight;
+            ((UINavigationController *)self.selectedViewController).navigationBar.frame = frame;
+        }
+    }];
+
+    [UIView animateWithDuration:UINavigationControllerHideShowBarDuration animations:
+    ^{
+        @strongify(self)
+
         for (UIViewController *controller in self.viewControllers)
             if ([controller isKindOfClass:UINavigationController.class])
-                [((UINavigationController *)controller) setNavigationBarHidden:YES animated:YES];
-        
-        [self setTabBarHidden:YES animated:YES];
+                ((UINavigationController *)controller).navigationBar.alpha = _barsHidden ? 0.0 : kUINavigationBarTranslucentAlphaDefault;
+
+        self.tabBar.alpha = _barsHidden ? 0.0 : kUINavigationBarTranslucentAlphaDefault;
+
+        if (_barsHidden)
+            [self.selectedViewController.view setNeedsLayout];
     }
+    completion:^(BOOL finished)
+    {
+        if (_barsHidden)
+            [self.selectedViewController.view setNeedsLayout];
+    }];
+}
+//------------------------------------------------------------------------------
+- (void)autoHideBars
+{
+    [self.barsTimer invalidate];
+
+    if (!self.barsHidden)
+        self.barsTimer = [NSTimer scheduledTimerWithTimeInterval:kIntervalToHideTabBar target:self selector:@selector(hideBars) userInfo:nil repeats:NO];
+}
+//------------------------------------------------------------------------------
+- (void)hideBars
+{
+    if (!self.isBarsHidden)
+        self.barsHidden = YES;
 }
 //------------------------------------------------------------------------------
 @end

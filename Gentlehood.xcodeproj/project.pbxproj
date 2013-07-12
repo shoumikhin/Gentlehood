@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1018EE22605747D48DFDFCCB /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DEA58BB861794819B54340DB /* libPods.a */; };
 		92810CBD176A077000C0A53C /* favorites_title_ru.png in Resources */ = {isa = PBXBuildFile; fileRef = 92810CBB176A077000C0A53C /* favorites_title_ru.png */; };
 		92810CBE176A077000C0A53C /* favorites_title_ru@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 92810CBC176A077000C0A53C /* favorites_title_ru@2x.png */; };
 		92810CCA176A079E00C0A53C /* aphorisms_title_en.png in Resources */ = {isa = PBXBuildFile; fileRef = 92810CC0176A079E00C0A53C /* aphorisms_title_en.png */; };
@@ -76,14 +75,9 @@
 		92DB6343175CE52C000C2343 /* vocabulary_title_ru@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 92DB6315175CE52C000C2343 /* vocabulary_title_ru@2x.png */; };
 		92DB6348175D0C35000C2343 /* GHFavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92DB6347175D0C35000C2343 /* GHFavoritesViewController.m */; };
 		92DB634B175D0EE7000C2343 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 92DB6349175D0EE7000C2343 /* Model.xcdatamodeld */; };
-		92DB635E175D405A000C2343 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92DB635D175D405A000C2343 /* CoreGraphics.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0E6E774A12F5466E95B03608 /* libPods-debug.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-debug.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		19BACE9F98D54A6E91E3FCC0 /* libPods-debug.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-debug.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5A07159A96B949DBB3F854CD /* libPods-debug.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-debug.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8400C6D1A8BF4345B46DC7E0 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		925EF36317730F53005B0158 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/MainStoryboard.strings; sourceTree = "<group>"; };
 		925EF36517730F6E005B0158 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MainStoryboard.strings; sourceTree = "<group>"; };
 		92810CBB176A077000C0A53C /* favorites_title_ru.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favorites_title_ru.png; sourceTree = "<group>"; };
@@ -119,6 +113,8 @@
 		92A6FC821783736A00B911BD /* _GHCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _GHCategory.m; sourceTree = "<group>"; };
 		92A6FC831783736A00B911BD /* _GHPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _GHPost.h; sourceTree = "<group>"; };
 		92A6FC841783736A00B911BD /* _GHPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _GHPost.m; sourceTree = "<group>"; };
+		92C243E6178805D1001802C2 /* Pods.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		92C2444E17880F33001802C2 /* Pods-debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = "Pods-debug.xcconfig"; path = "Pods/Pods-debug.xcconfig"; sourceTree = "<group>"; };
 		92D3594317452F120059A902 /* GHRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHRootViewController.h; sourceTree = "<group>"; };
 		92D3594417452F120059A902 /* GHRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHRootViewController.m; sourceTree = "<group>"; };
 		92D359A317453C090059A902 /* Definitions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Definitions.m; sourceTree = "<group>"; };
@@ -173,12 +169,7 @@
 		92DB6346175D0C35000C2343 /* GHFavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHFavoritesViewController.h; sourceTree = "<group>"; };
 		92DB6347175D0C35000C2343 /* GHFavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHFavoritesViewController.m; sourceTree = "<group>"; };
 		92DB634A175D0EE7000C2343 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		92DB635D175D405A000C2343 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		92E857451743B4E300D61C42 /* Gentlehood.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gentlehood.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		93F399108C2049E28975B2EC /* libPods-debug.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-debug.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D1FB54D449954FF3B34BFACE /* libPods-debug.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-debug.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		DEA58BB861794819B54340DB /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		EB04683F1393454799D0F9C8 /* Pods-debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-debug.xcconfig"; path = "Pods/Pods-debug.xcconfig"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,8 +177,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				92DB635E175D405A000C2343 /* CoreGraphics.framework in Frameworks */,
-				1018EE22605747D48DFDFCCB /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,10 +400,9 @@
 			children = (
 				92DB62DD175CE52B000C2343 /* Resources */,
 				9293406B1743C31800802420 /* Sources */,
-				92E857471743B4E300D61C42 /* Frameworks */,
 				92E857461743B4E300D61C42 /* Products */,
-				8400C6D1A8BF4345B46DC7E0 /* Pods.xcconfig */,
-				EB04683F1393454799D0F9C8 /* Pods-debug.xcconfig */,
+				92C243E6178805D1001802C2 /* Pods.xcconfig */,
+				92C2444E17880F33001802C2 /* Pods-debug.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -426,20 +414,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		92E857471743B4E300D61C42 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				92DB635D175D405A000C2343 /* CoreGraphics.framework */,
-				DEA58BB861794819B54340DB /* libPods.a */,
-				0E6E774A12F5466E95B03608 /* libPods-debug.a */,
-				93F399108C2049E28975B2EC /* libPods-debug.a */,
-				19BACE9F98D54A6E91E3FCC0 /* libPods-debug.a */,
-				5A07159A96B949DBB3F854CD /* libPods-debug.a */,
-				D1FB54D449954FF3B34BFACE /* libPods-debug.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -447,13 +421,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 92E857881743B4E400D61C42 /* Build configuration list for PBXNativeTarget "Gentlehood" */;
 			buildPhases = (
-				8FA1B5071B604A90B50DFC8F /* Check Pods Manifest.lock */,
 				818DC31892B24733BE6006EE /* Check Pods Manifest.lock */,
 				92A6FC89178373BB00B911BD /* ShellScript */,
 				92E857411743B4E300D61C42 /* Sources */,
 				92E857421743B4E300D61C42 /* Frameworks */,
 				92E857431743B4E300D61C42 /* Resources */,
-				ED058BA949C9403F91E23E28 /* Copy Pods Resources */,
 				DFA18D84DD6F425CB0134DC8 /* Copy Pods Resources */,
 			);
 			buildRules = (
@@ -570,20 +542,6 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 		};
-		8FA1B5071B604A90B50DFC8F /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-		};
 		92A6FC89178373BB00B911BD /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -610,20 +568,7 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Pods-debug-resources.sh\"\n";
-		};
-		ED058BA949C9403F91E23E28 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-debug-resources.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -747,12 +692,8 @@
 		};
 		92E857891743B4E400D61C42 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EB04683F1393454799D0F9C8 /* Pods-debug.xcconfig */;
+			baseConfigurationReference = 92C2444E17880F33001802C2 /* Pods-debug.xcconfig */;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)\"",
-				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Sources/Gentlehood-Prefix.pch";
 				INFOPLIST_FILE = "Resources/Gentlehood-Info.plist";
@@ -763,12 +704,8 @@
 		};
 		92E8578A1743B4E400D61C42 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8400C6D1A8BF4345B46DC7E0 /* Pods.xcconfig */;
+			baseConfigurationReference = 92C243E6178805D1001802C2 /* Pods.xcconfig */;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)\"",
-				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Sources/Gentlehood-Prefix.pch";
 				INFOPLIST_FILE = "Resources/Gentlehood-Info.plist";

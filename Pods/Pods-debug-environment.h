@@ -18,6 +18,12 @@
 #define COCOAPODS_VERSION_MINOR_NSXtensions 5
 #define COCOAPODS_VERSION_PATCH_NSXtensions 0
 
+// PonyDebugger
+#define COCOAPODS_POD_AVAILABLE_PonyDebugger
+#define COCOAPODS_VERSION_MAJOR_PonyDebugger 0
+#define COCOAPODS_VERSION_MINOR_PonyDebugger 3
+#define COCOAPODS_VERSION_PATCH_PonyDebugger 0
+
 // RestKit
 #define COCOAPODS_POD_AVAILABLE_RestKit
 #define COCOAPODS_VERSION_MAJOR_RestKit 0
@@ -71,6 +77,12 @@
 #define COCOAPODS_VERSION_MAJOR_SVProgressHUD 0
 #define COCOAPODS_VERSION_MINOR_SVProgressHUD 9
 #define COCOAPODS_VERSION_PATCH_SVProgressHUD 0
+
+// SocketRocket
+#define COCOAPODS_POD_AVAILABLE_SocketRocket
+#define COCOAPODS_VERSION_MAJOR_SocketRocket 0
+#define COCOAPODS_VERSION_MINOR_SocketRocket 3
+#define COCOAPODS_VERSION_PATCH_SocketRocket 1
 
 // TransitionKit
 #define COCOAPODS_POD_AVAILABLE_TransitionKit
