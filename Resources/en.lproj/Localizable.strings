@@ -10,6 +10,9 @@
 
 "OK" = "OK";
 "UPDATE_FAILURE" = "Cannot update the page";
+"YES" = "Yes";
+"NO" = "No";
+"REMOVE_FROM_FAVORITES" = "Remove this post from favorites?";
 
 //Cells
 

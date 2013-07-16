@@ -12,7 +12,7 @@
 
 //==============================================================================
 static NSUInteger const kThoughtsIndex = 2;
-static NSTimeInterval const kIntervalToHideTabBar = 3.0;
+static NSTimeInterval const kIntervalToHideTabBar = 2.0;
 //==============================================================================
 @interface GHRootViewController () <UITabBarControllerDelegate, UIGestureRecognizerDelegate>
 

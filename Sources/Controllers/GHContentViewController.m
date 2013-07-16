@@ -91,7 +91,7 @@ static NSUInteger const kPostsPerPage = 10;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^
     {
-        [RKObjectManager.sharedManager addResponseDescriptor:[RKResponseDescriptor responseDescriptorWithMapping:GHPost.mapping pathPattern:kGHAPIGetCategory keyPath:@"posts" statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)]];
+        [RKObjectManager.sharedManager addResponseDescriptor:[RKResponseDescriptor responseDescriptorWithMapping:GHPost.mapping method:RKRequestMethodGET pathPattern:kGHAPIGetCategory keyPath:@"posts" statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)]];
     });
 
     @weakify(self)
@@ -283,12 +283,39 @@ static NSUInteger const kPostsPerPage = 10;
 
     GHPost *post = [self.fetchedResultsController objectAtIndexPath:indexPath];
 
-    post.favoriteValue = !post.favoriteValue;
-    webCell.bookmarked = post.favoriteValue;
-    [RKManagedObjectStore.defaultStore.mainQueueManagedObjectContext saveToPersistentStore:nil];
+    @weakify(webCell)
+    @weakify(post)
 
-    [SVProgressHUD showImage:[UIImage imageNamed:@"anchor"] status:nil];
-    [SVProgressHUD dismiss];
+    SIAlertViewHandler handler =
+    ^(SIAlertView *alertView)
+    {
+        @strongify(webCell)
+        @strongify(post)
+
+        post.favoriteValue = !post.favoriteValue;
+        webCell.bookmarked = post.favoriteValue;
+        [RKManagedObjectStore.defaultStore.mainQueueManagedObjectContext saveToPersistentStore:nil];
+    };
+
+    if (post.favoriteValue)
+    {
+        SIAlertView *alertView = [SIAlertView.alloc initWithTitle:nil andMessage:NSLocalizedString(@"REMOVE_FROM_FAVORITES", nil)];
+
+        [alertView addButtonWithTitle:NSLocalizedString(@"YES", nil) type:SIAlertViewButtonTypeDestructive handler:handler];
+        [alertView addButtonWithTitle:NSLocalizedString(@"NO", nil) type:SIAlertViewButtonTypeCancel handler:nil];
+        alertView.transitionStyle = SIAlertViewTransitionStyleDropDown;
+        alertView.backgroundStyle = SIAlertViewBackgroundStyleSolid;
+        alertView.messageFont = [UIFont fontWithName:kFontFamily size:kFontSizeSmall];
+        alertView.buttonFont = [UIFont fontWithName:kFontFamily size:kFontSize];
+        
+        [alertView show];
+    }
+    else
+    {
+        handler(nil);
+        [SVProgressHUD showImage:[UIImage imageNamed:@"anchor"] status:nil];
+        [SVProgressHUD dismiss];
+    }
 }
 //------------------------------------------------------------------------------
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView

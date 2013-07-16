@@ -6,6 +6,7 @@ pod 'libextobjc'
 pod 'NSXtensions'
 pod 'RestKit'
 pod 'SVProgressHUD'
+pod 'SIAlertView'
 
 target :debug do
   link_with 'Gentlehood'
