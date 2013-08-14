@@ -38,6 +38,12 @@ static NSUInteger const kPostsPerPage = 10;
 {
     [super viewDidLoad];
 
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^
+    {
+        [RKObjectManager.sharedManager addResponseDescriptor:[RKResponseDescriptor responseDescriptorWithMapping:GHPost.mapping method:RKRequestMethodGET pathPattern:kGHAPIGetCategory keyPath:@"posts" statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)]];
+    });
+
     self.isLoaded = self.isLoading = self.isAppendTriggered = NO;
     self.currentPage = 1;
     self.orientation = UIApplication.sharedApplication.statusBarOrientation;
@@ -59,8 +65,14 @@ static NSUInteger const kPostsPerPage = 10;
 {
     [super viewDidAppear:animated];
 
-    if (!self.isLoaded && !self.isLoading && AFNetworkReachabilityStatusNotReachable != RKObjectManager.sharedManager.HTTPClient.networkReachabilityStatus)
+    if (!self.isLoaded && AFNetworkReachabilityStatusNotReachable < RKObjectManager.sharedManager.HTTPClient.networkReachabilityStatus)
         [self refresh];
+
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^
+    {
+        [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(onNetworkReachabilityChanged:) name:AFNetworkingReachabilityDidChangeNotification object:nil];
+    });
 }
 //------------------------------------------------------------------------------
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
@@ -69,30 +81,39 @@ static NSUInteger const kPostsPerPage = 10;
     [self.tableView reloadData];
 }
 //------------------------------------------------------------------------------
+- (void)onNetworkReachabilityChanged:(NSNotification *)notification
+{
+    if (!self.isLoaded && AFNetworkReachabilityStatusNotReachable < [notification.userInfo[AFNetworkingReachabilityNotificationStatusItem] integerValue])
+        [self refresh];
+}
+//------------------------------------------------------------------------------
 - (void)refresh
 {
+    if (self.isLoading)
+        return;
+
     [self.refreshControl beginRefreshing];
 
     if (0.0 == self.tableView.contentOffset.y)
-        [UIView animateWithDuration:UINavigationControllerHideShowBarDuration delay:0.0 options:UIViewAnimationOptionBeginFromCurrentState animations:^(void)
+    {
+        @weakify(self)
+
+        [UIView animateWithDuration:UINavigationControllerHideShowBarDuration delay:0.0 options:UIViewAnimationOptionBeginFromCurrentState animations:^
         {
+            @strongify(self)
+
             self.tableView.contentOffset = CGPointMake(0.0, - self.refreshControl.frame.size.height);
         }
         completion:nil];
+    }
 
     self.currentPage = 1;
-    [self request];
+    [self load];
 }
 //------------------------------------------------------------------------------
-- (void)request
+- (void)load
 {
     self.isLoading = YES;
-
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^
-    {
-        [RKObjectManager.sharedManager addResponseDescriptor:[RKResponseDescriptor responseDescriptorWithMapping:GHPost.mapping method:RKRequestMethodGET pathPattern:kGHAPIGetCategory keyPath:@"posts" statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)]];
-    });
 
     @weakify(self)
 
@@ -109,10 +130,12 @@ static NSUInteger const kPostsPerPage = 10;
 
         [NSFetchedResultsController deleteCacheWithName:kFetchCacheName];
         [self.fetchedResultsController performFetch:nil];
+
         [self.refreshControl endRefreshing];
         self.tableView.tableFooterView.hidden = YES;
-        self.isLoaded = YES;
+
         self.isLoading = NO;
+        self.isLoaded = YES;
         self.currentPage++;
     }
     failure:^
@@ -129,9 +152,26 @@ static NSUInteger const kPostsPerPage = 10;
 
         [self.refreshControl endRefreshing];
         self.tableView.tableFooterView.hidden = YES;
-        self.isLoaded = NO;
+        
         self.isLoading = NO;
     }];
+
+    ((RKObjectRequestOperation *)RKObjectManager.sharedManager.operationQueue.operations.lastObject).willMapDeserializedResponseBlock = ^
+    id (id deserializedResponseBody)
+    {
+        @strongify(self)
+
+        if (!self.isLoaded)
+            [self deleteObsoleteData];
+
+        return deserializedResponseBody;
+    };
+}
+//------------------------------------------------------------------------------
+- (void)deleteObsoleteData
+{
+    [RKManagedObjectStore.defaultStore.mainQueueManagedObjectContext deleteObjectsOfEntity:NSStringFromClass(GHPost.class) withPredicate:[NSCompoundPredicate andPredicateWithSubpredicates:@[self.predicate, [NSPredicate predicateWithFormat:@"YES != favorite"]]] sortDescriptors:nil andFetchLimit:0];
+    [RKManagedObjectStore.defaultStore.mainQueueManagedObjectContext saveToPersistentStore:nil];
 }
 //------------------------------------------------------------------------------
 - (void)webCellHeight:(CGFloat)height forIndexPath:(NSIndexPath *)indexPath
@@ -283,14 +323,12 @@ static NSUInteger const kPostsPerPage = 10;
 
     GHPost *post = [self.fetchedResultsController objectAtIndexPath:indexPath];
 
-    @weakify(webCell)
-    @weakify(post)
+    @weakify(webCell, post)
 
-    SIAlertViewHandler handler =
-    ^(SIAlertView *alertView)
+    SIAlertViewHandler handler = ^
+    (SIAlertView *alertView)
     {
-        @strongify(webCell)
-        @strongify(post)
+        @strongify(webCell, post)
 
         post.favoriteValue = !post.favoriteValue;
         webCell.bookmarked = post.favoriteValue;
@@ -321,7 +359,7 @@ static NSUInteger const kPostsPerPage = 10;
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     if (-kUITableViewCellHeightDefault > scrollView.contentSize.height - scrollView.frame.size.height - scrollView.contentOffset.y)
-        if (!self.isLoading && !self.isAppendTriggered)
+        if (self.isLoaded && !self.isLoading && !self.isAppendTriggered)
         {
             id <NSFetchedResultsSectionInfo> sectionInfo = self.fetchedResultsController.sections[0];
             GHCategory *category = [RKManagedObjectStore.defaultStore.mainQueueManagedObjectContext objectsOfEntity:NSStringFromClass(GHCategory.class) withPredicate:[NSPredicate predicateWithFormat:@"identifier == %i", self.category] sortDescriptors:nil andFetchLimit:1].lastObject;
@@ -329,7 +367,7 @@ static NSUInteger const kPostsPerPage = 10;
             if (sectionInfo.numberOfObjects < category.postCount.integerValue)
             {
                 self.tableView.tableFooterView.hidden = NO;
-                [self request];
+                [self load];
                 self.isAppendTriggered = YES;
             }
         }

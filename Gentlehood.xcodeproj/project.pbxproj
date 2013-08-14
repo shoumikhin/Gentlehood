@@ -553,7 +553,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cd Sources/Models\n/usr/local/bin/mogenerator --template-var arc=true -m Model.xcdatamodeld/Model.xcdatamodel -M Machine/ -H Human/\ncd -";
+			shellScript = "cd Sources/Models\n/usr/local/bin/mogenerator --template-var arc=true -m Model.xcdatamodeld/*.xcdatamodel -M Machine/ -H Human/\ncd -";
 		};
 		DFA18D84DD6F425CB0134DC8 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -694,6 +694,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 92C2444E17880F33001802C2 /* Pods-debug.xcconfig */;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Sources/Gentlehood-Prefix.pch";
 				INFOPLIST_FILE = "Resources/Gentlehood-Info.plist";
@@ -710,6 +714,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 92C243E6178805D1001802C2 /* Pods.xcconfig */;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Sources/Gentlehood-Prefix.pch";
 				INFOPLIST_FILE = "Resources/Gentlehood-Info.plist";

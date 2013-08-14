@@ -19,9 +19,18 @@
 
     [self setupRestKit];
     [self setupPonyDebugger];
-    [self deleteObsoleteContent];
 
     return YES;
+}
+//------------------------------------------------------------------------------
+- (void)setupRestKit
+{
+    RKLogConfigureFromEnvironment();
+
+    RKObjectManager.sharedManager = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:kGHAPI]];
+    RKObjectManager.sharedManager.managedObjectStore = [RKManagedObjectStore.alloc initWithManagedObjectModel:[NSManagedObjectModel mergedModelFromBundles:nil]];
+    [RKObjectManager.sharedManager.managedObjectStore addSQLitePersistentStoreAtPath:[NSFileManager.cachesPath stringByAppendingPathComponent:kStorageFilename] fromSeedDatabaseAtPath:nil withConfiguration:nil options:nil error:nil];
+    [RKObjectManager.sharedManager.managedObjectStore createManagedObjectContexts];
 }
 //------------------------------------------------------------------------------
 - (void)setupPonyDebugger
@@ -34,27 +43,11 @@
 
     [debugger enableCoreDataDebugging];
     [debugger addManagedObjectContext:RKManagedObjectStore.defaultStore.mainQueueManagedObjectContext withName:@"main"];
-    
+
     [debugger enableViewHierarchyDebugging];
 
     [debugger connectToURL:[NSURL URLWithString:@"ws://localhost:9000/device"]];
 #endif
-}
-//------------------------------------------------------------------------------
-- (void)setupRestKit
-{
-    RKLogConfigureFromEnvironment();
-
-    RKObjectManager.sharedManager = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:kGHAPI]];
-    RKObjectManager.sharedManager.managedObjectStore = [RKManagedObjectStore.alloc initWithManagedObjectModel:[NSManagedObjectModel mergedModelFromBundles:nil]];
-    [RKObjectManager.sharedManager.managedObjectStore addSQLitePersistentStoreAtPath:[NSFileManager.documentsPath stringByAppendingPathComponent:kStorageFilename] fromSeedDatabaseAtPath:nil withConfiguration:nil options:nil error:nil];
-    [RKObjectManager.sharedManager.managedObjectStore createManagedObjectContexts];
-}
-//------------------------------------------------------------------------------
-- (void)deleteObsoleteContent
-{
-    [RKManagedObjectStore.defaultStore.mainQueueManagedObjectContext deleteObjectsOfEntity:NSStringFromClass(GHPost.class) withPredicate:[NSPredicate predicateWithFormat:@"(date == NIL || date < %@) && favorite != YES", [NSDate dateWithTimeIntervalSinceNow:-30 * 24 * 60 * 60]] sortDescriptors:nil andFetchLimit:0];
-    [RKManagedObjectStore.defaultStore.mainQueueManagedObjectContext saveToPersistentStore:nil];
 }
 //------------------------------------------------------------------------------
 @end

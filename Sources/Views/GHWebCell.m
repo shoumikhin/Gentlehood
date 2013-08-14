@@ -65,7 +65,7 @@
         </head>\
         <body>%@</body>\
     </html>\
-    ", kContentWidth, kFontFamily, kFontSize, kContentWidth, kFontFamilyItalic, kFontSizeSmall, kHTMLColorDefault, content] baseURL:[NSURL fileURLWithPath:NSBundle.mainBundle.bundlePath]];
+    ", kContentWidth, kFontFamily, kFontSize, kContentWidth, kFontFamilyItalic, kFontSizeSmall, kHTMLColorDefault, content] baseURL:[NSURL fileURLWithPath:NSFileManager.cachesPath]];
 }
 //------------------------------------------------------------------------------
 - (void)webViewDidStartLoad:(UIWebView *)webView

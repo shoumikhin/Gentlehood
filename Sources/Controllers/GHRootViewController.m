@@ -169,8 +169,8 @@ static NSTimeInterval const kIntervalToHideTabBar = 2.0;
 
     @weakify(self)
 
-    [UIView animateWithDuration:_barsHidden ? UINavigationControllerHideShowBarDuration : 0.0 animations:
-    ^{
+    [UIView animateWithDuration:_barsHidden ? UINavigationControllerHideShowBarDuration : 0.0 animations:^
+    {
         @strongify(self)
 
         if ([self.selectedViewController isKindOfClass:UINavigationController.class])
@@ -182,8 +182,8 @@ static NSTimeInterval const kIntervalToHideTabBar = 2.0;
         }
     }];
 
-    [UIView animateWithDuration:UINavigationControllerHideShowBarDuration animations:
-    ^{
+    [UIView animateWithDuration:UINavigationControllerHideShowBarDuration animations:^
+    {
         @strongify(self)
 
         for (UIViewController *controller in self.viewControllers)
@@ -195,8 +195,11 @@ static NSTimeInterval const kIntervalToHideTabBar = 2.0;
         if (_barsHidden)
             [self.selectedViewController.view setNeedsLayout];
     }
-    completion:^(BOOL finished)
+    completion:^
+    (BOOL finished)
     {
+        @strongify(self)
+
         if (_barsHidden)
             [self.selectedViewController.view setNeedsLayout];
     }];
