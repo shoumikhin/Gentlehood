@@ -66,13 +66,15 @@ static NSUInteger const kPostsPerPage = 10;
     [super viewDidAppear:animated];
 
     if (!self.isLoaded && AFNetworkReachabilityStatusNotReachable < RKObjectManager.sharedManager.HTTPClient.networkReachabilityStatus)
-        [self refresh];
+        [self update];
 
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^
     {
         [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(onNetworkReachabilityChanged:) name:AFNetworkingReachabilityDidChangeNotification object:nil];
     });
+
+    TRACK(@"APPEAR", self.navigationItem.title);
 }
 //------------------------------------------------------------------------------
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
@@ -84,10 +86,10 @@ static NSUInteger const kPostsPerPage = 10;
 - (void)onNetworkReachabilityChanged:(NSNotification *)notification
 {
     if (!self.isLoaded && AFNetworkReachabilityStatusNotReachable < [notification.userInfo[AFNetworkingReachabilityNotificationStatusItem] integerValue])
-        [self refresh];
+        [self update];
 }
 //------------------------------------------------------------------------------
-- (void)refresh
+- (void)update
 {
     if (self.isLoading)
         return;
@@ -137,6 +139,8 @@ static NSUInteger const kPostsPerPage = 10;
         self.isLoading = NO;
         self.isLoaded = YES;
         self.currentPage++;
+
+        TRACK(@"UPDATE SUCCESS", self.navigationItem.title);
     }
     failure:^
     (RKObjectRequestOperation *operation, NSError *error)
@@ -154,6 +158,8 @@ static NSUInteger const kPostsPerPage = 10;
         self.tableView.tableFooterView.hidden = YES;
         
         self.isLoading = NO;
+
+        TRACK(@"UPDATE FAILURE", self.navigationItem.title);
     }];
 
     ((RKObjectRequestOperation *)RKObjectManager.sharedManager.operationQueue.operations.lastObject).willMapDeserializedResponseBlock = ^
@@ -333,6 +339,8 @@ static NSUInteger const kPostsPerPage = 10;
         post.favoriteValue = !post.favoriteValue;
         webCell.bookmarked = post.favoriteValue;
         [RKManagedObjectStore.defaultStore.mainQueueManagedObjectContext saveToPersistentStore:nil];
+
+        TRACK(post.favoriteValue ? @"BOOKMARK" : @"UNBOOKMARK", post.identifier.stringValue);
     };
 
     if (post.favoriteValue)
@@ -369,6 +377,8 @@ static NSUInteger const kPostsPerPage = 10;
                 self.tableView.tableFooterView.hidden = NO;
                 [self load];
                 self.isAppendTriggered = YES;
+
+                TRACK(@"APPEND", self.navigationItem.title);
             }
         }
 }

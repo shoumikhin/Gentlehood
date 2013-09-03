@@ -7,6 +7,9 @@ pod 'NSXtensions'
 pod 'RestKit'
 pod 'SVProgressHUD'
 pod 'SIAlertView'
+pod 'Countly'
+pod 'FlurrySDK'
+pod 'GoogleAnalytics-iOS-SDK'
 
 target :debug do
   link_with 'Gentlehood'

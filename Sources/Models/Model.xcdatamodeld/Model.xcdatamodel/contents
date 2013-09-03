@@ -14,7 +14,7 @@
         <relationship name="categories" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="GHCategory" inverseName="posts" inverseEntity="GHCategory" syncable="YES"/>
     </entity>
     <elements>
-        <element name="GHCategory" positionX="160" positionY="192" width="128" height="90"/>
-        <element name="GHPost" positionX="160" positionY="192" width="128" height="135"/>
+        <element name="GHCategory" positionX="-99" positionY="-54" width="128" height="90"/>
+        <element name="GHPost" positionX="-414" positionY="-27" width="128" height="135"/>
     </elements>
 </model>

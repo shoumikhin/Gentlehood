@@ -35,6 +35,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     //let's override this to avoid inherited call
+    TRACK(@"APPEAR", self.navigationItem.title);
 }
 //------------------------------------------------------------------------------
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

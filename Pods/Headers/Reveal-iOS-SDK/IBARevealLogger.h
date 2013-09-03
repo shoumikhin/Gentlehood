@@ -1,1 +1,1 @@
-../../Reveal-iOS-SDK/Reveal-Framework-0.8.3/Reveal.framework/Versions/A/Headers/IBARevealLogger.h
+../../Reveal-iOS-SDK/Reveal-Framework-0.9.0/Reveal.framework/Versions/A/Headers/IBARevealLogger.h

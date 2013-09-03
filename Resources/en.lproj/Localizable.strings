@@ -17,5 +17,5 @@
 //Cells
 
 "CELL_LOADING" = " Loading…";
-"NO_IMAGE" = "Image unavailable";
+"NO_IMAGE" = "Image unavailable offline";
 "NO_CONTENT" = "Page is empty";

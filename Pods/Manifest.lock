@@ -1,6 +1,9 @@
 PODS:
   - AFNetworking (1.3.2)
-  - libextobjc (0.2.5):
+  - Countly (1.0.0)
+  - FlurrySDK (4.2.3)
+  - GoogleAnalytics-iOS-SDK (3.0)
+  - libextobjc (0.3):
     - libextobjc/EXTADT
     - libextobjc/EXTAnnotation
     - libextobjc/EXTAspect
@@ -29,61 +32,61 @@ PODS:
     - libextobjc/NSMethodSignature+EXT
     - libextobjc/RuntimeExtensions
     - libextobjc/UmbrellaHeader
-  - libextobjc/EXTADT (0.2.5):
+  - libextobjc/EXTADT (0.3):
     - libextobjc/RuntimeExtensions
-  - libextobjc/EXTAnnotation (0.2.5):
+  - libextobjc/EXTAnnotation (0.3):
     - libextobjc/RuntimeExtensions
-  - libextobjc/EXTAspect (0.2.5):
+  - libextobjc/EXTAspect (0.3):
     - libextobjc/RuntimeExtensions
     - libffi
-  - libextobjc/EXTBlockMethod (0.2.5):
+  - libextobjc/EXTBlockMethod (0.3):
     - libextobjc/RuntimeExtensions
-  - libextobjc/EXTBlockTarget (0.2.5):
+  - libextobjc/EXTBlockTarget (0.3):
     - libextobjc/RuntimeExtensions
-  - libextobjc/EXTConcreteProtocol (0.2.5):
+  - libextobjc/EXTConcreteProtocol (0.3):
     - libextobjc/RuntimeExtensions
-  - libextobjc/EXTDispatchObject (0.2.5):
+  - libextobjc/EXTDispatchObject (0.3):
     - libextobjc/RuntimeExtensions
-  - libextobjc/EXTFinalMethod (0.2.5):
+  - libextobjc/EXTFinalMethod (0.3):
     - libextobjc/RuntimeExtensions
-  - libextobjc/EXTKeyPathCoding (0.2.5):
+  - libextobjc/EXTKeyPathCoding (0.3):
     - libextobjc/RuntimeExtensions
-  - libextobjc/EXTMaybe (0.2.5):
+  - libextobjc/EXTMaybe (0.3):
     - libextobjc/RuntimeExtensions
-  - libextobjc/EXTMixin (0.2.5):
+  - libextobjc/EXTMixin (0.3):
     - libextobjc/RuntimeExtensions
-  - libextobjc/EXTMultimethod (0.2.5):
+  - libextobjc/EXTMultimethod (0.3):
     - libextobjc/RuntimeExtensions
-  - libextobjc/EXTMultiObject (0.2.5):
+  - libextobjc/EXTMultiObject (0.3):
     - libextobjc/RuntimeExtensions
-  - libextobjc/EXTNil (0.2.5):
+  - libextobjc/EXTNil (0.3):
     - libextobjc/RuntimeExtensions
-  - libextobjc/EXTPassthrough (0.2.5):
+  - libextobjc/EXTPassthrough (0.3):
     - libextobjc/RuntimeExtensions
-  - libextobjc/EXTPrivateMethod (0.2.5):
+  - libextobjc/EXTPrivateMethod (0.3):
     - libextobjc/RuntimeExtensions
-  - libextobjc/EXTProtocolCategory (0.2.5):
+  - libextobjc/EXTProtocolCategory (0.3):
     - libextobjc/RuntimeExtensions
-  - libextobjc/EXTSafeCategory (0.2.5):
+  - libextobjc/EXTSafeCategory (0.3):
     - libextobjc/RuntimeExtensions
-  - libextobjc/EXTScope (0.2.5):
+  - libextobjc/EXTScope (0.3):
     - libextobjc/RuntimeExtensions
-  - libextobjc/EXTSelectorChecking (0.2.5):
+  - libextobjc/EXTSelectorChecking (0.3):
     - libextobjc/RuntimeExtensions
-  - libextobjc/EXTSwizzle (0.2.5):
+  - libextobjc/EXTSwizzle (0.3):
     - libextobjc/RuntimeExtensions
-  - libextobjc/EXTSynthesize (0.2.5):
+  - libextobjc/EXTSynthesize (0.3):
     - libextobjc/RuntimeExtensions
-  - libextobjc/EXTTuple (0.2.5):
+  - libextobjc/EXTTuple (0.3):
     - libextobjc/RuntimeExtensions
-  - libextobjc/EXTVarargs (0.2.5):
+  - libextobjc/EXTVarargs (0.3):
     - libextobjc/RuntimeExtensions
-  - libextobjc/NSInvocation+EXT (0.2.5):
+  - libextobjc/NSInvocation+EXT (0.3):
     - libextobjc/RuntimeExtensions
-  - libextobjc/NSMethodSignature+EXT (0.2.5):
+  - libextobjc/NSMethodSignature+EXT (0.3):
     - libextobjc/RuntimeExtensions
-  - libextobjc/RuntimeExtensions (0.2.5)
-  - libextobjc/UmbrellaHeader (0.2.5)
+  - libextobjc/RuntimeExtensions (0.3)
+  - libextobjc/UmbrellaHeader (0.3)
   - libffi (3.0.13)
   - NSXtensions (0.5)
   - PonyDebugger (0.3.0):
@@ -103,7 +106,7 @@ PODS:
   - RestKit/ObjectMapping (0.20.3)
   - RestKit/Support (0.20.3):
     - TransitionKit (= 1.1.1)
-  - Reveal-iOS-SDK (0.8.3)
+  - Reveal-iOS-SDK (0.9.0)
   - SIAlertView (1.2)
   - SocketRocket (0.3.1-beta2)
   - SOCKit (1.1)
@@ -111,6 +114,9 @@ PODS:
   - TransitionKit (1.1.1)
 
 DEPENDENCIES:
+  - Countly
+  - FlurrySDK
+  - GoogleAnalytics-iOS-SDK
   - libextobjc
   - NSXtensions
   - PonyDebugger
@@ -121,12 +127,15 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: 7f9bcd7c287a75476cd5c61e82fd3380e93e4c54
-  libextobjc: 2cbc74caf8bdc74a86fdf24673f773c83424ea98
+  Countly: c9728abbbeffc3250d1ab8ba17b417938119d218
+  FlurrySDK: 20b3fd669eeafd005ca8ff65a1406d1befbc8031
+  GoogleAnalytics-iOS-SDK: f8d5faf4862b679667be0c270531a189572275d1
+  libextobjc: 820a79dbbbc498611e04fffd07d2d52a5588e7ac
   libffi: 64ef39353e747bb2b25e1026afd96a157bf9231c
   NSXtensions: 45a0e7fe42fe1619bf0fad35e064852d8a2e9570
   PonyDebugger: bafc25809ade389d0d1c1f1147877145cc26bd78
   RestKit: 1f181c180105a92f11ec4f6cd7de37625e516d83
-  Reveal-iOS-SDK: 0d58ea01260eb109b924a09631d9cc8dd96e12c4
+  Reveal-iOS-SDK: 2f011ee3e4653abc92b652f409f1641c7a1dae00
   SIAlertView: fd188f66278761f4ff069f517c3deb2be16ecdcc
   SocketRocket: 7ac946bcce46287a791dfff3c1f8daa692821dae
   SOCKit: 2f3bc4d07910de12dcc202815e07db68a3802581
