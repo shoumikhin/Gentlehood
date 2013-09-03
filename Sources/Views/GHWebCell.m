@@ -63,7 +63,7 @@
                 img { max-width:%upx; height:auto; margin-left:auto; margin-right:auto; padding-bottom:5px; font-family:\"%@\"; font-size:%f; color:%@}\
             </style>\
         </head>\
-        <body>%@</body>\
+        <body>%@<hr/></body>\
     </html>\
     ", kContentWidth, kFontFamily, kFontSize, kContentWidth, kFontFamilyItalic, kFontSizeSmall, kHTMLColorDefault, content] baseURL:[NSURL fileURLWithPath:NSFileManager.cachesPath]];
 }
