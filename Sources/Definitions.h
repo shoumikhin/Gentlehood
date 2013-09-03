@@ -108,7 +108,7 @@ do \
 } \
 while(0)
 //==============================================================================
-FIXME("Type some real API keys below")
+//FIXME: "Type some real API keys below"
 #define COUNTLY_API_KEY "COUNTLY_API_KEY"
 #define FLURRY_API_KEY "FLURRY_API_KEY"
 #define GA_API_KEY "GA_API_KEY"

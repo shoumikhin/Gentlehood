@@ -47,7 +47,7 @@ static NSUInteger const kPostsPerPage = 10;
     self.isLoaded = self.isLoading = self.isAppendTriggered = NO;
     self.currentPage = 1;
     self.orientation = UIApplication.sharedApplication.statusBarOrientation;
-    [self.refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
+    [self.refreshControl addTarget:self action:@selector(update) forControlEvents:UIControlEventValueChanged];
 }
 //------------------------------------------------------------------------------
 - (void)viewWillAppear:(BOOL)animated
