@@ -18,6 +18,12 @@
 #define COCOAPODS_VERSION_MINOR_Countly 0
 #define COCOAPODS_VERSION_PATCH_Countly 0
 
+// FTiCloudSync
+#define COCOAPODS_POD_AVAILABLE_FTiCloudSync
+#define COCOAPODS_VERSION_MAJOR_FTiCloudSync 0
+#define COCOAPODS_VERSION_MINOR_FTiCloudSync 0
+#define COCOAPODS_VERSION_PATCH_FTiCloudSync 1
+
 // FlurrySDK
 #define COCOAPODS_POD_AVAILABLE_FlurrySDK
 #define COCOAPODS_VERSION_MAJOR_FlurrySDK 4
@@ -30,11 +36,23 @@
 #define COCOAPODS_VERSION_MINOR_GoogleAnalytics_iOS_SDK 0
 #define COCOAPODS_VERSION_PATCH_GoogleAnalytics_iOS_SDK 1
 
+// InAppSettingsKit
+#define COCOAPODS_POD_AVAILABLE_InAppSettingsKit
+#define COCOAPODS_VERSION_MAJOR_InAppSettingsKit 1
+#define COCOAPODS_VERSION_MINOR_InAppSettingsKit 1
+#define COCOAPODS_VERSION_PATCH_InAppSettingsKit 0
+
 // NSXtensions
 #define COCOAPODS_POD_AVAILABLE_NSXtensions
 #define COCOAPODS_VERSION_MAJOR_NSXtensions 0
 #define COCOAPODS_VERSION_MINOR_NSXtensions 6
 #define COCOAPODS_VERSION_PATCH_NSXtensions 0
+
+// RegexKitLite
+#define COCOAPODS_POD_AVAILABLE_RegexKitLite
+#define COCOAPODS_VERSION_MAJOR_RegexKitLite 4
+#define COCOAPODS_VERSION_MINOR_RegexKitLite 0
+#define COCOAPODS_VERSION_PATCH_RegexKitLite 0
 
 // RestKit
 #define COCOAPODS_POD_AVAILABLE_RestKit

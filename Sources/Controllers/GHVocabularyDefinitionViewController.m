@@ -21,7 +21,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     //let's override this to avoid inherited call
-    TRACK(@"APPEAR", self.navigationItem.title);
+    TRACK(@"APPEAR", ((GHPost *)self.fetchedResultsController.fetchedObjects.lastObject).title);
 }
 //------------------------------------------------------------------------------
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView

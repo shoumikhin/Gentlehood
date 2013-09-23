@@ -50,6 +50,17 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 
+## FTiCloudSync
+
+You are free to share, adapt and make commercial use of the work as long as
+you give attribution and keep this license. To give credit, we suggest this
+text in the about screen or App Store description: "Uses FTiCloudSync by
+Ortwin Gentz", with a link to the GitHub page.
+
+If you need a different license without attribution requirement, please
+contact me and we can work something out.
+
+
 ## FlurrySDK
 
 Developer's use of the SDK is governed by the license in the applicable Flurry Terms of Service.  Some components of the SDK are governed by open source software licenses.  In the event of any conflict between the license in the applicable Flurry Terms of Service and the applicable open source license, the terms of the open source license shall prevail with respect to those components.
@@ -57,6 +68,24 @@ Developer's use of the SDK is governed by the license in the applicable Flurry T
 ## GoogleAnalytics-iOS-SDK
 
 Copyright 2009 - 2013 Google, Inc. All rights reserved.
+
+
+## InAppSettingsKit
+
+Copyright (c) 2009-2010:
+Luc Vandal, Edovia Inc., http://www.edovia.com
+Ortwin Gentz, FutureTap GmbH, http://www.futuretap.com
+All rights reserved.
+
+It is appreciated but not required that you give credit to Luc Vandal and Ortwin Gentz, 
+as the original authors of this code. You can give credit in a blog post, a tweet or on 
+a info page of your app. Also, the original authors appreciate letting them know if you
+use this code.
+
+The above copyright notice and this permission notice shall be included in all copies
+or substantial portions of the Software.
+
+This code is licensed under the BSD license that is available at: <http://www.opensource.org/licenses/bsd-license.php>
 
 
 ## NSXtensions
@@ -80,6 +109,43 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
+
+
+## RegexKitLite
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta http-equiv="Content-Language" content="EN-US">
+    <style type="text/css">
+.RegexKitLiteLicense { margin: 2em 4ex; max-width: 5.75in; text-align: justify; font-family: "lucida grande", helvetica, arial, sans-serif; }
+.RegexKitLiteLicense p, .RegexKitLiteLicense ul { margin: 1em 0px; }
+.RegexKitLiteLicense ul li { margin-bottom: 0.75em; }
+.RegexKitLiteLicense .disclaimer { font-family: courier, times, monospace; }
+    </style>
+    <title>RegexKitLite License</title>
+  </head>
+  <body>
+    <div class="RegexKitLiteLicense">
+      <h3>RegexKit<i>Lite</i> License</h3>
+      
+      <p>Copyright &copy; 2008-2010, John Engelhart</p>
+      
+      <p>All rights reserved.</p>
+      
+      <p>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</p>
+      
+      <ul>
+	<li>Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.</li>
+	<li>Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.</li>
+	<li>Neither the name of the Zang Industries nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.</li>
+      </ul>
+      
+      <p class="disclaimer">THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+    </div>
+  </body>
+</html>
 
 
 ## RestKit

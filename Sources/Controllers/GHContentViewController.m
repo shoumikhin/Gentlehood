@@ -8,6 +8,8 @@
 
 #import "GHContentViewController.h"
 
+#import "GHRootViewController.h"
+
 //==============================================================================
 @interface GHContentViewController () <NSFetchedResultsControllerDelegate, UIScrollViewDelegate>
 
@@ -48,6 +50,7 @@
     self.orientation = UIApplication.sharedApplication.statusBarOrientation;
     [self.refreshControl addTarget:self action:@selector(update) forControlEvents:UIControlEventValueChanged];
     [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(onNetworkReachabilityChanged:) name:AFNetworkingReachabilityDidChangeNotification object:nil];
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem.alloc initWithCustomView:((GHRootViewController *)self.tabBarController).settingsButton];
 }
 //------------------------------------------------------------------------------
 - (void)viewWillAppear:(BOOL)animated
