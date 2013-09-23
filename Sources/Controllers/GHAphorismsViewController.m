@@ -23,7 +23,7 @@
 {
     [super viewDidLoad];
 
-    UIImage *image = [UIImage imageNamed:NSLocalizedString(@"APHORISMS_TITLE", nil)];
+    UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"%@%@", [UIDevice systemVersionIsAtLeast:@"7.0"] ? @"" : @"6_", NSLocalizedString(@"APHORISMS_TITLE", nil)]];
 
     if (image)
         self.navigationItem.titleView = [UIImageView.alloc initWithImage:image];}

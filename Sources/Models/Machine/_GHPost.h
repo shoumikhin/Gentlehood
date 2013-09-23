@@ -11,11 +11,14 @@ extern const struct GHPostAttributes {
 	__unsafe_unretained NSString *favorite;
 	__unsafe_unretained NSString *height;
 	__unsafe_unretained NSString *identifier;
+	__unsafe_unretained NSString *title;
+	__unsafe_unretained NSString *url;
 } GHPostAttributes;
 
 
 
 extern const struct GHPostRelationships {
+	__unsafe_unretained NSString *attachments;
 	__unsafe_unretained NSString *categories;
 } GHPostRelationships;
 
@@ -24,7 +27,12 @@ extern const struct GHPostRelationships {
 
 
 
+@class GHAttachment;
 @class GHCategory;
+
+
+
+
 
 
 
@@ -118,6 +126,33 @@ extern const struct GHPostRelationships {
 
 
 
+@property (nonatomic, strong) NSString* title;
+
+
+
+//- (BOOL)validateTitle:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSString* url;
+
+
+
+//- (BOOL)validateUrl:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSSet *attachments;
+
+- (NSMutableSet*)attachmentsSet;
+
+
+
+
 @property (nonatomic, strong) NSSet *categories;
 
 - (NSMutableSet*)categoriesSet;
@@ -128,6 +163,13 @@ extern const struct GHPostRelationships {
 
 @end
 
+
+@interface _GHPost (AttachmentsCoreDataGeneratedAccessors)
+- (void)addAttachments:(NSSet*)value_;
+- (void)removeAttachments:(NSSet*)value_;
+- (void)addAttachmentsObject:(GHAttachment*)value_;
+- (void)removeAttachmentsObject:(GHAttachment*)value_;
+@end
 
 @interface _GHPost (CategoriesCoreDataGeneratedAccessors)
 - (void)addCategories:(NSSet*)value_;
@@ -177,6 +219,23 @@ extern const struct GHPostRelationships {
 - (void)setPrimitiveIdentifierValue:(int64_t)value_;
 
 
+
+
+- (NSString*)primitiveTitle;
+- (void)setPrimitiveTitle:(NSString*)value;
+
+
+
+
+- (NSString*)primitiveUrl;
+- (void)setPrimitiveUrl:(NSString*)value;
+
+
+
+
+
+- (NSMutableSet*)primitiveAttachments;
+- (void)setPrimitiveAttachments:(NSMutableSet*)value;
 
 
 

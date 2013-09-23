@@ -10,9 +10,11 @@
 
 @interface GHContentViewController : UITableViewController
 
+@property (nonatomic, readonly) NSFetchedResultsController *fetchedResultsController;
 @property (nonatomic) NSInteger category;
 @property (nonatomic) NSPredicate *predicate;
-
-- (void)bookmarkContentAtPoint:(CGPoint)point;
+@property (nonatomic) NSArray *sortDescriptors;
+@property (nonatomic) NSUInteger postsPerPage;
+@property (nonatomic) NSString *cellID;
 
 @end

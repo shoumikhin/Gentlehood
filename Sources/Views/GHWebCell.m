@@ -79,10 +79,10 @@
 
     [webView stringByEvaluatingJavaScriptFromString:[NSString.alloc initWithFormat:
     @"\
-        var images = document.getElementsByTagName('img');\
-        \
-        for (var i = 0; i < images.length; ++i)\
-            images[i].alt = \"%@\";\
+        var images = document.getElementsByTagName('img'); \
+      \
+        for (var i = 0; i < images.length; ++i) \
+            images[i].alt = \"%@\"; \
     ", NSLocalizedString(@"NO_IMAGE", nil)]];
 
     if (self.window)

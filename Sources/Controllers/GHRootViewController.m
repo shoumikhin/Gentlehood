@@ -8,11 +8,13 @@
 
 #import "GHRootViewController.h"
 
-#import "GHContentViewController.h"
+#import "GHPostViewController.h"
+#import "GHVocabularyViewController.h"
+#import "GHVocabularyDefinitionViewController.h"
 
 //==============================================================================
 static NSUInteger const kThoughtsIndex = 2;
-static NSTimeInterval const kIntervalToHideTabBar = 2.0;
+static NSTimeInterval const kIntervalToHideTabBar = 3.0;
 //==============================================================================
 @interface GHRootViewController () <UITabBarControllerDelegate, UIGestureRecognizerDelegate>
 
@@ -20,6 +22,7 @@ static NSTimeInterval const kIntervalToHideTabBar = 2.0;
 @property (nonatomic) UISwipeGestureRecognizer *swipeLeftRecognizer;
 @property (nonatomic) UITapGestureRecognizer *singleTapRecognizer;
 @property (nonatomic) UITapGestureRecognizer *doubleTapRecognizer;
+@property (nonatomic) UILongPressGestureRecognizer *longPressRecognizer;
 @property (nonatomic) NSTimer *barsTimer;
 @property (nonatomic, getter = isBarsHidden) BOOL barsHidden;
 
@@ -42,16 +45,21 @@ static NSTimeInterval const kIntervalToHideTabBar = 2.0;
 
     self.singleTapRecognizer = [UITapGestureRecognizer.alloc initWithTarget:self action:@selector(onSingleTap:)];
     self.singleTapRecognizer.numberOfTapsRequired = 1;
-    self.singleTapRecognizer.delegate = self;
     self.singleTapRecognizer.delaysTouchesBegan = YES;
     self.singleTapRecognizer.delaysTouchesEnded = YES;
+    self.singleTapRecognizer.delegate = self;
 
     self.doubleTapRecognizer = [UITapGestureRecognizer.alloc initWithTarget:self action:@selector(onDoubleTap:)];
     self.doubleTapRecognizer.numberOfTapsRequired = 2;
+    self.doubleTapRecognizer.delaysTouchesEnded = YES;
     self.doubleTapRecognizer.delegate = self;
-    self.singleTapRecognizer.delaysTouchesBegan = YES;
 
     [self.singleTapRecognizer requireGestureRecognizerToFail:self.doubleTapRecognizer];
+
+    self.longPressRecognizer = [UILongPressGestureRecognizer.alloc initWithTarget:self action:@selector(onLongPress:)];
+    self.longPressRecognizer.delegate = self;
+
+    [self.longPressRecognizer requireGestureRecognizerToFail:self.singleTapRecognizer];
 }
 //------------------------------------------------------------------------------
 - (void)dealloc
@@ -72,18 +80,9 @@ static NSTimeInterval const kIntervalToHideTabBar = 2.0;
     [self.view addGestureRecognizer:self.swipeLeftRecognizer];
     [self.view addGestureRecognizer:self.singleTapRecognizer];
     [self.view addGestureRecognizer:self.doubleTapRecognizer];
+    [self.view addGestureRecognizer:self.longPressRecognizer];
 
     self.barsHidden = NO;
-}
-//------------------------------------------------------------------------------
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-
-    [self.view removeGestureRecognizer:self.swipeRightRecognizer];
-    [self.view removeGestureRecognizer:self.swipeLeftRecognizer];
-    [self.view removeGestureRecognizer:self.singleTapRecognizer];
-    [self.view removeGestureRecognizer:self.doubleTapRecognizer];
 }
 //------------------------------------------------------------------------------
 - (void)viewDidAppear:(BOOL)animated
@@ -107,11 +106,6 @@ static NSTimeInterval const kIntervalToHideTabBar = 2.0;
 //------------------------------------------------------------------------------
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
 {
-    if ([gestureRecognizer isKindOfClass:UITapGestureRecognizer.class] &&
-        [otherGestureRecognizer isKindOfClass:UITapGestureRecognizer.class] &&
-        1 == ((UITapGestureRecognizer *)otherGestureRecognizer).numberOfTapsRequired)
-        [otherGestureRecognizer.view removeGestureRecognizer:otherGestureRecognizer];
-
     if ([gestureRecognizer isKindOfClass:UISwipeGestureRecognizer.class] &&
         [otherGestureRecognizer isKindOfClass:UISwipeGestureRecognizer.class])
         return NO;
@@ -125,8 +119,22 @@ static NSTimeInterval const kIntervalToHideTabBar = 2.0;
 //------------------------------------------------------------------------------
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
 {
-    if ([touch.view.superview isKindOfClass:UITabBar.class])
+    if ([touch.view.superview isKindOfClass:UITabBar.class] ||
+        [touch.view isKindOfClass:UINavigationBar.class])
         return NO;
+
+    if ([gestureRecognizer isKindOfClass:UITapGestureRecognizer.class] &&
+        [touch.view.viewController isKindOfClass:GHVocabularyViewController.class] &&
+        [touch.view isKindOfClass:NSClassFromString(@"UITableViewCellContentView")])
+        return NO;
+
+    if ([gestureRecognizer isKindOfClass:UITapGestureRecognizer.class] &&
+        UIMenuController.sharedMenuController.menuVisible)
+    {
+        [UIMenuController.sharedMenuController setMenuVisible:NO animated:YES];
+
+        return NO;
+    }
 
     return YES;
 }
@@ -137,6 +145,10 @@ static NSTimeInterval const kIntervalToHideTabBar = 2.0;
     
     if (index < self.viewControllers.count - 1)
         [self swipeToIndex:index];
+    else
+        if ([self.selectedViewController isKindOfClass:UINavigationController.class] &&
+            [((UINavigationController *)self.selectedViewController).topViewController isKindOfClass:GHVocabularyDefinitionViewController.class])
+            [(UINavigationController *)self.selectedViewController popViewControllerAnimated:YES];
 }
 //------------------------------------------------------------------------------
 - (void)onSwipeLeft:(UIGestureRecognizer *)gestureRecognizer
@@ -156,8 +168,18 @@ static NSTimeInterval const kIntervalToHideTabBar = 2.0;
 - (void)onDoubleTap:(UIGestureRecognizer *)gestureRecognizer
 {
     if ([self.selectedViewController isKindOfClass:UINavigationController.class] &&
-        [((UINavigationController *)self.selectedViewController).topViewController isKindOfClass:GHContentViewController.class])
-        [(GHContentViewController *)((UINavigationController *)self.selectedViewController).topViewController bookmarkContentAtPoint:[gestureRecognizer locationInView:gestureRecognizer.view]];
+        [((UINavigationController *)self.selectedViewController).topViewController isKindOfClass:GHPostViewController.class])
+        [(GHPostViewController *)((UINavigationController *)self.selectedViewController).topViewController bookmarkContentAtPoint:[gestureRecognizer locationInView:gestureRecognizer.view]];
+}
+//------------------------------------------------------------------------------
+- (void)onLongPress:(UIGestureRecognizer *)gestureRecognizer
+{
+    if (UIGestureRecognizerStateBegan != gestureRecognizer.state)
+        return;
+
+    if ([self.selectedViewController isKindOfClass:UINavigationController.class] &&
+        [((UINavigationController *)self.selectedViewController).topViewController isKindOfClass:GHPostViewController.class])
+        [(GHPostViewController *)((UINavigationController *)self.selectedViewController).topViewController showMenuAtPoint:[gestureRecognizer locationInView:gestureRecognizer.view]];
 }
 //------------------------------------------------------------------------------
 - (void)setBarsHidden:(BOOL)hidden
@@ -165,44 +187,13 @@ static NSTimeInterval const kIntervalToHideTabBar = 2.0;
     _barsHidden = hidden;
     [self.barsTimer invalidate];
 
+    [self setTabBarHidden:_barsHidden animated:YES];
+
     [UIApplication.sharedApplication setStatusBarHidden:_barsHidden withAnimation:UIStatusBarAnimationFade];
 
-    @weakify(self)
-
-    [UIView animateWithDuration:_barsHidden ? UINavigationControllerHideShowBarDuration : 0.0 animations:^
-    {
-        @strongify(self)
-
-        if ([self.selectedViewController isKindOfClass:UINavigationController.class])
-        {
-            CGRect frame = ((UINavigationController *)self.selectedViewController).navigationBar.frame;
-
-            frame.origin.y = _barsHidden ? 0.0 : UIApplication.statusBarHeight;
-            ((UINavigationController *)self.selectedViewController).navigationBar.frame = frame;
-        }
-    }];
-
-    [UIView animateWithDuration:UINavigationControllerHideShowBarDuration animations:^
-    {
-        @strongify(self)
-
-        for (UIViewController *controller in self.viewControllers)
-            if ([controller isKindOfClass:UINavigationController.class])
-                ((UINavigationController *)controller).navigationBar.alpha = _barsHidden ? 0.0 : kUINavigationBarTranslucentAlphaDefault;
-
-        self.tabBar.alpha = _barsHidden ? 0.0 : kUINavigationBarTranslucentAlphaDefault;
-
-        if (_barsHidden)
-            [self.selectedViewController.view setNeedsLayout];
-    }
-    completion:^
-    (BOOL finished)
-    {
-        @strongify(self)
-
-        if (_barsHidden)
-            [self.selectedViewController.view setNeedsLayout];
-    }];
+    for (UIViewController *controller in self.viewControllers)
+        if ([controller isKindOfClass:UINavigationController.class])
+            [((UINavigationController *)controller) setNavigationBarHidden:_barsHidden animated:YES];
 }
 //------------------------------------------------------------------------------
 - (void)autoHideBars

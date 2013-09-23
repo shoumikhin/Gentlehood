@@ -18,7 +18,7 @@
 #import <NSXtensions.h>
 #import <RestKit.h>
 #import <SVProgressHUD.h>
-#import <SIAlertView.h>
+#import <SDURLCache.h>
 #import <Countly.h>
 #import <Flurry.h>
 #import <GAI.h>
@@ -26,4 +26,7 @@
 #import <PonyDebugger.h>
 
 #import "Definitions.h"
+#import "GHPost.h"
+#import "GHCategory.h"
+#import "GHAttachment.h"
 #endif

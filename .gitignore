@@ -54,7 +54,8 @@ project.xcworkspace/
 
 # JetBrains
 
-.idea/
+.idea/workspace.xml
+.idea/tasks.xml
 
 # Qt
 

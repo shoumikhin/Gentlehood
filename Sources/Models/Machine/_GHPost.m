@@ -10,11 +10,14 @@ const struct GHPostAttributes GHPostAttributes = {
 	.favorite = @"favorite",
 	.height = @"height",
 	.identifier = @"identifier",
+	.title = @"title",
+	.url = @"url",
 };
 
 
 
 const struct GHPostRelationships GHPostRelationships = {
+	.attachments = @"attachments",
 	.categories = @"categories",
 };
 
@@ -168,6 +171,33 @@ const struct GHPostRelationships GHPostRelationships = {
 
 
 
+
+@dynamic title;
+
+
+
+
+
+
+@dynamic url;
+
+
+
+
+
+
+@dynamic attachments;
+
+	
+- (NSMutableSet*)attachmentsSet {
+	[self willAccessValueForKey:@"attachments"];
+  
+	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"attachments"];
+  
+	[self didAccessValueForKey:@"attachments"];
+	return result;
+}
+	
 
 @dynamic categories;
 

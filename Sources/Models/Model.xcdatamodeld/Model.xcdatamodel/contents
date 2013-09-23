@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2061" systemVersion="12E55" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3396" systemVersion="12F37" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="GHAttachment" representedClassName="GHAttachment" syncable="YES">
+        <attribute name="identifier" optional="YES" attributeType="Integer 64" defaultValueString="0" indexed="YES" syncable="YES"/>
+        <attribute name="isLoaded" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="mime" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="post" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GHPost" inverseName="attachments" inverseEntity="GHPost" syncable="YES"/>
+    </entity>
     <entity name="GHCategory" representedClassName="GHCategory" syncable="YES">
         <attribute name="identifier" optional="YES" attributeType="Integer 64" defaultValueString="0" indexed="YES" syncable="YES"/>
         <attribute name="postCount" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
@@ -11,10 +19,14 @@
         <attribute name="favorite" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="height" optional="YES" attributeType="Float" defaultValueString="66" syncable="YES"/>
         <attribute name="identifier" optional="YES" attributeType="Integer 64" defaultValueString="0" indexed="YES" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="attachments" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="GHAttachment" inverseName="post" inverseEntity="GHAttachment" syncable="YES"/>
         <relationship name="categories" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="GHCategory" inverseName="posts" inverseEntity="GHCategory" syncable="YES"/>
     </entity>
     <elements>
-        <element name="GHCategory" positionX="-99" positionY="-54" width="128" height="90"/>
-        <element name="GHPost" positionX="-414" positionY="-27" width="128" height="135"/>
+        <element name="GHAttachment" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="GHCategory" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="GHPost" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

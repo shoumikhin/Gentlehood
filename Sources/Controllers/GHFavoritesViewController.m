@@ -8,9 +8,6 @@
 
 #import "GHFavoritesViewController.h"
 
-#import "GHPost.h"
-#import "GHWebCell.h"
-
 //==============================================================================
 @implementation GHFavoritesViewController
 //------------------------------------------------------------------------------
@@ -26,7 +23,7 @@
 {
     [super viewDidLoad];
 
-    UIImage *image = [UIImage imageNamed:NSLocalizedString(@"FAVORITES_TITLE", nil)];
+    UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"%@%@", [UIDevice systemVersionIsAtLeast:@"7.0"] ? @"" : @"6_", NSLocalizedString(@"FAVORITES_TITLE", nil)]];
 
     if (image)
         self.navigationItem.titleView = [UIImageView.alloc initWithImage:image];

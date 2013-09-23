@@ -8,16 +8,9 @@
 
 #import "GHContentViewController.h"
 
-#import "GHPost.h"
-#import "GHCategory.h"
-#import "GHWebCell.h"
-
 //==============================================================================
-static NSUInteger const kPostsPerPage = 10;
-//==============================================================================
-@interface GHContentViewController () <NSFetchedResultsControllerDelegate, GHWebCellDelegate, UIScrollViewDelegate>
+@interface GHContentViewController () <NSFetchedResultsControllerDelegate, UIScrollViewDelegate>
 
-@property (nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (nonatomic) BOOL isLoaded;
 @property (nonatomic) BOOL isLoading;
 @property (nonatomic) BOOL isAppendTriggered;
@@ -29,9 +22,15 @@ static NSUInteger const kPostsPerPage = 10;
 //==============================================================================
 @implementation GHContentViewController
 //------------------------------------------------------------------------------
+@synthesize fetchedResultsController = _fetchedResultsController;
+//------------------------------------------------------------------------------
 - (void)awakeFromNib
 {
+    [super awakeFromNib];
+
     self.navigationController.navigationBar.translucent = YES;
+    self.postsPerPage = kGHPostsPerPageDefault;
+    self.sortDescriptors = @[[NSSortDescriptor.alloc initWithKey:@"date" ascending:NO]];
 }
 //------------------------------------------------------------------------------
 - (void)viewDidLoad
@@ -48,6 +47,7 @@ static NSUInteger const kPostsPerPage = 10;
     self.currentPage = 1;
     self.orientation = UIApplication.sharedApplication.statusBarOrientation;
     [self.refreshControl addTarget:self action:@selector(update) forControlEvents:UIControlEventValueChanged];
+    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(onNetworkReachabilityChanged:) name:AFNetworkingReachabilityDidChangeNotification object:nil];
 }
 //------------------------------------------------------------------------------
 - (void)viewWillAppear:(BOOL)animated
@@ -67,12 +67,6 @@ static NSUInteger const kPostsPerPage = 10;
 
     if (!self.isLoaded && AFNetworkReachabilityStatusNotReachable < RKObjectManager.sharedManager.HTTPClient.networkReachabilityStatus)
         [self update];
-
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^
-    {
-        [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(onNetworkReachabilityChanged:) name:AFNetworkingReachabilityDidChangeNotification object:nil];
-    });
 
     TRACK(@"APPEAR", self.navigationItem.title);
 }
@@ -96,7 +90,7 @@ static NSUInteger const kPostsPerPage = 10;
 
     [self.refreshControl beginRefreshing];
 
-    if (0.0 == self.tableView.contentOffset.y)
+    if (0.0 >= self.tableView.contentOffset.y)
     {
         @weakify(self)
 
@@ -123,12 +117,15 @@ static NSUInteger const kPostsPerPage = 10;
     @{
         @"id":@(self.category),
         @"page":@(self.currentPage),
-        @"count":@(kPostsPerPage)
+        @"count":@(self.postsPerPage)
     }
     success:^
     (RKObjectRequestOperation *operation, RKMappingResult *mappingResult)
     {
         @strongify(self)
+
+        if (!self.isLoaded)
+            [self deleteObsoleteData];
 
         [NSFetchedResultsController deleteCacheWithName:kFetchCacheName];
         [self.fetchedResultsController performFetch:nil];
@@ -139,8 +136,6 @@ static NSUInteger const kPostsPerPage = 10;
         self.isLoading = NO;
         self.isLoaded = YES;
         self.currentPage++;
-
-        TRACK(@"UPDATE SUCCESS", self.navigationItem.title);
     }
     failure:^
     (RKObjectRequestOperation *operation, NSError *error)
@@ -161,44 +156,15 @@ static NSUInteger const kPostsPerPage = 10;
 
         TRACK(@"UPDATE FAILURE", self.navigationItem.title);
     }];
-
-    ((RKObjectRequestOperation *)RKObjectManager.sharedManager.operationQueue.operations.lastObject).willMapDeserializedResponseBlock = ^
-    id (id deserializedResponseBody)
-    {
-        @strongify(self)
-
-        if (!self.isLoaded)
-            [self deleteObsoleteData];
-
-        return deserializedResponseBody;
-    };
 }
 //------------------------------------------------------------------------------
 - (void)deleteObsoleteData
 {
-    [RKManagedObjectStore.defaultStore.mainQueueManagedObjectContext deleteObjectsOfEntity:NSStringFromClass(GHPost.class) withPredicate:[NSCompoundPredicate andPredicateWithSubpredicates:@[self.predicate, [NSPredicate predicateWithFormat:@"YES != favorite"]]] sortDescriptors:nil andFetchLimit:0];
+    NSMutableArray *objectsToDelete = [RKManagedObjectStore.defaultStore.mainQueueManagedObjectContext objectsOfEntity:NSStringFromClass(GHPost.class) withPredicate:[NSCompoundPredicate andPredicateWithSubpredicates:@[self.predicate, [NSPredicate predicateWithFormat:@"NO == favorite"]]] sortDescriptors:@[[NSSortDescriptor.alloc initWithKey:@"date" ascending:NO]] andFetchLimit:0].mutableCopy;
+
+    [objectsToDelete removeObjectsInRange:NSMakeRange(0, MIN(objectsToDelete.count, self.postsPerPage))];
+    [RKManagedObjectStore.defaultStore.mainQueueManagedObjectContext deleteObjects:objectsToDelete];
     [RKManagedObjectStore.defaultStore.mainQueueManagedObjectContext saveToPersistentStore:nil];
-}
-//------------------------------------------------------------------------------
-- (void)webCellHeight:(CGFloat)height forIndexPath:(NSIndexPath *)indexPath
-{
-    id <NSFetchedResultsSectionInfo> sectionInfo = self.fetchedResultsController.sections[0];
-
-    if (indexPath.row >= sectionInfo.numberOfObjects)
-        return;
-
-    GHPost *post = [self.fetchedResultsController objectAtIndexPath:indexPath];
-
-    if (height != post.height.floatValue)
-    {
-        post.height = @(height);
-        [RKManagedObjectStore.defaultStore.mainQueueManagedObjectContext save:nil];
-    }
-
-    [UIView setAnimationsEnabled:NO];
-    [self.tableView beginUpdates];
-    [self.tableView endUpdates];
-    [UIView setAnimationsEnabled:YES];
 }
 //------------------------------------------------------------------------------
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -228,16 +194,9 @@ static NSUInteger const kPostsPerPage = 10;
     return sectionInfo.numberOfObjects;
 }
 //------------------------------------------------------------------------------
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    GHPost *post = [self.fetchedResultsController objectAtIndexPath:indexPath];
-
-    return post.height.floatValue;
-}
-//------------------------------------------------------------------------------
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    GHWebCell *cell = [tableView dequeueReusableCellWithIdentifier:kGHWebCellID forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:self.cellID forIndexPath:indexPath];
 
     [self configureCell:cell atIndexPath:indexPath];
 
@@ -253,7 +212,7 @@ static NSUInteger const kPostsPerPage = 10;
 
     fetchRequest.entity = [NSEntityDescription entityForName:NSStringFromClass(GHPost.class) inManagedObjectContext:RKManagedObjectStore.defaultStore.mainQueueManagedObjectContext];
     fetchRequest.predicate = self.predicate;
-    fetchRequest.sortDescriptors = @[[NSSortDescriptor.alloc initWithKey:@"date" ascending:NO]];
+    fetchRequest.sortDescriptors = self.sortDescriptors;
 
     [NSFetchedResultsController deleteCacheWithName:kFetchCacheName];
     _fetchedResultsController = [NSFetchedResultsController.alloc initWithFetchRequest:fetchRequest managedObjectContext:RKManagedObjectStore.defaultStore.mainQueueManagedObjectContext sectionNameKeyPath:nil cacheName:kFetchCacheName];
@@ -308,60 +267,8 @@ static NSUInteger const kPostsPerPage = 10;
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     GHPost *post = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    GHWebCell *webCell = (GHWebCell *)cell;
-    
-    webCell.delegate = self;
-    webCell.indexPath = indexPath;
-    webCell.bookmarked = post.favoriteValue;
-    [webCell loadContent:post.content];
-}
-//------------------------------------------------------------------------------
-- (void)bookmarkContentAtPoint:(CGPoint)point
-{
-    if (!self.fetchedResultsController.sections.count)
-        return;
 
-    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:[self.tabBarController.view convertPoint:point toView:self.tableView]];
-    GHWebCell *webCell = (GHWebCell *)[self.tableView cellForRowAtIndexPath:indexPath];
-
-    if (!webCell)
-        return;
-
-    GHPost *post = [self.fetchedResultsController objectAtIndexPath:indexPath];
-
-    @weakify(webCell, post)
-
-    SIAlertViewHandler handler = ^
-    (SIAlertView *alertView)
-    {
-        @strongify(webCell, post)
-
-        post.favoriteValue = !post.favoriteValue;
-        webCell.bookmarked = post.favoriteValue;
-        [RKManagedObjectStore.defaultStore.mainQueueManagedObjectContext saveToPersistentStore:nil];
-
-        TRACK(post.favoriteValue ? @"BOOKMARK" : @"UNBOOKMARK", post.identifier.stringValue);
-    };
-
-    if (post.favoriteValue)
-    {
-        SIAlertView *alertView = [SIAlertView.alloc initWithTitle:nil andMessage:NSLocalizedString(@"REMOVE_FROM_FAVORITES", nil)];
-
-        [alertView addButtonWithTitle:NSLocalizedString(@"YES", nil) type:SIAlertViewButtonTypeDestructive handler:handler];
-        [alertView addButtonWithTitle:NSLocalizedString(@"NO", nil) type:SIAlertViewButtonTypeCancel handler:nil];
-        alertView.transitionStyle = SIAlertViewTransitionStyleDropDown;
-        alertView.backgroundStyle = SIAlertViewBackgroundStyleSolid;
-        alertView.messageFont = [UIFont fontWithName:kFontFamily size:kFontSizeSmall];
-        alertView.buttonFont = [UIFont fontWithName:kFontFamily size:kFontSize];
-        
-        [alertView show];
-    }
-    else
-    {
-        handler(nil);
-        [SVProgressHUD showImage:[UIImage imageNamed:@"anchor"] status:nil];
-        [SVProgressHUD dismiss];
-    }
+    cell.textLabel.text = post.title;
 }
 //------------------------------------------------------------------------------
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView

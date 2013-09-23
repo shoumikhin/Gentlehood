@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-#import "GHContentViewController.h"
+#import "GHPostViewController.h"
 
-@interface GHAphorismsViewController : GHContentViewController
+@interface GHAphorismsViewController : GHPostViewController
 
 @end

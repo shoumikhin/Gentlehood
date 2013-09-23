@@ -2,7 +2,7 @@
 //  GHVocabularyViewController.h
 //  Gentlehood
 //
-//  Created by Anthony Shoumikhin on 2013-15-05.
+//  Created by Anthony Shoumikhin on 2013-10-09.
 //  Copyright (c) 2013 Anthony Shoumikhin. All rights reserved.
 //
 

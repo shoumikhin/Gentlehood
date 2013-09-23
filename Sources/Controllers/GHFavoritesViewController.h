@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-#import "GHContentViewController.h"
+#import "GHPostViewController.h"
 
-@interface GHFavoritesViewController : GHContentViewController
+@interface GHFavoritesViewController : GHPostViewController
 
 @end

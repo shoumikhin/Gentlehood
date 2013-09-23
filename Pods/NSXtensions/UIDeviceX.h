@@ -1,7 +1,7 @@
 //
 //  UIDeviceX.h
 //
-//  Copyright (c) 2012 Anthony Shoumikhin. All rights reserved under MIT license.
+//  Copyright (c) 2013 Anthony Shoumikhin. All rights reserved under MIT license.
 //  mailto:anthony@shoumikh.in
 //
 
@@ -94,5 +94,13 @@ typedef NS_ENUM(NSUInteger, UIDeviceResolution)
  @return A constant among enum of device resolutions.
  */
 + (UIDeviceResolution)resolution;
+
+/**
+ Check if a specific system version is supported.
+
+ @param version String representing system version, e.g. @"6.0".
+ @return YES if running on a system with given version or older.
+ */
++ (BOOL)systemVersionIsAtLeast:(NSString *)version;
 
 @end

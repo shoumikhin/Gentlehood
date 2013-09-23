@@ -2,6 +2,8 @@
 
 #include <execinfo.h>
 
+#define RETURN_ALERT_TIMEOUT 3.0
+
 @implementation UIApplication (X)
 
 + (NSString *)identifier
@@ -64,6 +66,56 @@
     free(strings);
     
     return ret;
+}
+
++ (void)call:(NSString *)phoneNumber andShowReturn:(BOOL)shouldReturn
+{
+    if (!phoneNumber.length)
+        return;
+
+    if (![phoneNumber hasPrefix:@"tel://"])
+        phoneNumber = [@"tel://" stringByAppendingString:phoneNumber];
+
+    [self openURL:[NSURL URLWithString:phoneNumber] andShowReturn:shouldReturn];
+}
+
++ (void)email:(NSString *)address andShowReturn:(BOOL)shouldReturn
+{
+    if (!address.length)
+        return;
+
+    if (![address hasPrefix:@"mailto://"])
+        address = [@"mailto://" stringByAppendingString:address];
+    
+    [self openURL:[NSURL URLWithString:address] andShowReturn:shouldReturn];
+}
+
++ (void)openURL:(NSURL *)url andShowReturn:(BOOL)shouldReturn
+{
+    if (!url)
+        return;
+
+#if !TARGET_IPHONE_SIMULATOR
+    if ([UIApplication.sharedApplication canOpenURL:url])
+    {
+#endif
+        [UIApplication.sharedApplication openURL:url];
+        
+        if (shouldReturn)
+        {
+            UILocalNotification *notification = UILocalNotification.new;
+
+            notification.timeZone = NSTimeZone.systemTimeZone;
+            notification.fireDate = [NSDate.date dateByAddingTimeInterval:RETURN_ALERT_TIMEOUT];
+            notification.alertAction = @"Return";
+            notification.alertBody = [NSString stringWithFormat:@"Back to %@", [NSBundle.mainBundle objectForInfoDictionaryKey:(NSString *)kCFBundleNameKey]];
+            notification.soundName = UILocalNotificationDefaultSoundName;
+            
+            [UIApplication.sharedApplication scheduleLocalNotification:notification];
+        }
+#if !TARGET_IPHONE_SIMULATOR
+    }
+#endif
 }
 
 @end

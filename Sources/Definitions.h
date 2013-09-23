@@ -2,10 +2,13 @@
 FOUNDATION_EXPORT NSString * const kStorageFilename;
 FOUNDATION_EXPORT NSString * const kGHAPI;
 FOUNDATION_EXPORT NSString * const kGHAPIGetCategory;
+FOUNDATION_EXPORT NSUInteger const kGHPostsPerPageDefault;
 FOUNDATION_EXPORT NSString * const kGHWebCellID;
+FOUNDATION_EXPORT NSString * const kGHVocabularyCellID;
+FOUNDATION_EXPORT NSString * const kGHVocabularyDefineSegue;
 FOUNDATION_EXPORT NSString * const kFetchCacheName;
+FOUNDATION_EXPORT NSString * const kImageCacheDirectory;
 FOUNDATION_EXPORT CGFloat const kUITableViewCellHeightDefault;
-FOUNDATION_EXPORT CGFloat const kUINavigationBarTranslucentAlphaDefault;
 FOUNDATION_EXPORT NSString * const kFontFamily;
 FOUNDATION_EXPORT NSString * const kFontFamilyItalic;
 FOUNDATION_EXPORT CGFloat const kFontSize;

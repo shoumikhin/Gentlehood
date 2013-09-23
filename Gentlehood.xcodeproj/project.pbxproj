@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		92160CD717DEAF2C00933199 /* GHVocabularyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92160CD617DEAF2C00933199 /* GHVocabularyViewController.m */; };
+		925A953817E26CCF00211624 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 925A953617E26CCF00211624 /* arrow.png */; };
+		925A953917E26CCF00211624 /* arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 925A953717E26CCF00211624 /* arrow@2x.png */; };
 		92810CBD176A077000C0A53C /* favorites_title_ru.png in Resources */ = {isa = PBXBuildFile; fileRef = 92810CBB176A077000C0A53C /* favorites_title_ru.png */; };
 		92810CBE176A077000C0A53C /* favorites_title_ru@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 92810CBC176A077000C0A53C /* favorites_title_ru@2x.png */; };
 		92810CCA176A079E00C0A53C /* aphorisms_title_en.png in Resources */ = {isa = PBXBuildFile; fileRef = 92810CC0176A079E00C0A53C /* aphorisms_title_en.png */; };
@@ -23,16 +26,44 @@
 		929340851743C31800802420 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 929340751743C31800802420 /* main.m */; };
 		9293413117441A7300802420 /* GHAphorismsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9293412817441A7300802420 /* GHAphorismsViewController.m */; };
 		9293413317441A7300802420 /* GHStyleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9293412C17441A7300802420 /* GHStyleViewController.m */; };
-		9293413417441A7300802420 /* GHThoughtsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9293412E17441A7300802420 /* GHThoughtsViewController.m */; };
-		9293413517441A7300802420 /* GHVocabularyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9293413017441A7300802420 /* GHVocabularyViewController.m */; };
+		9293413417441A7300802420 /* GHWisdomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9293412E17441A7300802420 /* GHWisdomViewController.m */; };
+		9293413517441A7300802420 /* GHVocabularyDefinitionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9293413017441A7300802420 /* GHVocabularyDefinitionViewController.m */; };
 		92A6FC851783736A00B911BD /* GHCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 92A6FC7D1783736A00B911BD /* GHCategory.m */; };
 		92A6FC861783736A00B911BD /* GHPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 92A6FC7F1783736A00B911BD /* GHPost.m */; };
 		92A6FC871783736A00B911BD /* _GHCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 92A6FC821783736A00B911BD /* _GHCategory.m */; };
 		92A6FC881783736A00B911BD /* _GHPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 92A6FC841783736A00B911BD /* _GHPost.m */; };
+		92B0E25517EAEC1E0078C851 /* _GHAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B0E25417EAEC1E0078C851 /* _GHAttachment.m */; };
+		92B0E25817EAEC630078C851 /* GHAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B0E25717EAEC630078C851 /* GHAttachment.m */; };
 		92D3594517452F120059A902 /* GHRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92D3594417452F120059A902 /* GHRootViewController.m */; };
 		92D359A417453C090059A902 /* Definitions.m in Sources */ = {isa = PBXBuildFile; fileRef = 92D359A317453C090059A902 /* Definitions.m */; };
 		92D359A7174541720059A902 /* GHContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92D359A6174541710059A902 /* GHContentViewController.m */; };
 		92D359AA1745FD890059A902 /* GHWebCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92D359A91745FD890059A902 /* GHWebCell.m */; };
+		92D44DE817ECDDB5006BD09C /* 6_aphorisms_title_en.png in Resources */ = {isa = PBXBuildFile; fileRef = 92D44DDE17ECDDB5006BD09C /* 6_aphorisms_title_en.png */; };
+		92D44DE917ECDDB5006BD09C /* 6_aphorisms_title_en@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 92D44DDF17ECDDB5006BD09C /* 6_aphorisms_title_en@2x.png */; };
+		92D44DEA17ECDDB5006BD09C /* 6_favorites_title_en.png in Resources */ = {isa = PBXBuildFile; fileRef = 92D44DE017ECDDB5006BD09C /* 6_favorites_title_en.png */; };
+		92D44DEB17ECDDB5006BD09C /* 6_favorites_title_en@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 92D44DE117ECDDB5006BD09C /* 6_favorites_title_en@2x.png */; };
+		92D44DEC17ECDDB5006BD09C /* 6_style_title_en.png in Resources */ = {isa = PBXBuildFile; fileRef = 92D44DE217ECDDB5006BD09C /* 6_style_title_en.png */; };
+		92D44DED17ECDDB5006BD09C /* 6_style_title_en@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 92D44DE317ECDDB5006BD09C /* 6_style_title_en@2x.png */; };
+		92D44DEE17ECDDB5006BD09C /* 6_thoughts_title_en.png in Resources */ = {isa = PBXBuildFile; fileRef = 92D44DE417ECDDB5006BD09C /* 6_thoughts_title_en.png */; };
+		92D44DEF17ECDDB5006BD09C /* 6_thoughts_title_en@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 92D44DE517ECDDB5006BD09C /* 6_thoughts_title_en@2x.png */; };
+		92D44DF017ECDDB5006BD09C /* 6_vocabulary_title_en.png in Resources */ = {isa = PBXBuildFile; fileRef = 92D44DE617ECDDB5006BD09C /* 6_vocabulary_title_en.png */; };
+		92D44DF117ECDDB5006BD09C /* 6_vocabulary_title_en@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 92D44DE717ECDDB5006BD09C /* 6_vocabulary_title_en@2x.png */; };
+		92D44DFC17ECDDCA006BD09C /* 6_aphorisms_title_ru.png in Resources */ = {isa = PBXBuildFile; fileRef = 92D44DF217ECDDCA006BD09C /* 6_aphorisms_title_ru.png */; };
+		92D44DFD17ECDDCA006BD09C /* 6_aphorisms_title_ru@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 92D44DF317ECDDCA006BD09C /* 6_aphorisms_title_ru@2x.png */; };
+		92D44DFE17ECDDCA006BD09C /* 6_favorites_title_ru.png in Resources */ = {isa = PBXBuildFile; fileRef = 92D44DF417ECDDCA006BD09C /* 6_favorites_title_ru.png */; };
+		92D44DFF17ECDDCA006BD09C /* 6_favorites_title_ru@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 92D44DF517ECDDCA006BD09C /* 6_favorites_title_ru@2x.png */; };
+		92D44E0017ECDDCA006BD09C /* 6_style_title_ru.png in Resources */ = {isa = PBXBuildFile; fileRef = 92D44DF617ECDDCA006BD09C /* 6_style_title_ru.png */; };
+		92D44E0117ECDDCA006BD09C /* 6_style_title_ru@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 92D44DF717ECDDCA006BD09C /* 6_style_title_ru@2x.png */; };
+		92D44E0217ECDDCA006BD09C /* 6_thoughts_title_ru.png in Resources */ = {isa = PBXBuildFile; fileRef = 92D44DF817ECDDCA006BD09C /* 6_thoughts_title_ru.png */; };
+		92D44E0317ECDDCA006BD09C /* 6_thoughts_title_ru@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 92D44DF917ECDDCA006BD09C /* 6_thoughts_title_ru@2x.png */; };
+		92D44E0417ECDDCA006BD09C /* 6_vocabulary_title_ru.png in Resources */ = {isa = PBXBuildFile; fileRef = 92D44DFA17ECDDCA006BD09C /* 6_vocabulary_title_ru.png */; };
+		92D44E0517ECDDCA006BD09C /* 6_vocabulary_title_ru@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 92D44DFB17ECDDCA006BD09C /* 6_vocabulary_title_ru@2x.png */; };
+		92D44E2917EF2CCD006BD09C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92D44E2817EF2CCD006BD09C /* Images.xcassets */; };
+		92D44E2E17EF3100006BD09C /* Icon-Spotlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 92D44E2A17EF3100006BD09C /* Icon-Spotlight.png */; };
+		92D44E2F17EF3100006BD09C /* Icon-Spotlight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 92D44E2B17EF3100006BD09C /* Icon-Spotlight@2x.png */; };
+		92D44E3017EF3100006BD09C /* Icon7-Spotlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 92D44E2C17EF3100006BD09C /* Icon7-Spotlight.png */; };
+		92D44E3117EF3100006BD09C /* Icon7.png in Resources */ = {isa = PBXBuildFile; fileRef = 92D44E2D17EF3100006BD09C /* Icon7.png */; };
+		92D44E3717EFA7FF006BD09C /* GHPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92D44E3617EFA7FF006BD09C /* GHPostViewController.m */; };
 		92DB6319175CE52C000C2343 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92DB62DE175CE52B000C2343 /* MainStoryboard.storyboard */; };
 		92DB631A175CE52C000C2343 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 92DB62E1175CE52B000C2343 /* InfoPlist.strings */; };
 		92DB631B175CE52C000C2343 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 92DB62E3175CE52B000C2343 /* Localizable.strings */; };
@@ -78,6 +109,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4B1B6FBDF5F7446288164AC6 /* libPods-debug.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-debug.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		92160CD517DEAF2C00933199 /* GHVocabularyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHVocabularyViewController.h; sourceTree = "<group>"; };
+		92160CD617DEAF2C00933199 /* GHVocabularyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHVocabularyViewController.m; sourceTree = "<group>"; };
+		925A953617E26CCF00211624 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
+		925A953717E26CCF00211624 /* arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow@2x.png"; sourceTree = "<group>"; };
 		925EF36317730F53005B0158 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/MainStoryboard.strings; sourceTree = "<group>"; };
 		925EF36517730F6E005B0158 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MainStoryboard.strings; sourceTree = "<group>"; };
 		92810CBB176A077000C0A53C /* favorites_title_ru.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favorites_title_ru.png; sourceTree = "<group>"; };
@@ -101,10 +137,10 @@
 		9293412817441A7300802420 /* GHAphorismsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHAphorismsViewController.m; sourceTree = "<group>"; };
 		9293412B17441A7300802420 /* GHStyleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHStyleViewController.h; sourceTree = "<group>"; };
 		9293412C17441A7300802420 /* GHStyleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHStyleViewController.m; sourceTree = "<group>"; };
-		9293412D17441A7300802420 /* GHThoughtsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHThoughtsViewController.h; sourceTree = "<group>"; };
-		9293412E17441A7300802420 /* GHThoughtsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHThoughtsViewController.m; sourceTree = "<group>"; };
-		9293412F17441A7300802420 /* GHVocabularyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHVocabularyViewController.h; sourceTree = "<group>"; };
-		9293413017441A7300802420 /* GHVocabularyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHVocabularyViewController.m; sourceTree = "<group>"; };
+		9293412D17441A7300802420 /* GHWisdomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHWisdomViewController.h; sourceTree = "<group>"; };
+		9293412E17441A7300802420 /* GHWisdomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHWisdomViewController.m; sourceTree = "<group>"; };
+		9293412F17441A7300802420 /* GHVocabularyDefinitionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHVocabularyDefinitionViewController.h; sourceTree = "<group>"; };
+		9293413017441A7300802420 /* GHVocabularyDefinitionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHVocabularyDefinitionViewController.m; sourceTree = "<group>"; };
 		92A6FC7C1783736A00B911BD /* GHCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHCategory.h; sourceTree = "<group>"; };
 		92A6FC7D1783736A00B911BD /* GHCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHCategory.m; sourceTree = "<group>"; };
 		92A6FC7E1783736A00B911BD /* GHPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHPost.h; sourceTree = "<group>"; };
@@ -113,6 +149,10 @@
 		92A6FC821783736A00B911BD /* _GHCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _GHCategory.m; sourceTree = "<group>"; };
 		92A6FC831783736A00B911BD /* _GHPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _GHPost.h; sourceTree = "<group>"; };
 		92A6FC841783736A00B911BD /* _GHPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _GHPost.m; sourceTree = "<group>"; };
+		92B0E25317EAEC1E0078C851 /* _GHAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = _GHAttachment.h; path = Sources/Models/Machine/_GHAttachment.h; sourceTree = SOURCE_ROOT; };
+		92B0E25417EAEC1E0078C851 /* _GHAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = _GHAttachment.m; path = Sources/Models/Machine/_GHAttachment.m; sourceTree = SOURCE_ROOT; };
+		92B0E25617EAEC630078C851 /* GHAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHAttachment.h; sourceTree = "<group>"; };
+		92B0E25717EAEC630078C851 /* GHAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHAttachment.m; sourceTree = "<group>"; };
 		92C243E6178805D1001802C2 /* Pods.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		92C2444E17880F33001802C2 /* Pods-debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = "Pods-debug.xcconfig"; path = "Pods/Pods-debug.xcconfig"; sourceTree = "<group>"; };
 		92D3594317452F120059A902 /* GHRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHRootViewController.h; sourceTree = "<group>"; };
@@ -122,6 +162,33 @@
 		92D359A6174541710059A902 /* GHContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHContentViewController.m; sourceTree = "<group>"; };
 		92D359A81745FD890059A902 /* GHWebCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHWebCell.h; sourceTree = "<group>"; };
 		92D359A91745FD890059A902 /* GHWebCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHWebCell.m; sourceTree = "<group>"; };
+		92D44DDE17ECDDB5006BD09C /* 6_aphorisms_title_en.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 6_aphorisms_title_en.png; sourceTree = "<group>"; };
+		92D44DDF17ECDDB5006BD09C /* 6_aphorisms_title_en@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "6_aphorisms_title_en@2x.png"; sourceTree = "<group>"; };
+		92D44DE017ECDDB5006BD09C /* 6_favorites_title_en.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 6_favorites_title_en.png; sourceTree = "<group>"; };
+		92D44DE117ECDDB5006BD09C /* 6_favorites_title_en@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "6_favorites_title_en@2x.png"; sourceTree = "<group>"; };
+		92D44DE217ECDDB5006BD09C /* 6_style_title_en.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 6_style_title_en.png; sourceTree = "<group>"; };
+		92D44DE317ECDDB5006BD09C /* 6_style_title_en@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "6_style_title_en@2x.png"; sourceTree = "<group>"; };
+		92D44DE417ECDDB5006BD09C /* 6_thoughts_title_en.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 6_thoughts_title_en.png; sourceTree = "<group>"; };
+		92D44DE517ECDDB5006BD09C /* 6_thoughts_title_en@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "6_thoughts_title_en@2x.png"; sourceTree = "<group>"; };
+		92D44DE617ECDDB5006BD09C /* 6_vocabulary_title_en.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 6_vocabulary_title_en.png; sourceTree = "<group>"; };
+		92D44DE717ECDDB5006BD09C /* 6_vocabulary_title_en@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "6_vocabulary_title_en@2x.png"; sourceTree = "<group>"; };
+		92D44DF217ECDDCA006BD09C /* 6_aphorisms_title_ru.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 6_aphorisms_title_ru.png; sourceTree = "<group>"; };
+		92D44DF317ECDDCA006BD09C /* 6_aphorisms_title_ru@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "6_aphorisms_title_ru@2x.png"; sourceTree = "<group>"; };
+		92D44DF417ECDDCA006BD09C /* 6_favorites_title_ru.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 6_favorites_title_ru.png; sourceTree = "<group>"; };
+		92D44DF517ECDDCA006BD09C /* 6_favorites_title_ru@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "6_favorites_title_ru@2x.png"; sourceTree = "<group>"; };
+		92D44DF617ECDDCA006BD09C /* 6_style_title_ru.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 6_style_title_ru.png; sourceTree = "<group>"; };
+		92D44DF717ECDDCA006BD09C /* 6_style_title_ru@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "6_style_title_ru@2x.png"; sourceTree = "<group>"; };
+		92D44DF817ECDDCA006BD09C /* 6_thoughts_title_ru.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 6_thoughts_title_ru.png; sourceTree = "<group>"; };
+		92D44DF917ECDDCA006BD09C /* 6_thoughts_title_ru@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "6_thoughts_title_ru@2x.png"; sourceTree = "<group>"; };
+		92D44DFA17ECDDCA006BD09C /* 6_vocabulary_title_ru.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 6_vocabulary_title_ru.png; sourceTree = "<group>"; };
+		92D44DFB17ECDDCA006BD09C /* 6_vocabulary_title_ru@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "6_vocabulary_title_ru@2x.png"; sourceTree = "<group>"; };
+		92D44E2817EF2CCD006BD09C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Resources/Images.xcassets; sourceTree = SOURCE_ROOT; };
+		92D44E2A17EF3100006BD09C /* Icon-Spotlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Spotlight.png"; sourceTree = "<group>"; };
+		92D44E2B17EF3100006BD09C /* Icon-Spotlight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Spotlight@2x.png"; sourceTree = "<group>"; };
+		92D44E2C17EF3100006BD09C /* Icon7-Spotlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon7-Spotlight.png"; sourceTree = "<group>"; };
+		92D44E2D17EF3100006BD09C /* Icon7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon7.png; sourceTree = "<group>"; };
+		92D44E3517EFA7FF006BD09C /* GHPostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHPostViewController.h; sourceTree = "<group>"; };
+		92D44E3617EFA7FF006BD09C /* GHPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHPostViewController.m; sourceTree = "<group>"; };
 		92DB62DF175CE52B000C2343 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		92DB62E2175CE52B000C2343 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		92DB62E4175CE52B000C2343 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -170,6 +237,7 @@
 		92DB6347175D0C35000C2343 /* GHFavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHFavoritesViewController.m; sourceTree = "<group>"; };
 		92DB634A175D0EE7000C2343 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		92E857451743B4E300D61C42 /* Gentlehood.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gentlehood.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A162BB3999A6462F8490EFD1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,9 +251,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		033C66C33C97453A804A31AF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A162BB3999A6462F8490EFD1 /* libPods.a */,
+				4B1B6FBDF5F7446288164AC6 /* libPods-debug.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		92810CBF176A079E00C0A53C /* header */ = {
 			isa = PBXGroup;
 			children = (
+				92D44DDE17ECDDB5006BD09C /* 6_aphorisms_title_en.png */,
+				92D44DDF17ECDDB5006BD09C /* 6_aphorisms_title_en@2x.png */,
+				92D44DE017ECDDB5006BD09C /* 6_favorites_title_en.png */,
+				92D44DE117ECDDB5006BD09C /* 6_favorites_title_en@2x.png */,
+				92D44DE217ECDDB5006BD09C /* 6_style_title_en.png */,
+				92D44DE317ECDDB5006BD09C /* 6_style_title_en@2x.png */,
+				92D44DE417ECDDB5006BD09C /* 6_thoughts_title_en.png */,
+				92D44DE517ECDDB5006BD09C /* 6_thoughts_title_en@2x.png */,
+				92D44DE617ECDDB5006BD09C /* 6_vocabulary_title_en.png */,
+				92D44DE717ECDDB5006BD09C /* 6_vocabulary_title_en@2x.png */,
 				92810CC0176A079E00C0A53C /* aphorisms_title_en.png */,
 				92810CC1176A079E00C0A53C /* aphorisms_title_en@2x.png */,
 				92810CC2176A079E00C0A53C /* favorites_title_en.png */,
@@ -219,20 +306,24 @@
 		9293406E1743C31800802420 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				92D359A5174541710059A902 /* GHContentViewController.h */,
-				92D359A6174541710059A902 /* GHContentViewController.m */,
 				92D3594317452F120059A902 /* GHRootViewController.h */,
 				92D3594417452F120059A902 /* GHRootViewController.m */,
-				9293412F17441A7300802420 /* GHVocabularyViewController.h */,
-				9293413017441A7300802420 /* GHVocabularyViewController.m */,
-				9293412B17441A7300802420 /* GHStyleViewController.h */,
-				9293412C17441A7300802420 /* GHStyleViewController.m */,
-				9293412D17441A7300802420 /* GHThoughtsViewController.h */,
-				9293412E17441A7300802420 /* GHThoughtsViewController.m */,
+				92D359A5174541710059A902 /* GHContentViewController.h */,
+				92D359A6174541710059A902 /* GHContentViewController.m */,
+				92D44E3517EFA7FF006BD09C /* GHPostViewController.h */,
+				92D44E3617EFA7FF006BD09C /* GHPostViewController.m */,
 				9293412717441A7300802420 /* GHAphorismsViewController.h */,
 				9293412817441A7300802420 /* GHAphorismsViewController.m */,
 				92DB6346175D0C35000C2343 /* GHFavoritesViewController.h */,
 				92DB6347175D0C35000C2343 /* GHFavoritesViewController.m */,
+				9293412B17441A7300802420 /* GHStyleViewController.h */,
+				9293412C17441A7300802420 /* GHStyleViewController.m */,
+				9293412D17441A7300802420 /* GHWisdomViewController.h */,
+				9293412E17441A7300802420 /* GHWisdomViewController.m */,
+				92160CD517DEAF2C00933199 /* GHVocabularyViewController.h */,
+				92160CD617DEAF2C00933199 /* GHVocabularyViewController.m */,
+				9293412F17441A7300802420 /* GHVocabularyDefinitionViewController.h */,
+				9293413017441A7300802420 /* GHVocabularyDefinitionViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -259,6 +350,8 @@
 		92A6FC7B1783736A00B911BD /* Human */ = {
 			isa = PBXGroup;
 			children = (
+				92B0E25617EAEC630078C851 /* GHAttachment.h */,
+				92B0E25717EAEC630078C851 /* GHAttachment.m */,
 				92A6FC7C1783736A00B911BD /* GHCategory.h */,
 				92A6FC7D1783736A00B911BD /* GHCategory.m */,
 				92A6FC7E1783736A00B911BD /* GHPost.h */,
@@ -270,6 +363,8 @@
 		92A6FC801783736A00B911BD /* Machine */ = {
 			isa = PBXGroup;
 			children = (
+				92B0E25317EAEC1E0078C851 /* _GHAttachment.h */,
+				92B0E25417EAEC1E0078C851 /* _GHAttachment.m */,
 				92A6FC811783736A00B911BD /* _GHCategory.h */,
 				92A6FC821783736A00B911BD /* _GHCategory.m */,
 				92A6FC831783736A00B911BD /* _GHPost.h */,
@@ -286,6 +381,7 @@
 				92DB62E3175CE52B000C2343 /* Localizable.strings */,
 				92DB62E1175CE52B000C2343 /* InfoPlist.strings */,
 				92DB62E7175CE52C000C2343 /* Gentlehood-Info.plist */,
+				92D44E2817EF2CCD006BD09C /* Images.xcassets */,
 				92DB62E8175CE52C000C2343 /* Icons */,
 				92DB62F0175CE52C000C2343 /* Images */,
 				92DB62E0175CE52B000C2343 /* Images_en */,
@@ -311,7 +407,11 @@
 				92DB62EB175CE52C000C2343 /* Default@2x.png */,
 				92DB62EC175CE52C000C2343 /* Icon-512.png */,
 				92DB62ED175CE52C000C2343 /* Icon-iPad.png */,
+				92D44E2A17EF3100006BD09C /* Icon-Spotlight.png */,
+				92D44E2B17EF3100006BD09C /* Icon-Spotlight@2x.png */,
 				92DB62EE175CE52C000C2343 /* Icon.png */,
+				92D44E2C17EF3100006BD09C /* Icon7-Spotlight.png */,
+				92D44E2D17EF3100006BD09C /* Icon7.png */,
 				92DB62EF175CE52C000C2343 /* Icon@2x.png */,
 			);
 			path = Icons;
@@ -343,6 +443,8 @@
 		92DB62F8175CE52C000C2343 /* cell */ = {
 			isa = PBXGroup;
 			children = (
+				925A953617E26CCF00211624 /* arrow.png */,
+				925A953717E26CCF00211624 /* arrow@2x.png */,
 				92DB62F9175CE52C000C2343 /* anchor.png */,
 				92DB62FA175CE52C000C2343 /* anchor@2x.png */,
 				92DB62FB175CE52C000C2343 /* favorited.png */,
@@ -381,6 +483,16 @@
 		92DB630D175CE52C000C2343 /* header */ = {
 			isa = PBXGroup;
 			children = (
+				92D44DF217ECDDCA006BD09C /* 6_aphorisms_title_ru.png */,
+				92D44DF317ECDDCA006BD09C /* 6_aphorisms_title_ru@2x.png */,
+				92D44DF417ECDDCA006BD09C /* 6_favorites_title_ru.png */,
+				92D44DF517ECDDCA006BD09C /* 6_favorites_title_ru@2x.png */,
+				92D44DF617ECDDCA006BD09C /* 6_style_title_ru.png */,
+				92D44DF717ECDDCA006BD09C /* 6_style_title_ru@2x.png */,
+				92D44DF817ECDDCA006BD09C /* 6_thoughts_title_ru.png */,
+				92D44DF917ECDDCA006BD09C /* 6_thoughts_title_ru@2x.png */,
+				92D44DFA17ECDDCA006BD09C /* 6_vocabulary_title_ru.png */,
+				92D44DFB17ECDDCA006BD09C /* 6_vocabulary_title_ru@2x.png */,
 				92DB630E175CE52C000C2343 /* aphorisms_title_ru.png */,
 				92DB630F175CE52C000C2343 /* aphorisms_title_ru@2x.png */,
 				92810CBB176A077000C0A53C /* favorites_title_ru.png */,
@@ -403,6 +515,7 @@
 				92E857461743B4E300D61C42 /* Products */,
 				92C243E6178805D1001802C2 /* Pods.xcconfig */,
 				92C2444E17880F33001802C2 /* Pods-debug.xcconfig */,
+				033C66C33C97453A804A31AF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -443,8 +556,18 @@
 		92E8573D1743B4E300D61C42 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0460;
+				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Anthony Shoumikhin";
+				TargetAttributes = {
+					92E857441743B4E300D61C42 = {
+						DevelopmentTeam = 78E7V7QP35;
+						SystemCapabilities = {
+							com.apple.InterAppAudio = {
+								enabled = 0;
+							};
+						};
+					};
+				};
 			};
 			buildConfigurationList = 92E857401743B4E300D61C42 /* Build configuration list for PBXProject "Gentlehood" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -472,56 +595,83 @@
 			files = (
 				92DB6319175CE52C000C2343 /* MainStoryboard.storyboard in Resources */,
 				92DB631A175CE52C000C2343 /* InfoPlist.strings in Resources */,
+				92D44E2F17EF3100006BD09C /* Icon-Spotlight@2x.png in Resources */,
 				92DB631B175CE52C000C2343 /* Localizable.strings in Resources */,
 				92DB631C175CE52C000C2343 /* MainStoryboard.strings in Resources */,
 				92DB631E175CE52C000C2343 /* Default-568h@2x.png in Resources */,
+				92D44DEF17ECDDB5006BD09C /* 6_thoughts_title_en@2x.png in Resources */,
 				92DB631F175CE52C000C2343 /* Default.png in Resources */,
+				92D44E3017EF3100006BD09C /* Icon7-Spotlight.png in Resources */,
 				92DB6320175CE52C000C2343 /* Default@2x.png in Resources */,
 				92DB6321175CE52C000C2343 /* Icon-512.png in Resources */,
+				92D44DEB17ECDDB5006BD09C /* 6_favorites_title_en@2x.png in Resources */,
+				92D44DFE17ECDDCA006BD09C /* 6_favorites_title_ru.png in Resources */,
 				92DB6322175CE52C000C2343 /* Icon-iPad.png in Resources */,
+				92D44DFD17ECDDCA006BD09C /* 6_aphorisms_title_ru@2x.png in Resources */,
 				92DB6323175CE52C000C2343 /* Icon.png in Resources */,
+				92D44DF017ECDDB5006BD09C /* 6_vocabulary_title_en.png in Resources */,
 				92DB6324175CE52C000C2343 /* Icon@2x.png in Resources */,
 				92DB6325175CE52C000C2343 /* background.png in Resources */,
 				92DB6326175CE52C000C2343 /* background@2x.png in Resources */,
 				92DB6327175CE52C000C2343 /* logo.png in Resources */,
 				92DB6328175CE52C000C2343 /* logo@2x.png in Resources */,
+				92D44DED17ECDDB5006BD09C /* 6_style_title_en@2x.png in Resources */,
 				92DB6329175CE52C000C2343 /* title.png in Resources */,
 				92DB632A175CE52C000C2343 /* title@2x.png in Resources */,
 				92DB632B175CE52C000C2343 /* anchor.png in Resources */,
 				92DB632C175CE52C000C2343 /* anchor@2x.png in Resources */,
+				92D44DFC17ECDDCA006BD09C /* 6_aphorisms_title_ru.png in Resources */,
+				92D44E3117EF3100006BD09C /* Icon7.png in Resources */,
 				92DB632D175CE52C000C2343 /* favorited.png in Resources */,
 				92DB632E175CE52C000C2343 /* aphorisms.png in Resources */,
 				92DB632F175CE52C000C2343 /* aphorisms@2x.png in Resources */,
 				92DB6330175CE52C000C2343 /* favorites.png in Resources */,
 				92DB6331175CE52C000C2343 /* favorites@2x.png in Resources */,
 				92DB6332175CE52C000C2343 /* settings.png in Resources */,
+				92D44E0317ECDDCA006BD09C /* 6_thoughts_title_ru@2x.png in Resources */,
+				92D44E2E17EF3100006BD09C /* Icon-Spotlight.png in Resources */,
 				92DB6333175CE52C000C2343 /* settings@2x.png in Resources */,
 				92DB6334175CE52C000C2343 /* style.png in Resources */,
 				92DB6335175CE52C000C2343 /* style@2x.png in Resources */,
+				92D44E0517ECDDCA006BD09C /* 6_vocabulary_title_ru@2x.png in Resources */,
 				92DB6336175CE52C000C2343 /* thoughts.png in Resources */,
 				92DB6337175CE52C000C2343 /* thoughts@2x.png in Resources */,
 				92DB6338175CE52C000C2343 /* vocabulary.png in Resources */,
 				92DB6339175CE52C000C2343 /* vocabulary@2x.png in Resources */,
 				92DB633C175CE52C000C2343 /* aphorisms_title_ru.png in Resources */,
+				92D44DE817ECDDB5006BD09C /* 6_aphorisms_title_en.png in Resources */,
 				92DB633D175CE52C000C2343 /* aphorisms_title_ru@2x.png in Resources */,
+				92D44DEC17ECDDB5006BD09C /* 6_style_title_en.png in Resources */,
 				92DB633E175CE52C000C2343 /* style_title_ru.png in Resources */,
 				92DB633F175CE52C000C2343 /* style_title_ru@2x.png in Resources */,
 				92DB6340175CE52C000C2343 /* thoughts_title_ru.png in Resources */,
+				92D44DE917ECDDB5006BD09C /* 6_aphorisms_title_en@2x.png in Resources */,
 				92DB6341175CE52C000C2343 /* thoughts_title_ru@2x.png in Resources */,
 				92DB6342175CE52C000C2343 /* vocabulary_title_ru.png in Resources */,
 				92DB6343175CE52C000C2343 /* vocabulary_title_ru@2x.png in Resources */,
 				92810CBD176A077000C0A53C /* favorites_title_ru.png in Resources */,
+				92D44E2917EF2CCD006BD09C /* Images.xcassets in Resources */,
 				92810CBE176A077000C0A53C /* favorites_title_ru@2x.png in Resources */,
 				92810CCA176A079E00C0A53C /* aphorisms_title_en.png in Resources */,
 				92810CCB176A079E00C0A53C /* aphorisms_title_en@2x.png in Resources */,
 				92810CCC176A079E00C0A53C /* favorites_title_en.png in Resources */,
 				92810CCD176A079E00C0A53C /* favorites_title_en@2x.png in Resources */,
+				92D44DEA17ECDDB5006BD09C /* 6_favorites_title_en.png in Resources */,
 				92810CCE176A079E00C0A53C /* style_title_en.png in Resources */,
+				92D44DFF17ECDDCA006BD09C /* 6_favorites_title_ru@2x.png in Resources */,
 				92810CCF176A079E00C0A53C /* style_title_en@2x.png in Resources */,
+				92D44E0217ECDDCA006BD09C /* 6_thoughts_title_ru.png in Resources */,
 				92810CD0176A079E00C0A53C /* thoughts_title_en.png in Resources */,
 				92810CD1176A079E00C0A53C /* thoughts_title_en@2x.png in Resources */,
+				92D44DEE17ECDDB5006BD09C /* 6_thoughts_title_en.png in Resources */,
 				92810CD2176A079E00C0A53C /* vocabulary_title_en.png in Resources */,
 				92810CD3176A079E00C0A53C /* vocabulary_title_en@2x.png in Resources */,
+				92D44E0017ECDDCA006BD09C /* 6_style_title_ru.png in Resources */,
+				925A953817E26CCF00211624 /* arrow.png in Resources */,
+				92D44E0117ECDDCA006BD09C /* 6_style_title_ru@2x.png in Resources */,
+				92D44DF117ECDDB5006BD09C /* 6_vocabulary_title_en@2x.png in Resources */,
+				92D44E0417ECDDCA006BD09C /* 6_vocabulary_title_ru.png in Resources */,
+				925A953917E26CCF00211624 /* arrow@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -581,18 +731,22 @@
 				929340851743C31800802420 /* main.m in Sources */,
 				9293413117441A7300802420 /* GHAphorismsViewController.m in Sources */,
 				9293413317441A7300802420 /* GHStyleViewController.m in Sources */,
-				9293413417441A7300802420 /* GHThoughtsViewController.m in Sources */,
-				9293413517441A7300802420 /* GHVocabularyViewController.m in Sources */,
+				9293413417441A7300802420 /* GHWisdomViewController.m in Sources */,
+				92B0E25517EAEC1E0078C851 /* _GHAttachment.m in Sources */,
+				9293413517441A7300802420 /* GHVocabularyDefinitionViewController.m in Sources */,
 				92D3594517452F120059A902 /* GHRootViewController.m in Sources */,
 				92D359A417453C090059A902 /* Definitions.m in Sources */,
 				92D359A7174541720059A902 /* GHContentViewController.m in Sources */,
 				92D359AA1745FD890059A902 /* GHWebCell.m in Sources */,
 				92DB6348175D0C35000C2343 /* GHFavoritesViewController.m in Sources */,
 				92DB634B175D0EE7000C2343 /* Model.xcdatamodeld in Sources */,
+				92B0E25817EAEC630078C851 /* GHAttachment.m in Sources */,
 				92A6FC851783736A00B911BD /* GHCategory.m in Sources */,
 				92A6FC861783736A00B911BD /* GHPost.m in Sources */,
 				92A6FC871783736A00B911BD /* _GHCategory.m in Sources */,
+				92D44E3717EFA7FF006BD09C /* GHPostViewController.m in Sources */,
 				92A6FC881783736A00B911BD /* _GHPost.m in Sources */,
+				92160CD717DEAF2C00933199 /* GHVocabularyViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -663,6 +817,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -694,6 +849,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 92C2444E17880F33001802C2 /* Pods-debug.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -706,6 +865,7 @@
 					"$(inherited)",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -714,6 +874,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 92C243E6178805D1001802C2 /* Pods.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -726,6 +890,7 @@
 					"$(inherited)",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

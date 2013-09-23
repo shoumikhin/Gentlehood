@@ -8,8 +8,6 @@
 
 #import "AppDelegate.h"
 
-#import "GHPost.h"
-
 //==============================================================================
 @implementation AppDelegate
 //------------------------------------------------------------------------------
@@ -21,6 +19,8 @@
 
     [self setupRestKit];
     [self setupPonyDebugger];
+
+    NSURLCache.sharedURLCache = SDURLCache.new;
 
     return YES;
 }
@@ -42,7 +42,18 @@
 
     RKObjectManager.sharedManager = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:kGHAPI]];
     RKObjectManager.sharedManager.managedObjectStore = [RKManagedObjectStore.alloc initWithManagedObjectModel:[NSManagedObjectModel mergedModelFromBundles:nil]];
-    [RKObjectManager.sharedManager.managedObjectStore addSQLitePersistentStoreAtPath:[NSFileManager.cachesPath stringByAppendingPathComponent:kStorageFilename] fromSeedDatabaseAtPath:nil withConfiguration:nil options:nil error:nil];
+
+    NSError *error = nil;
+    NSString *storagePath = [NSFileManager.cachesPath stringByAppendingPathComponent:kStorageFilename];
+
+    [RKObjectManager.sharedManager.managedObjectStore addSQLitePersistentStoreAtPath:storagePath fromSeedDatabaseAtPath:nil withConfiguration:nil options:nil error:&error];
+
+    if (NSCocoaErrorDomain == error.domain && NSPersistentStoreIncompatibleVersionHashError <= error.code)
+    {
+        [NSFileManager.defaultManager removeItemAtPath:storagePath error:nil];
+        [RKObjectManager.sharedManager.managedObjectStore addSQLitePersistentStoreAtPath:storagePath fromSeedDatabaseAtPath:nil withConfiguration:nil options:nil error:nil];
+    }
+
     [RKObjectManager.sharedManager.managedObjectStore createManagedObjectContexts];
 }
 //------------------------------------------------------------------------------

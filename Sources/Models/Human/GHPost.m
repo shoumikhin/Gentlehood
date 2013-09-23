@@ -20,9 +20,10 @@
     dispatch_once(&onceToken, ^
     {
         mapping = [RKEntityMapping mappingForEntityForName:NSStringFromClass(self.class) inManagedObjectStore:RKManagedObjectStore.defaultStore];
-        [mapping addAttributeMappingsFromArray:@[@"content", @"date"]];
+        [mapping addAttributeMappingsFromArray:@[@"content", @"date", @"title", @"url"]];
         [mapping addAttributeMappingsFromDictionary:@{@"id":@"identifier"}];
         [mapping addRelationshipMappingWithSourceKeyPath:@"categories" mapping:GHCategory.mapping];
+        [mapping addRelationshipMappingWithSourceKeyPath:@"attachments" mapping:GHAttachment.mapping];
         mapping.identificationAttributes = @[@"identifier"];
     });
 
