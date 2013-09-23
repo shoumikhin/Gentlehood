@@ -115,11 +115,13 @@ while(0)
 //FIXME: "Type some real API keys below"
 #define COUNTLY_API_KEY "COUNTLY_API_KEY"
 #define GA_API_KEY "GA_API_KEY"
+#define FLURRY_API_KEY "FLURRY_API_KEY"
 //==============================================================================
 #define TRACK(__verb__, __noun__) \
 do \
 { \
     [Countly.sharedInstance recordEvent:[NSString stringWithFormat:@"%@ -> %@", __verb__, __noun__] count:1]; \
+    [Flurry logEvent:[NSString stringWithFormat:@"%@ -> %@", __verb__, __noun__]]; \
     [GAI.sharedInstance.defaultTracker send:[[GAIDictionaryBuilder createEventWithCategory:__verb__ action:__noun__ label:nil value:nil] build]]; \
 } \
 while (0)

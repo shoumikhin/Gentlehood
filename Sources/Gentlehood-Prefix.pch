@@ -23,6 +23,7 @@
 #import <Countly.h>
 #import <GAI.h>
 #import <GAIDictionaryBuilder.h>
+#import <Flurry.h>
 #import <PonyDebugger.h>
 
 #import "Definitions.h"

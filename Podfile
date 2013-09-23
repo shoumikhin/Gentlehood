@@ -11,6 +11,7 @@ pod 'InAppSettingsKit'
 pod 'FTiCloudSync'
 pod 'Countly'
 pod 'GoogleAnalytics-iOS-SDK'
+pod 'FlurrySDK'
 
 target :debug do
   link_with 'Gentlehood'

@@ -127,6 +127,8 @@
         {
             [UIApplication openURL:[NSURL URLWithString:menuItem.title] andShowReturn:YES];
 
+            TRACK(@"OPEN", menuItem.title);
+
             break;
         }
 

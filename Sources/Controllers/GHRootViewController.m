@@ -83,6 +83,8 @@ static NSTimeInterval const kIntervalToHideTabBar = 3.0;
     [self.view addGestureRecognizer:self.longPressRecognizer];
 
     self.barsHidden = NO;
+
+    [NSUserDefaults.standardUserDefaults addObserver:self forKeyPath:kGHOptionAutoHidePanels options:NSKeyValueObservingOptionNew context:nil];
 }
 //------------------------------------------------------------------------------
 - (void)viewDidAppear:(BOOL)animated
@@ -212,6 +214,12 @@ static NSTimeInterval const kIntervalToHideTabBar = 3.0;
 {
     if (!self.isBarsHidden)
         self.barsHidden = YES;
+}
+//------------------------------------------------------------------------------
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if ([kGHOptionAutoHidePanels isEqualToString:keyPath])
+        TRACK(@"OPTION AUTO-HIDE", [NSUserDefaults.standardUserDefaults valueForKey:kGHOptionAutoHidePanels]);
 }
 //------------------------------------------------------------------------------
 @end

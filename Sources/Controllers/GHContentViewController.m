@@ -330,6 +330,8 @@
     settingsController.delegate = self;
 
     [self presentViewController:[UINavigationController.alloc initWithRootViewController:settingsController] animated:YES completion:nil];
+
+    TRACK(@"SETTINGS", self.navigationItem.title);
 }
 //------------------------------------------------------------------------------
 - (void)settingsViewControllerDidEnd:(IASKAppSettingsViewController *)sender

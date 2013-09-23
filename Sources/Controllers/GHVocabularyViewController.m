@@ -78,7 +78,11 @@
 {
     if ([segue.identifier isEqualToString:kGHVocabularyDefineSegue])
     {
-        ((GHVocabularyDefinitionViewController *)segue.destinationViewController).predicate = [NSPredicate predicateWithFormat:@"ANY categories.identifier == %i AND title == %@", self.category, ((GHPost *)[self.fetchedResultsController objectAtIndexPath:self.tableView.indexPathForSelectedRow]).title];
+        GHPost *post = (GHPost *)[self.fetchedResultsController objectAtIndexPath:self.tableView.indexPathForSelectedRow];
+
+        ((GHVocabularyDefinitionViewController *)segue.destinationViewController).predicate = [NSPredicate predicateWithFormat:@"ANY categories.identifier == %i AND title == %@", self.category, post.title];
+
+        TRACK(@"DEFINE", post.title);
     }
 }
 //------------------------------------------------------------------------------
