@@ -14,6 +14,7 @@ FOUNDATION_EXPORT NSString * const kFontFamilyItalic;
 FOUNDATION_EXPORT CGFloat const kFontSize;
 FOUNDATION_EXPORT CGFloat const kFontSizeSmall;
 FOUNDATION_EXPORT NSString * const kHTMLColorDefault;
+FOUNDATION_EXPORT NSString * const kGHOptionAutoHidePanels;
 
 typedef NS_ENUM(NSInteger, GHPostCategory)
 {
@@ -113,14 +114,12 @@ while(0)
 //==============================================================================
 //FIXME: "Type some real API keys below"
 #define COUNTLY_API_KEY "COUNTLY_API_KEY"
-#define FLURRY_API_KEY "FLURRY_API_KEY"
 #define GA_API_KEY "GA_API_KEY"
 //==============================================================================
 #define TRACK(__verb__, __noun__) \
 do \
 { \
     [Countly.sharedInstance recordEvent:[NSString stringWithFormat:@"%@ -> %@", __verb__, __noun__] count:1]; \
-    [Flurry logEvent:[NSString stringWithFormat:@"%@ -> %@", __verb__, __noun__]]; \
     [GAI.sharedInstance.defaultTracker send:[[GAIDictionaryBuilder createEventWithCategory:__verb__ action:__noun__ label:nil value:nil] build]]; \
 } \
 while (0)

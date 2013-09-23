@@ -20,3 +20,7 @@
 "NO_IMAGE" = "Image unavailable offline";
 "NO_CONTENT" = "Page is empty";
 "OPEN_POST" = "Open in browser";
+
+//Settings
+
+"Settings" = "Settings";

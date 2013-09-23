@@ -92,22 +92,6 @@ static NSTimeInterval const kIntervalToHideTabBar = 3.0;
     [self autoHideBars];
 }
 //------------------------------------------------------------------------------
-- (UIButton *)settingsButton
-{
-    UIButton *ret = [UIButton buttonWithType:UIButtonTypeCustom];
-
-    ret.frame = CGRectMake(0.0, 0.0, 22.0, 22.0);
-    [ret setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@%@", [UIDevice systemVersionIsAtLeast:@"7.0"] ? @"" : @"6_", @"gear"]] forState:UIControlStateNormal];
-    [ret addTarget:self action:@selector(onSettings:) forControlEvents:UIControlEventTouchUpInside];
-
-    return ret;
-}
-//------------------------------------------------------------------------------
-- (void)onSettings:(id)sender
-{
-
-}
-//------------------------------------------------------------------------------
 - (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController
 {
     [self swipeToIndex:[self.viewControllers indexOfObject:viewController]];
@@ -201,6 +185,9 @@ static NSTimeInterval const kIntervalToHideTabBar = 3.0;
 //------------------------------------------------------------------------------
 - (void)setBarsHidden:(BOOL)hidden
 {
+    if (hidden && ![[NSUserDefaults.standardUserDefaults valueForKey:kGHOptionAutoHidePanels] boolValue])
+        return;
+
     _barsHidden = hidden;
     [self.barsTimer invalidate];
 

@@ -10,6 +10,4 @@
 
 @interface GHRootViewController : UITabBarController
 
-@property (weak, nonatomic) UIButton *settingsButton;
-
 @end

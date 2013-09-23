@@ -11,7 +11,7 @@
 #import "GHRootViewController.h"
 
 //==============================================================================
-@interface GHContentViewController () <NSFetchedResultsControllerDelegate, UIScrollViewDelegate>
+@interface GHContentViewController () <NSFetchedResultsControllerDelegate, UIScrollViewDelegate, IASKSettingsDelegate>
 
 @property (nonatomic) BOOL isLoaded;
 @property (nonatomic) BOOL isLoading;
@@ -50,7 +50,14 @@
     self.orientation = UIApplication.sharedApplication.statusBarOrientation;
     [self.refreshControl addTarget:self action:@selector(update) forControlEvents:UIControlEventValueChanged];
     [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(onNetworkReachabilityChanged:) name:AFNetworkingReachabilityDidChangeNotification object:nil];
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem.alloc initWithCustomView:((GHRootViewController *)self.tabBarController).settingsButton];
+
+    UIButton *settingsButton = [UIButton buttonWithType:UIButtonTypeCustom];
+
+    settingsButton.frame = CGRectMake(0.0, 0.0, 22.0, 22.0);
+    [settingsButton setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@%@", [UIDevice systemVersionIsAtLeast:@"7.0"] ? @"" : @"6_", @"gear"]] forState:UIControlStateNormal];
+    [settingsButton addTarget:self action:@selector(onSettings:) forControlEvents:UIControlEventTouchUpInside];
+
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem.alloc initWithCustomView:settingsButton];
 }
 //------------------------------------------------------------------------------
 - (void)viewWillAppear:(BOOL)animated
@@ -312,6 +319,22 @@
 
     if (ABS(velocity.y) > 1.0)
         *targetContentOffset = CGPointMake(cell.frame.origin.x, cell.frame.origin.y + (velocity.y >= 0.0 && self.tableView.indexPathsForVisibleRows.count == 1 ? cell.frame.size.height : 0.0));
+}
+//------------------------------------------------------------------------------
+- (void)onSettings:(id)sender
+{
+    IASKAppSettingsViewController *settingsController = IASKAppSettingsViewController.new;
+
+    settingsController.showCreditsFooter = NO;
+    settingsController.showDoneButton = YES;
+    settingsController.delegate = self;
+
+    [self presentViewController:[UINavigationController.alloc initWithRootViewController:settingsController] animated:YES completion:nil];
+}
+//------------------------------------------------------------------------------
+- (void)settingsViewControllerDidEnd:(IASKAppSettingsViewController *)sender
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 //------------------------------------------------------------------------------
 @end

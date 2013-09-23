@@ -19,8 +19,8 @@
 #import <RestKit.h>
 #import <SVProgressHUD.h>
 #import <SDURLCache.h>
+#import <IASKAppSettingsViewController.h>
 #import <Countly.h>
-#import <Flurry.h>
 #import <GAI.h>
 #import <GAIDictionaryBuilder.h>
 #import <PonyDebugger.h>

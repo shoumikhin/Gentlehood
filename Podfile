@@ -10,7 +10,6 @@ pod 'SDURLCache'
 pod 'InAppSettingsKit'
 pod 'FTiCloudSync'
 pod 'Countly'
-pod 'FlurrySDK'
 pod 'GoogleAnalytics-iOS-SDK'
 
 target :debug do

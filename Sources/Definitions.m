@@ -15,3 +15,4 @@ NSString * const kFontFamilyItalic = @"Georgia-Italic";
 CGFloat const kFontSize = 20.0;
 CGFloat const kFontSizeSmall = 18.0;
 NSString * const kHTMLColorDefault = @"#102D5E";
+NSString * const kGHOptionAutoHidePanels = @"GH_AUTO_HIDE_PANELS";

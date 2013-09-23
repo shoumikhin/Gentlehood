@@ -29,9 +29,6 @@
 {
     [Countly.sharedInstance start:@COUNTLY_API_KEY withHost:@"https://cloud.count.ly"];
 
-    [Flurry startSession:@FLURRY_API_KEY];
-    Flurry.crashReportingEnabled = YES;
-
     GAI.sharedInstance.trackUncaughtExceptions = YES;
     [GAI.sharedInstance trackerWithTrackingId:@GA_API_KEY];
 }
