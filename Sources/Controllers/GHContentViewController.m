@@ -30,7 +30,6 @@
 {
     [super awakeFromNib];
 
-    self.navigationController.navigationBar.translucent = YES;
     self.postsPerPage = kGHPostsPerPageDefault;
     self.sortDescriptors = @[[NSSortDescriptor.alloc initWithKey:@"date" ascending:NO]];
 }

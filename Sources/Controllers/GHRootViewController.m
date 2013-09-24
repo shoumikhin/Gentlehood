@@ -219,7 +219,14 @@ static NSTimeInterval const kIntervalToHideTabBar = 3.0;
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
     if ([kGHOptionAutoHidePanels isEqualToString:keyPath])
+    {
+        [self setBarsHidden:!self.isBarsHidden];
+
         TRACK(@"OPTION AUTO-HIDE", [NSUserDefaults.standardUserDefaults valueForKey:kGHOptionAutoHidePanels]);
+    }
+
+    if ([kGHOptionInterfaceRotation isEqualToString:keyPath])
+        TRACK(@"OPTION ROTATE UI", [NSUserDefaults.standardUserDefaults valueForKey:kGHOptionInterfaceRotation]);
 }
 //------------------------------------------------------------------------------
 @end

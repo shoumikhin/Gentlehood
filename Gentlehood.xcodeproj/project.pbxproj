@@ -118,8 +118,6 @@
 		92160CD617DEAF2C00933199 /* GHVocabularyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHVocabularyViewController.m; sourceTree = "<group>"; };
 		925A953617E26CCF00211624 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
 		925A953717E26CCF00211624 /* arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow@2x.png"; sourceTree = "<group>"; };
-		925EF36317730F53005B0158 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/MainStoryboard.strings; sourceTree = "<group>"; };
-		925EF36517730F6E005B0158 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MainStoryboard.strings; sourceTree = "<group>"; };
 		92810CBB176A077000C0A53C /* favorites_title_ru.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favorites_title_ru.png; sourceTree = "<group>"; };
 		92810CBC176A077000C0A53C /* favorites_title_ru@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "favorites_title_ru@2x.png"; sourceTree = "<group>"; };
 		92810CC0176A079E00C0A53C /* aphorisms_title_en.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = aphorisms_title_en.png; sourceTree = "<group>"; };
@@ -132,6 +130,8 @@
 		92810CC7176A079E00C0A53C /* thoughts_title_en@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "thoughts_title_en@2x.png"; sourceTree = "<group>"; };
 		92810CC8176A079E00C0A53C /* vocabulary_title_en.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vocabulary_title_en.png; sourceTree = "<group>"; };
 		92810CC9176A079E00C0A53C /* vocabulary_title_en@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vocabulary_title_en@2x.png"; sourceTree = "<group>"; };
+		928BBCFB17F2204E00C723F6 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/MainStoryboard.strings; sourceTree = "<group>"; };
+		928BBCFD17F2205900C723F6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MainStoryboard.strings; sourceTree = "<group>"; };
 		9293406C1743C31800802420 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9293406D1743C31800802420 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		929340731743C31800802420 /* Definitions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Definitions.h; sourceTree = "<group>"; };
@@ -773,8 +773,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				92DB62DF175CE52B000C2343 /* Base */,
-				925EF36317730F53005B0158 /* ru */,
-				925EF36517730F6E005B0158 /* en */,
+				928BBCFB17F2204E00C723F6 /* ru */,
+				928BBCFD17F2205900C723F6 /* en */,
 			);
 			name = MainStoryboard.storyboard;
 			sourceTree = "<group>";

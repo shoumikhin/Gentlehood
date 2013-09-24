@@ -20,8 +20,11 @@
 /* Class = "IBUITabBarItem"; title = "Style"; ObjectID = "NNJ-Sr-EXf"; */
 "NNJ-Sr-EXf.title" = "Style";
 
-/* Class = "IBUILabel"; text = "*отметьте понравившийся пост двойным тапом"; ObjectID = "NRH-Gq-aUn"; */
+/* Class = "IBUILabel"; text = "*mark a post you like with double tap"; ObjectID = "NRH-Gq-aUn"; */
 "NRH-Gq-aUn.text" = "*mark a post you like with double tap";
+
+/* Class = "IBUINavigationItem"; title = "СЛОВАРЬ"; ObjectID = "No6-LI-dD6"; */
+"No6-LI-dD6.title" = "VOCABULARY";
 
 /* Class = "IBUITabBarItem"; title = "Wisdom"; ObjectID = "ecC-PP-AXB"; */
 "ecC-PP-AXB.title" = "Wisdom";

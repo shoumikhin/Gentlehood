@@ -15,6 +15,7 @@ FOUNDATION_EXPORT CGFloat const kFontSize;
 FOUNDATION_EXPORT CGFloat const kFontSizeSmall;
 FOUNDATION_EXPORT NSString * const kHTMLColorDefault;
 FOUNDATION_EXPORT NSString * const kGHOptionAutoHidePanels;
+FOUNDATION_EXPORT NSString * const kGHOptionInterfaceRotation;
 
 typedef NS_ENUM(NSInteger, GHPostCategory)
 {

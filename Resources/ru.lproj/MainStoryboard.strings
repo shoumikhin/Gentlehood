@@ -23,6 +23,9 @@
 /* Class = "IBUILabel"; text = "*отметьте понравившийся пост двойным прикосновением"; ObjectID = "NRH-Gq-aUn"; */
 "NRH-Gq-aUn.text" = "*отметьте понравившийся пост двойным прикосновением";
 
+/* Class = "IBUINavigationItem"; title = "СЛОВАРЬ"; ObjectID = "No6-LI-dD6"; */
+"No6-LI-dD6.title" = "СЛОВАРЬ";
+
 /* Class = "IBUITabBarItem"; title = "Мысли"; ObjectID = "ecC-PP-AXB"; */
 "ecC-PP-AXB.title" = "Мысли";
 
@@ -32,8 +35,8 @@
 /* Class = "IBUINavigationItem"; title = "МЫСЛИ"; ObjectID = "lgw-Rn-Wvi"; */
 "lgw-Rn-Wvi.title" = "МЫСЛИ";
 
-/* Class = "IBUIViewController"; title = "Favorites"; ObjectID = "rlB-h6-zlG"; */
-"rlB-h6-zlG.title" = "Favorites";
+/* Class = "IBUIViewController"; title = "Избранное"; ObjectID = "rlB-h6-zlG"; */
+"rlB-h6-zlG.title" = "Избранное";
 
-/* Class = "IBUITableViewController"; title = "Vocabulary"; ObjectID = "rtc-c5-av6"; */
-"rtc-c5-av6.title" = "Vocabulary";
+/* Class = "IBUITableViewController"; title = "Словарь"; ObjectID = "rtc-c5-av6"; */
+"rtc-c5-av6.title" = "Словарь";

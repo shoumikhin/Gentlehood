@@ -14,15 +14,20 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [self setupTracking];
-
-    application.statusBarStyle = UIStatusBarStyleBlackTranslucent;
-
     [self setupRestKit];
     [self setupPonyDebugger];
 
     NSURLCache.sharedURLCache = SDURLCache.new;
 
     return YES;
+}
+//------------------------------------------------------------------------------
+- (NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window
+{
+    if ([[NSUserDefaults.standardUserDefaults valueForKey:kGHOptionInterfaceRotation] boolValue])
+        return UIInterfaceOrientationMaskAllButUpsideDown;
+
+    return UIInterfaceOrientationMaskPortrait;
 }
 //------------------------------------------------------------------------------
 - (void)setupTracking
