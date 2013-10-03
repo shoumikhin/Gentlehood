@@ -67,6 +67,7 @@
 
 /**
  Get a unique device identifier which is computed as SHA256 hash of the device MAC address.
+ For iOS 7.0 and later it's simply an advertising identifier.
  
  @return A unique identifier for the device.
  */

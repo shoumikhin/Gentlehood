@@ -85,6 +85,7 @@ static NSTimeInterval const kIntervalToHideTabBar = 3.0;
     self.barsHidden = NO;
 
     [NSUserDefaults.standardUserDefaults addObserver:self forKeyPath:kGHOptionAutoHidePanels options:NSKeyValueObservingOptionNew context:nil];
+    [NSUserDefaults.standardUserDefaults addObserver:self forKeyPath:kGHOptionInterfaceRotation options:NSKeyValueObservingOptionNew context:nil];
 }
 //------------------------------------------------------------------------------
 - (void)viewDidAppear:(BOOL)animated
@@ -218,6 +219,9 @@ static NSTimeInterval const kIntervalToHideTabBar = 3.0;
 //------------------------------------------------------------------------------
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
+    if ([self superRespondsToSelector:@selector(observeValueForKeyPath:ofObject:change:context:) untilClass:NSObject.class])
+        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+
     if ([kGHOptionAutoHidePanels isEqualToString:keyPath])
     {
         [self setBarsHidden:!self.isBarsHidden];
