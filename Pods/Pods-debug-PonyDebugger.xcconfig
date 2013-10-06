@@ -1,1 +1,1 @@
-PODS_DEBUG_PONYDEBUGGER_OTHER_LDFLAGS = -framework CoreData
+PODS_DEBUG_PONYDEBUGGER_OTHER_LDFLAGS = -framework CoreData -framework CoreGraphics
