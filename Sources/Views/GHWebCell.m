@@ -9,6 +9,24 @@
 #import "GHWebCell.h"
 
 //==============================================================================
+#define REGEX_SKIP_TAG(tag) \
+    "<" tag ">[\\S\\s]*?<\\/" tag ">(?!)"
+
+#define REGEX_MATCH_ATTRIBUTE_VALUE(attr) \
+    attr "\\s*?=\\s*?['\"]([^'\">]*)"
+
+#define REGEX_MATCH_TAG_ATTRIBUTE_VALUE(tag, attr) \
+    "<" tag "[^>]+?" REGEX_MATCH_ATTRIBUTE_VALUE(attr) "['\"][^>]*?>"
+
+#define REGEX_MATCH_TAG_ATTRIBUTE_VALUE_2(tag, attr, attr2) \
+    "(?=" REGEX_MATCH_TAG_ATTRIBUTE_VALUE(tag, attr) ")(?=" REGEX_MATCH_TAG_ATTRIBUTE_VALUE(tag, attr2) ")"
+
+#define REGEX_MATCH_IMG_ATTRIBUTE_VALUE(attr) \
+    REGEX_SKIP_TAG("noscript") "|" REGEX_MATCH_TAG_ATTRIBUTE_VALUE("img", attr)
+
+#define REGEX_MATCH_IMG_ATTRIBUTE_VALUE_2(attr, attr2) \
+    REGEX_SKIP_TAG("noscript") "|" REGEX_MATCH_TAG_ATTRIBUTE_VALUE_2("img", attr, attr2)
+//==============================================================================
 @interface GHWebCell () <UIWebViewDelegate>
 
 @property (nonatomic, weak) IBOutlet UIWebView *webView;
@@ -17,6 +35,8 @@
 @property (nonatomic, weak) IBOutlet UILabel *loadingLabel;
 @property (nonatomic) BOOL isLoaded;
 @property (nonatomic) BOOL hasValidSize;
+@property (nonatomic) NSString *text;
+@property (nonatomic) NSMutableSet *images;
 
 @end
 //==============================================================================
@@ -49,9 +69,48 @@
     self.isLoaded = self.hasValidSize = NO;
 }
 //------------------------------------------------------------------------------
+- (NSString *)text
+{
+    if (_text)
+        return _text;
+
+    _text = [[self.webView stringByEvaluatingJavaScriptFromString:@"document.body.innerText"] stringByTrimmingCharactersInSet:NSCharacterSet.whitespaceAndNewlineCharacterSet];
+
+    if (!_text.length)
+        _text = nil;
+
+    return _text;
+}
+//------------------------------------------------------------------------------
+- (NSSet *)images
+{
+    if (_images)
+        return _images;
+
+    NSMutableSet __block *images = NSMutableSet.new;
+    NSString *content = [self.webView stringByEvaluatingJavaScriptFromString:@"document.body.innerHTML"];
+
+    [[NSRegularExpression regularExpressionWithPattern:@REGEX_MATCH_IMG_ATTRIBUTE_VALUE("src") options:0 error:nil] enumerateMatchesInString:content options:0 range:NSMakeRange(0, content.length) usingBlock:
+     ^(NSTextCheckingResult *result, NSMatchingFlags flags, BOOL *stop)
+     {
+         if (2 != result.numberOfRanges)
+             return;
+
+         NSURL *src = [NSURL URLWithString:[content substringWithRange:[result rangeAtIndex:1]]];
+
+         if (src)
+             [images addObject:src];
+     }];
+
+    if (images.count)
+        _images = images;
+
+    return _images;
+}
+//------------------------------------------------------------------------------
 - (void)loadContent:(NSString *)content
 {
-    NSUInteger const kContentWidth = UIApplication.frame.size.width - 17.0;
+    unsigned const kContentWidth = UIApplication.frame.size.width - 17.0;
 
     [self.webView loadHTMLString:[NSString.alloc initWithFormat:
     @"<html>\
@@ -64,8 +123,39 @@
             </style>\
         </head>\
         <body>%@<hr/></body>\
-    </html>\
-    ", kContentWidth, kFontFamily, kFontSize, kContentWidth, kFontFamilyItalic, kFontSizeSmall, kHTMLColorDefault, content] baseURL:[NSURL fileURLWithPath:NSFileManager.cachesPath]];
+    </html>",
+        kContentWidth,
+        kFontFamily,
+        kFontSize,
+        kContentWidth,
+        kFontFamilyItalic,
+        kFontSizeSmall,
+        kHTMLColorDefault,
+        [self filterContent:content]]
+    baseURL:[NSURL fileURLWithPath:NSFileManager.cachesPath]];
+}
+//------------------------------------------------------------------------------
+- (NSString *)filterContent:(NSString *)content
+{
+    NSMutableString __block *filteredContent = content.mutableCopy;
+
+    [[NSRegularExpression regularExpressionWithPattern:@REGEX_MATCH_IMG_ATTRIBUTE_VALUE_2("src", "data-lazy-original") options:0 error:nil] enumerateMatchesInString:content options:0 range:NSMakeRange(0, content.length) usingBlock:
+    ^(NSTextCheckingResult *result, NSMatchingFlags flags, BOOL *stop)
+    {
+        if (3 != result.numberOfRanges)
+            return;
+
+        NSString *src = [content substringWithRange:[result rangeAtIndex:1]];
+        NSString *dataLazyOriginal = [content substringWithRange:[result rangeAtIndex:2]];
+
+        if (dataLazyOriginal.length > 0 && [src hasPrefix:@"data"])
+        {
+            [filteredContent replaceCharactersInRange:[result rangeAtIndex:1] withString:dataLazyOriginal];
+            [filteredContent replaceCharactersInRange:[result rangeAtIndex:2] withString:src];
+        }
+    }];
+
+    return filteredContent;
 }
 //------------------------------------------------------------------------------
 - (void)webViewDidStartLoad:(UIWebView *)webView
@@ -82,7 +172,16 @@
         var images = document.getElementsByTagName('img'); \
       \
         for (var i = 0; i < images.length; ++i) \
+        { \
             images[i].alt = \"%@\"; \
+        } \
+      \
+        var divsToHide = document.getElementsByClassName('ratingtext'); \
+      \
+        for(var i = 0; i < divsToHide.length; ++i) \
+        { \
+            divsToHide[i].style.display = 'none'; \
+        } \
     ", NSLocalizedString(@"NO_IMAGE", nil)]];
 
     if (self.window)

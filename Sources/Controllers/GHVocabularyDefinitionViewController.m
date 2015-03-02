@@ -18,6 +18,20 @@
     self.category = GHPostVocabulary;
 }
 //------------------------------------------------------------------------------
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+
+    self.view.alpha = 1.0;
+}
+//------------------------------------------------------------------------------
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+
+    self.view.alpha = 0.0;
+}
+//------------------------------------------------------------------------------
 - (void)viewDidAppear:(BOOL)animated
 {
     //let's override this to avoid inherited call

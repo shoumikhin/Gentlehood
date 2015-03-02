@@ -34,6 +34,21 @@
         self.navigationItem.titleView = [UIImageView.alloc initWithImage:image];
 
     self.tableView.tableFooterView = UIView.new;
+    self.tableView.sectionIndexBackgroundColor = UIColor.clearColor;
+}
+//------------------------------------------------------------------------------
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+
+    self.view.alpha = 1.0;
+}
+//------------------------------------------------------------------------------
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+
+    self.view.alpha = 0.0;
 }
 //------------------------------------------------------------------------------
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath

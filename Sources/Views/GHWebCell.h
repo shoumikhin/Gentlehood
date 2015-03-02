@@ -22,6 +22,8 @@
 @property (nonatomic, weak) id <GHWebCellDelegate> delegate;
 @property (nonatomic, copy) NSIndexPath *indexPath;
 @property (nonatomic) BOOL bookmarked;
+@property (nonatomic, readonly) NSString *text;
+@property (nonatomic, readonly) NSSet *images;
 
 - (void)loadContent:(NSString *)content;
 

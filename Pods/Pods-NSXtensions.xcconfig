@@ -1,1 +1,0 @@
-PODS_NSXTENSIONS_OTHER_LDFLAGS = -framework AdSupport -framework CoreData -framework Foundation -framework MapKit -framework UIKit

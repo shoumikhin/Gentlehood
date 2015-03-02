@@ -11,6 +11,8 @@
 #import "GHWebCell.h"
 
 //==============================================================================
+#define INDEX_PATH_HOOK @selector(__index_path__)
+//==============================================================================
 @interface GHPostViewController () <GHWebCellDelegate>
 
 @end
@@ -100,7 +102,6 @@
     {
         completionBlock(nil, 0);
         [SVProgressHUD showImage:[UIImage imageNamed:@"anchor"] status:nil];
-        [SVProgressHUD dismiss];
     }
 }
 //------------------------------------------------------------------------------
@@ -111,28 +112,18 @@
     if (!webCell)
         return;
 
-    GHPost *post = [self.fetchedResultsController objectAtIndexPath:[self.tableView indexPathForCell:webCell]];
-
     point = [self.tabBarController.view convertPoint:point toView:self.tableView];
-    [self becomeFirstResponder];
-    UIMenuController.sharedMenuController.menuItems = @[[UIMenuItem.alloc initWithTitle:NSLocalizedString(@"OPEN_POST", nil) action:@selector(onOpenURL:)], [UIMenuItem.alloc initWithTitle:post.url action:@selector(_onOpenURL:)]];
+
+    UIMenuController.sharedMenuController.menuItems =
+    @[
+        [UIMenuItem.alloc initWithTitle:NSLocalizedString(@"OPEN_POST", nil) action:@selector(onOpenURL:)],
+        [UIMenuItem.alloc initWithTitle:NSLocalizedString(@"SHARE_POST", nil) action:@selector(onShare:)],
+        [UIMenuItem.alloc initWithTitle:[self.tableView indexPathForCell:webCell].stringValue action:INDEX_PATH_HOOK]
+    ];
     [UIMenuController.sharedMenuController setTargetRect:CGRectMake(point.x, point.y, 0.0, 0.0) inView:self.view];
     [UIMenuController.sharedMenuController setMenuVisible:YES animated:YES];
-}
-//------------------------------------------------------------------------------
-- (void)onOpenURL:(id)sender
-{
-    for (UIMenuItem *menuItem in [sender menuItems])
-        if (@selector(_onOpenURL:) == menuItem.action)
-        {
-            [UIApplication openURL:[NSURL URLWithString:menuItem.title] andShowReturn:YES];
 
-            TRACK(@"OPEN", menuItem.title);
-
-            break;
-        }
-
-    [self resignFirstResponder];
+    [self becomeFirstResponder];
 }
 //------------------------------------------------------------------------------
 - (BOOL)canBecomeFirstResponder
@@ -142,10 +133,109 @@
 //------------------------------------------------------------------------------
 - (BOOL)canPerformAction:(SEL)action withSender:(id)sender
 {
-    if (@selector(onOpenURL:) == action)
-        return YES;
-    
-    return NO;
+    return  @selector(onOpenURL:) == action ||
+            @selector(onShare:)   == action;
+}
+//------------------------------------------------------------------------------
+- (NSIndexPath *)indexPathFromMenuController:(UIMenuController *)menuController
+{
+    for (UIMenuItem *menuItem in menuController.menuItems)
+        if (INDEX_PATH_HOOK == menuItem.action)
+            return [NSIndexPath indexPathWithString:menuItem.title];
+
+    return nil;
+}
+//------------------------------------------------------------------------------
+- (void)onOpenURL:(id)sender
+{
+    GHPost *post = [self.fetchedResultsController objectAtIndexPath:[self indexPathFromMenuController:sender]];
+
+    if (post)
+    {
+        [UIApplication openURL:[NSURL URLWithString:post.url] andShowReturn:YES];
+
+        TRACK(@"OPEN", post.url);
+    }
+
+    [self resignFirstResponder];
+}
+//------------------------------------------------------------------------------
+- (NSArray *)sharedItemsFromIndexPath:(NSIndexPath *)indexPath
+{
+    GHPost *post = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    GHWebCell *webCell = (GHWebCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+
+    if (!post)
+        return nil;
+
+    NSMutableArray *sharedItems = NSMutableArray.new;
+
+    if (webCell.text)
+        [sharedItems addObject:webCell.text];
+
+    NSURL *url = [NSURL URLWithString:post.url];
+
+    if (url)
+        [sharedItems addObject:url];
+
+    NSMutableSet *images = NSMutableSet.new;
+
+    [images addObjectsFromArray:webCell.images.allObjects];
+
+    for (GHAttachment *attachment in post.attachments)
+    {
+        NSURL *imageURL = [NSURL URLWithString:attachment.url];
+
+        if (imageURL)
+            [images addObject:imageURL];
+    }
+
+    for (NSURL *imageURL in images)
+    {
+        UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:imageURL]];
+
+        if (image)
+            [sharedItems addObject:image];
+    }
+
+    return sharedItems;
+}
+//------------------------------------------------------------------------------
+- (void)onShare:(id)sender
+{
+    NSIndexPath *indexPath = [self indexPathFromMenuController:sender];
+    NSArray *sharedItems = [self sharedItemsFromIndexPath:indexPath];
+
+    if (!sharedItems.count)
+        return;
+
+    UIActivityViewController *shareController = [UIActivityViewController.alloc initWithActivityItems:sharedItems applicationActivities:nil];
+
+    shareController.excludedActivityTypes = @[
+                                                UIActivityTypePostToWeibo,
+                                                UIActivityTypePrint,
+                                                UIActivityTypeCopyToPasteboard,
+                                                UIActivityTypeAssignToContact,
+                                                UIActivityTypeSaveToCameraRoll,
+                                                UIActivityTypeAddToReadingList,
+                                                UIActivityTypePostToFlickr,
+                                                UIActivityTypePostToVimeo,
+                                                UIActivityTypePostToTencentWeibo,
+                                                UIActivityTypeAirDrop
+                                            ];
+    shareController.completionHandler =
+    ^(NSString *activityType, BOOL completed)
+    {
+        if (completed)
+        {
+            GHPost *post = [self.fetchedResultsController objectAtIndexPath:indexPath];
+
+            TRACK(@"SHARE", post.url);
+        }
+    };
+
+    [self presentViewController:shareController animated:YES completion:nil];
+    [self resignFirstResponder];
 }
 //------------------------------------------------------------------------------
 @end

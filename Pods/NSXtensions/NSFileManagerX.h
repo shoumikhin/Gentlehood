@@ -1,7 +1,7 @@
 //
 //  NSFileManagerX.h
 //
-//  Copyright (c) 2013 Anthony Shoumikhin. All rights reserved under MIT license.
+//  Copyright (c) 2014 Anthony Shoumikhin. All rights reserved under MIT license.
 //  mailto:anthony@shoumikh.in
 //
 
@@ -55,6 +55,7 @@
  Adds a special filesystem flag to a file to avoid iCloud backup it.
  
  @param path Path to a file to set an attribute.
+ @return Yes or No depending on whether the operation was successful.
  */
 + (BOOL)addSkipBackupAttributeToFile:(NSString *)path;
 

@@ -3,22 +3,14 @@
 
 #import "_GHCategory.h"
 
-
 const struct GHCategoryAttributes GHCategoryAttributes = {
 	.identifier = @"identifier",
 	.postCount = @"postCount",
 };
 
-
-
 const struct GHCategoryRelationships GHCategoryRelationships = {
 	.posts = @"posts",
 };
-
-
-
-
-
 
 @implementation GHCategoryID
 @end
@@ -45,7 +37,7 @@ const struct GHCategoryRelationships GHCategoryRelationships = {
 
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
-	
+
 	if ([key isEqualToString:@"identifierValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"identifier"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
@@ -60,23 +52,16 @@ const struct GHCategoryRelationships GHCategoryRelationships = {
 	return keyPaths;
 }
 
-
-
-
 @dynamic identifier;
-
-
 
 - (int64_t)identifierValue {
 	NSNumber *result = [self identifier];
 	return [result longLongValue];
 }
 
-
 - (void)setIdentifierValue:(int64_t)value_ {
-	[self setIdentifier:@(value_)];
+	[self setIdentifier:[NSNumber numberWithLongLong:value_]];
 }
-
 
 - (int64_t)primitiveIdentifierValue {
 	NSNumber *result = [self primitiveIdentifier];
@@ -84,27 +69,19 @@ const struct GHCategoryRelationships GHCategoryRelationships = {
 }
 
 - (void)setPrimitiveIdentifierValue:(int64_t)value_ {
-	[self setPrimitiveIdentifier:@(value_)];
+	[self setPrimitiveIdentifier:[NSNumber numberWithLongLong:value_]];
 }
 
-
-
-
-
 @dynamic postCount;
-
-
 
 - (int64_t)postCountValue {
 	NSNumber *result = [self postCount];
 	return [result longLongValue];
 }
 
-
 - (void)setPostCountValue:(int64_t)value_ {
-	[self setPostCount:@(value_)];
+	[self setPostCount:[NSNumber numberWithLongLong:value_]];
 }
-
 
 - (int64_t)primitivePostCountValue {
 	NSNumber *result = [self primitivePostCount];
@@ -112,33 +89,19 @@ const struct GHCategoryRelationships GHCategoryRelationships = {
 }
 
 - (void)setPrimitivePostCountValue:(int64_t)value_ {
-	[self setPrimitivePostCount:@(value_)];
+	[self setPrimitivePostCount:[NSNumber numberWithLongLong:value_]];
 }
-
-
-
-
 
 @dynamic posts;
 
-	
 - (NSMutableSet*)postsSet {
 	[self willAccessValueForKey:@"posts"];
-  
+
 	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"posts"];
-  
+
 	[self didAccessValueForKey:@"posts"];
 	return result;
 }
-	
-
-
-
-
-
 
 @end
-
-
-
 

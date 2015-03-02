@@ -2,8 +2,10 @@
 
 #import <AdSupport/AdSupport.h>
 
+#import "MacroX.h"
 #import "NSStringX.h"
 
+#import <sys/utsname.h>
 #include <sys/socket.h>
 #include <sys/sysctl.h>
 #include <net/if.h>
@@ -13,41 +15,145 @@
 
 @implementation UIDevice (X)
 
-+ (BOOL)isPhone
+SYNTHESIZE_STATIC_PROPERTY(NSString *, uniqueIdentifier,
 {
-    return UIUserInterfaceIdiomPhone == UIDevice.currentDevice.userInterfaceIdiom;
+#if defined(__IPHONE_7_0)
+    return self.class.currentDevice.identifierForVendor.UUIDString;
+#else
+    return self.class.WiFiMACAddress.SHA256;
+#endif
+})
+    
+SYNTHESIZE_STATIC_PROPERTY(NSString *, machineName,
+{
+    struct utsname systemInfo;
+
+    uname(&systemInfo);
+
+    return [NSString stringWithCString:systemInfo.machine encoding:NSUTF8StringEncoding];
+})
+
+SYNTHESIZE_STATIC_PROPERTY(NSString *, deviceName,
+{
+    NSString *deviceName =
+        @{
+          @"i386"      : @"Simulator",
+          @"x86_64"    : @"Simulator",
+          @"AppleTV2,1": @"AppleTV 2",
+          @"AppleTV3,1": @"AppleTV 3",
+          @"iPad1,1"   : @"iPad Original",
+          @"iPad2,1"   : @"iPad 2",
+          @"iPad2,2"   : @"iPad 2 GSM",
+          @"iPad2,3"   : @"iPad 2 CDMA",
+          @"iPad2,4"   : @"iPad 2",
+          @"iPad2,5"   : @"iPad Mini",
+          @"iPad2,6"   : @"iPad Mini GSM",
+          @"iPad2,7"   : @"iPad Mini CDMA",
+          @"iPad3,1"   : @"iPad 3",
+          @"iPad3,2"   : @"iPad 3 GSM",
+          @"iPad3,3"   : @"iPad 3 CDMA",
+          @"iPad3,4"   : @"iPad 4",
+          @"iPad3,5"   : @"iPad 4 GSM",
+          @"iPad3,6"   : @"iPad 4 CDMA",
+          @"iPad4,1"   : @"iPad Air",
+          @"iPad4,2"   : @"iPad Air GSM",
+          @"iPad4,3"   : @"iPad Air CDMA",
+          @"iPad4,4"   : @"iPad Mini 2",
+          @"iPad4,5"   : @"iPad Mini 2 GSM",
+          @"iPad4,6"   : @"iPad Mini 2 CDMA",
+          @"iPhone1,1" : @"iPhone Original",
+          @"iPhone1,2" : @"iPhone 3G",
+          @"iPhone2,1" : @"iPhone 3GS",
+          @"iPhone3,1" : @"iPhone 4",
+          @"iPhone3,2" : @"iPhone 4",
+          @"iPhone3,3" : @"iPhone 4",
+          @"iPhone4,1" : @"iPhone 4S",
+          @"iPhone4,2" : @"iPhone 4S",
+          @"iPhone4,3" : @"iPhone 4S",
+          @"iPhone5,1" : @"iPhone 5",
+          @"iPhone5,2" : @"iPhone 5",
+          @"iPhone5,3" : @"iPhone 5C",
+          @"iPhone5,4" : @"iPhone 5C",
+          @"iPhone6,1" : @"iPhone 5S",
+          @"iPhone6,2" : @"iPhone 5S",
+          @"iPod1,1"   : @"iPod Touch Original",
+          @"iPod2,1"   : @"iPod Touch 2",
+          @"iPod3,1"   : @"iPod Touch 3",
+          @"iPod4,1"   : @"iPod Touch 4",
+          @"iPod5,1"   : @"iPod Touch 5"
+    }
+    [self.machineName];
+
+    if (!deviceName)
+    {
+        if (NSNotFound != [self.machineName rangeOfString:@"AppleTV"].location)
+            deviceName = @"Apple TV (Unknown)";
+
+        if (NSNotFound != [self.machineName rangeOfString:@"iPad"].location)
+            deviceName = @"iPad (Unknown)";
+
+        if (NSNotFound != [self.machineName rangeOfString:@"iPhone"].location)
+            deviceName = @"iPhone (Unknown)";
+
+        if (NSNotFound != [self.machineName rangeOfString:@"iPod"].location)
+            deviceName = @"iPod Touch (Unknown)";
+    }
+
+    return deviceName;
+})
+
++ (BOOL)systemVersionIsAtLeast:(NSString *)version
+{
+    return NSOrderedAscending != [self.class.currentDevice.systemVersion compare:version options:NSNumericSearch];
 }
 
-+ (BOOL)isPhone4Inch
+SYNTHESIZE_STATIC_PROPERTY(UIResolution, resolution,
 {
-    return UIUserInterfaceIdiomPhone == UIDevice.currentDevice.userInterfaceIdiom && 568.0 == UIScreen.mainScreen.bounds.size.height;
-}
+    int height = UIScreen.mainScreen.bounds.size.height * UIScreen.mainScreen.scale;
 
-+ (BOOL)isPad
-{
-    return UIUserInterfaceIdiomPad == UIDevice.currentDevice.userInterfaceIdiom;
-}
+    return  480 == height ? UIResolutioniPhone :
+    960 == height ? UIResolutioniPhone2X :
+    1136 == height ? UIResolutioniPhoneHi2X :
+    1704 == height ? UIResolutioniPhoneHi3X :
+    1536 == height ? UIResolutioniPad2X :
+    UIResolutionUnknown;
+})
 
-+ (BOOL)isPad8Inch
++ (double)availableMemory
 {
-    size_t size;
-    
-    sysctlbyname("hw.machine", NULL, &size, NULL, 0);
-    
-    char *machine = malloc(size);
-    
-    sysctlbyname("hw.machine", machine, &size, NULL, 0);
-    
-    NSString *platform = [NSString.alloc initWithUTF8String:machine];
-    
-    free(machine);
-    
-    return [platform isEqualToString:@"iPad2,5"] || [platform isEqualToString:@"iPad2,6"] || [platform isEqualToString:@"iPad2,7"];
+    vm_statistics_data_t stats;
+    mach_msg_type_number_t count = HOST_VM_INFO_COUNT;
+    kern_return_t kernReturn = host_statistics(mach_host_self(), HOST_VM_INFO, (host_info_t)&stats, &count);
+
+    if (KERN_SUCCESS != kernReturn)
+        return NSNotFound;
+
+    return vm_page_size * stats.free_count / (double)0x100000;
 }
 
 + (BOOL)isSimulator
 {
-    return [UIDevice.currentDevice.model isEqualToString:@"iPhone Simulator"] || [UIDevice.currentDevice.model isEqualToString:@"iPad Simulator"];
+    return NSNotFound != [self.deviceName rangeOfString:@"Simulator"].location;
+}
+
++ (BOOL)isPhone
+{
+    return NSNotFound != [self.deviceName rangeOfString:@"iPhone"].location;
+}
+
++ (BOOL)isPad
+{
+    return NSNotFound != [self.deviceName rangeOfString:@"iPad"].location;
+}
+
++ (BOOL)isPod
+{
+    return NSNotFound != [self.deviceName rangeOfString:@"iPod"].location;
+}
+
++ (BOOL)isAppleTV
+{
+    return NSNotFound != [self.deviceName rangeOfString:@"Apple TV"].location;
 }
 
 + (BOOL)isJailbroken
@@ -56,11 +162,11 @@
     {
         if ([NSFileManager.defaultManager fileExistsAtPath:@"/private/var/lib/apt/"])
             return YES;
-        
+
         if (!NSBundle.mainBundle.infoDictionary[@"SignerIdentity"])
             return YES;
     }
-    
+
     return NO;
 }
 
@@ -72,21 +178,21 @@
     unsigned char *mac;
     struct if_msghdr *ifm;
     struct sockaddr_dl *sdl;
-    
+
     mib[0] = CTL_NET;
     mib[1] = AF_ROUTE;
     mib[2] = 0;
     mib[3] = AF_LINK;
     mib[4] = NET_RT_IFLIST;
-    
+
     if (!(mib[5] = if_nametoindex(interface.UTF8String)))
         return nil;
-    
+
     if (0 > sysctl(mib, 6, NULL, &len, NULL, 0))
         return nil;
-    
+
     buf = malloc(len);
-    
+
     if (0 > sysctl(mib, 6, buf, &len, NULL, 0))
     {
         free(buf);
@@ -113,44 +219,6 @@
 + (NSString *)CellularMACAddress
 {
     return [self MacAddressOfInterface:@"pdp_ip0"];
-}
-
-+ (NSString *)uniqueIdentifier
-{
-    if ([self.class systemVersionIsAtLeast:@"7.0"])
-        return ASIdentifierManager.sharedManager.advertisingIdentifier.UUIDString;
-    else
-        return UIDevice.WiFiMACAddress.SHA256;
-}
-
-+ (double)availableMemory
-{
-	vm_statistics_data_t stats;
-	mach_msg_type_number_t count = HOST_VM_INFO_COUNT;
-	kern_return_t kernReturn = host_statistics(mach_host_self(), HOST_VM_INFO, (host_info_t)&stats, &count);
-    
-	if (KERN_SUCCESS != kernReturn)
-		return NSNotFound;
-    
-	return vm_page_size * stats.free_count / (double)0x100000;
-}
-
-+ (UIDeviceResolution)resolution
-{
-    BOOL isRetina = [UIScreen.mainScreen respondsToSelector:@selector(scale)];
-    
-    if (self.class.isPad)
-        return isRetina ? UIDeviceResolutioniPadStandardHi : UIDeviceResolutioniPadStandard;
-    else
-        if (self.class.isPhone4Inch)
-            return UIDeviceResolutioniPhoneTallerHi;
-        else
-            return isRetina ? UIDeviceResolutioniPhoneStandardHi : UIDeviceResolutioniPhoneStandard;
-}
-
-+ (BOOL)systemVersionIsAtLeast:(NSString *)version
-{
-    return NSOrderedAscending != [UIDevice.currentDevice.systemVersion compare:version options:NSNumericSearch];
 }
 
 @end

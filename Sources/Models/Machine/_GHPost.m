@@ -3,7 +3,6 @@
 
 #import "_GHPost.h"
 
-
 const struct GHPostAttributes GHPostAttributes = {
 	.content = @"content",
 	.date = @"date",
@@ -14,17 +13,10 @@ const struct GHPostAttributes GHPostAttributes = {
 	.url = @"url",
 };
 
-
-
 const struct GHPostRelationships GHPostRelationships = {
 	.attachments = @"attachments",
 	.categories = @"categories",
 };
-
-
-
-
-
 
 @implementation GHPostID
 @end
@@ -51,7 +43,7 @@ const struct GHPostRelationships GHPostRelationships = {
 
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
-	
+
 	if ([key isEqualToString:@"favoriteValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"favorite"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
@@ -71,37 +63,20 @@ const struct GHPostRelationships GHPostRelationships = {
 	return keyPaths;
 }
 
-
-
-
 @dynamic content;
-
-
-
-
-
 
 @dynamic date;
 
-
-
-
-
-
 @dynamic favorite;
-
-
 
 - (BOOL)favoriteValue {
 	NSNumber *result = [self favorite];
 	return [result boolValue];
 }
 
-
 - (void)setFavoriteValue:(BOOL)value_ {
-	[self setFavorite:@(value_)];
+	[self setFavorite:[NSNumber numberWithBool:value_]];
 }
-
 
 - (BOOL)primitiveFavoriteValue {
 	NSNumber *result = [self primitiveFavorite];
@@ -109,27 +84,19 @@ const struct GHPostRelationships GHPostRelationships = {
 }
 
 - (void)setPrimitiveFavoriteValue:(BOOL)value_ {
-	[self setPrimitiveFavorite:@(value_)];
+	[self setPrimitiveFavorite:[NSNumber numberWithBool:value_]];
 }
 
-
-
-
-
 @dynamic height;
-
-
 
 - (float)heightValue {
 	NSNumber *result = [self height];
 	return [result floatValue];
 }
 
-
 - (void)setHeightValue:(float)value_ {
-	[self setHeight:@(value_)];
+	[self setHeight:[NSNumber numberWithFloat:value_]];
 }
-
 
 - (float)primitiveHeightValue {
 	NSNumber *result = [self primitiveHeight];
@@ -137,27 +104,19 @@ const struct GHPostRelationships GHPostRelationships = {
 }
 
 - (void)setPrimitiveHeightValue:(float)value_ {
-	[self setPrimitiveHeight:@(value_)];
+	[self setPrimitiveHeight:[NSNumber numberWithFloat:value_]];
 }
 
-
-
-
-
 @dynamic identifier;
-
-
 
 - (int64_t)identifierValue {
 	NSNumber *result = [self identifier];
 	return [result longLongValue];
 }
 
-
 - (void)setIdentifierValue:(int64_t)value_ {
-	[self setIdentifier:@(value_)];
+	[self setIdentifier:[NSNumber numberWithLongLong:value_]];
 }
-
 
 - (int64_t)primitiveIdentifierValue {
 	NSNumber *result = [self primitiveIdentifier];
@@ -165,60 +124,34 @@ const struct GHPostRelationships GHPostRelationships = {
 }
 
 - (void)setPrimitiveIdentifierValue:(int64_t)value_ {
-	[self setPrimitiveIdentifier:@(value_)];
+	[self setPrimitiveIdentifier:[NSNumber numberWithLongLong:value_]];
 }
-
-
-
-
 
 @dynamic title;
 
-
-
-
-
-
 @dynamic url;
-
-
-
-
-
 
 @dynamic attachments;
 
-	
 - (NSMutableSet*)attachmentsSet {
 	[self willAccessValueForKey:@"attachments"];
-  
+
 	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"attachments"];
-  
+
 	[self didAccessValueForKey:@"attachments"];
 	return result;
 }
-	
 
 @dynamic categories;
 
-	
 - (NSMutableSet*)categoriesSet {
 	[self willAccessValueForKey:@"categories"];
-  
+
 	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"categories"];
-  
+
 	[self didAccessValueForKey:@"categories"];
 	return result;
 }
-	
-
-
-
-
-
 
 @end
-
-
-
 

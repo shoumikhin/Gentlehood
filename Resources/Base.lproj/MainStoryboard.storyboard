@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES" initialViewController="4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="6254" systemVersion="14D87h" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES" initialViewController="4">
     <dependencies>
-        <deployment defaultVersion="1536" identifier="iOS"/>
+        <deployment identifier="iOS"/>
         <development version="4600" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
-        <!--Style View Controller - СТИЛЬ-->
+        <!--СТИЛЬ-->
         <scene sceneID="LXh-Cr-cLY">
             <objects>
                 <tableViewController wantsFullScreenLayout="YES" id="pn7-cb-hQY" customClass="GHStyleViewController" sceneMemberID="viewController">
@@ -38,7 +38,7 @@
                                         <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="QGH-Km-5ky">
                                             <rect key="frame" x="150" y="40" width="20" height="20"/>
                                         </activityIndicatorView>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bjR-mL-4Dg">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" useAutomaticPreferredMaxLayoutWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bjR-mL-4Dg">
                                             <rect key="frame" x="20" y="10" width="280" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="xCU-KY-GRl"/>
@@ -88,7 +88,7 @@
             </objects>
             <point key="canvasLocation" x="1129" y="530"/>
         </scene>
-        <!--Navigation Controller - Избранное-->
+        <!--Избранное-->
         <scene sceneID="JIX-zV-P53">
             <objects>
                 <navigationController definesPresentationContext="YES" id="xcy-Fe-XDz" sceneMemberID="viewController">
@@ -105,7 +105,7 @@
             </objects>
             <point key="canvasLocation" x="652" y="2614"/>
         </scene>
-        <!--Navigation Controller - Мысли-->
+        <!--Мысли-->
         <scene sceneID="ZHn-wf-Vxk">
             <objects>
                 <navigationController definesPresentationContext="YES" id="2oX-1U-hEm" sceneMemberID="viewController">
@@ -122,7 +122,7 @@
             </objects>
             <point key="canvasLocation" x="652" y="1222"/>
         </scene>
-        <!--Wisdom View Controller - МЫСЛИ-->
+        <!--МЫСЛИ-->
         <scene sceneID="Rdi-bF-gzo">
             <objects>
                 <tableViewController wantsFullScreenLayout="YES" id="npy-Ve-REx" customClass="GHWisdomViewController" sceneMemberID="viewController">
@@ -154,7 +154,7 @@
                                         <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="NXl-UO-KEg">
                                             <rect key="frame" x="150" y="40" width="20" height="20"/>
                                         </activityIndicatorView>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Hf-o2-4U4">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" useAutomaticPreferredMaxLayoutWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Hf-o2-4U4">
                                             <rect key="frame" x="20" y="10" width="280" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="Won-6D-tNk"/>
@@ -205,7 +205,7 @@
             </objects>
             <point key="canvasLocation" x="1129" y="1222"/>
         </scene>
-        <!--Navigation Controller - Стиль-->
+        <!--Стиль-->
         <scene sceneID="uYl-Cw-KC2">
             <objects>
                 <navigationController definesPresentationContext="YES" id="GlT-4u-m15" sceneMemberID="viewController">
@@ -222,7 +222,7 @@
             </objects>
             <point key="canvasLocation" x="652" y="530"/>
         </scene>
-        <!--Favorites View Controller - Favorites-->
+        <!--Favorites-->
         <scene sceneID="fRM-qX-1Hg">
             <objects>
                 <viewController title="Favorites" wantsFullScreenLayout="YES" id="rlB-h6-zlG" customClass="GHFavoritesViewController" sceneMemberID="viewController">
@@ -257,7 +257,7 @@
                                         <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Nf9-6F-HY2">
                                             <rect key="frame" x="150" y="40" width="20" height="20"/>
                                         </activityIndicatorView>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bMB-Ky-Qrv">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" useAutomaticPreferredMaxLayoutWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bMB-Ky-Qrv">
                                             <rect key="frame" x="20" y="10" width="280" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="O3i-OY-M23"/>
@@ -304,7 +304,7 @@
             </objects>
             <point key="canvasLocation" x="1129" y="2614"/>
         </scene>
-        <!--Navigation Controller - Словарь-->
+        <!--Словарь-->
         <scene sceneID="7R9-nh-7gO">
             <objects>
                 <navigationController definesPresentationContext="YES" id="E1e-NX-TCd" sceneMemberID="viewController">
@@ -321,7 +321,7 @@
             </objects>
             <point key="canvasLocation" x="652" y="-191"/>
         </scene>
-        <!--Vocabulary View Controller - СЛОВАРЬ-->
+        <!--СЛОВАРЬ-->
         <scene sceneID="zHy-QX-5vd">
             <objects>
                 <tableViewController id="64J-3Q-PPk" customClass="GHVocabularyViewController" sceneMemberID="viewController">
@@ -342,7 +342,6 @@
                                     <subviews>
                                         <imageView opaque="NO" userInteractionEnabled="NO" alpha="0.64999999999999969" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.png" translatesAutoresizingMaskIntoConstraints="NO" id="4Xi-no-byp">
                                             <rect key="frame" x="283" y="14" width="7" height="16"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="16" id="H2p-eo-ULu"/>
                                                 <constraint firstAttribute="width" constant="7" id="RXD-8m-uIB"/>
@@ -407,7 +406,7 @@
                                         <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="ikE-kN-iJ4">
                                             <rect key="frame" x="150" y="40" width="20" height="20"/>
                                         </activityIndicatorView>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y33-WP-uyN">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" useAutomaticPreferredMaxLayoutWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y33-WP-uyN">
                                             <rect key="frame" x="20" y="10" width="280" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="Swe-bF-sJf"/>
@@ -457,7 +456,7 @@
             </objects>
             <point key="canvasLocation" x="1601" y="-191"/>
         </scene>
-        <!--Navigation Controller - Афоризмы-->
+        <!--Афоризмы-->
         <scene sceneID="tYd-mO-kSM">
             <objects>
                 <navigationController definesPresentationContext="YES" id="Ago-6I-sAM" sceneMemberID="viewController">
@@ -474,7 +473,7 @@
             </objects>
             <point key="canvasLocation" x="652" y="1907"/>
         </scene>
-        <!--Aphorisms View Controller - АФОРИЗМЫ-->
+        <!--АФОРИЗМЫ-->
         <scene sceneID="HQB-uT-d2z">
             <objects>
                 <tableViewController wantsFullScreenLayout="YES" id="eag-9D-z00" customClass="GHAphorismsViewController" sceneMemberID="viewController">
@@ -505,7 +504,7 @@
                                         <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="aoL-lQ-Efm">
                                             <rect key="frame" x="150" y="41" width="20" height="20"/>
                                         </activityIndicatorView>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gVt-Kl-qW6">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" useAutomaticPreferredMaxLayoutWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gVt-Kl-qW6">
                                             <rect key="frame" x="20" y="11" width="280" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="2I8-EJ-Ze5"/>
@@ -564,7 +563,7 @@
                         <rect key="frame" x="0.0" y="431" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <color key="tintColor" red="0.082352943720000002" green="0.19215688110000001" blue="0.37254902719999999" alpha="1" colorSpace="deviceRGB"/>
-                        <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="selectedImageTintColor" red="0.054901960784313725" green="0.12549019607843137" blue="0.29411764705882354" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="E1e-NX-TCd" kind="relationship" relationship="viewControllers" id="b0B-dF-1Hs"/>

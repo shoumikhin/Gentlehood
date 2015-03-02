@@ -17,7 +17,9 @@
     [self setupRestKit];
     [self setupPonyDebugger];
 
-    NSURLCache.sharedURLCache = SDURLCache.new;
+    NSURLCache.sharedURLCache = [NSURLCache.alloc initWithMemoryCapacity:10  *1024*1024
+                                                            diskCapacity:100 *1024*1024
+                                                                diskPath:nil];
 
     return YES;
 }

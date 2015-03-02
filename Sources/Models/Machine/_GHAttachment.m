@@ -3,7 +3,6 @@
 
 #import "_GHAttachment.h"
 
-
 const struct GHAttachmentAttributes GHAttachmentAttributes = {
 	.identifier = @"identifier",
 	.isLoaded = @"isLoaded",
@@ -12,16 +11,9 @@ const struct GHAttachmentAttributes GHAttachmentAttributes = {
 	.url = @"url",
 };
 
-
-
 const struct GHAttachmentRelationships GHAttachmentRelationships = {
 	.post = @"post",
 };
-
-
-
-
-
 
 @implementation GHAttachmentID
 @end
@@ -48,7 +40,7 @@ const struct GHAttachmentRelationships GHAttachmentRelationships = {
 
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
-	
+
 	if ([key isEqualToString:@"identifierValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"identifier"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
@@ -63,23 +55,16 @@ const struct GHAttachmentRelationships GHAttachmentRelationships = {
 	return keyPaths;
 }
 
-
-
-
 @dynamic identifier;
-
-
 
 - (int64_t)identifierValue {
 	NSNumber *result = [self identifier];
 	return [result longLongValue];
 }
 
-
 - (void)setIdentifierValue:(int64_t)value_ {
-	[self setIdentifier:@(value_)];
+	[self setIdentifier:[NSNumber numberWithLongLong:value_]];
 }
-
 
 - (int64_t)primitiveIdentifierValue {
 	NSNumber *result = [self primitiveIdentifier];
@@ -87,27 +72,19 @@ const struct GHAttachmentRelationships GHAttachmentRelationships = {
 }
 
 - (void)setPrimitiveIdentifierValue:(int64_t)value_ {
-	[self setPrimitiveIdentifier:@(value_)];
+	[self setPrimitiveIdentifier:[NSNumber numberWithLongLong:value_]];
 }
 
-
-
-
-
 @dynamic isLoaded;
-
-
 
 - (BOOL)isLoadedValue {
 	NSNumber *result = [self isLoaded];
 	return [result boolValue];
 }
 
-
 - (void)setIsLoadedValue:(BOOL)value_ {
-	[self setIsLoaded:@(value_)];
+	[self setIsLoaded:[NSNumber numberWithBool:value_]];
 }
-
 
 - (BOOL)primitiveIsLoadedValue {
 	NSNumber *result = [self primitiveIsLoaded];
@@ -115,45 +92,16 @@ const struct GHAttachmentRelationships GHAttachmentRelationships = {
 }
 
 - (void)setPrimitiveIsLoadedValue:(BOOL)value_ {
-	[self setPrimitiveIsLoaded:@(value_)];
+	[self setPrimitiveIsLoaded:[NSNumber numberWithBool:value_]];
 }
-
-
-
-
 
 @dynamic mime;
 
-
-
-
-
-
 @dynamic title;
-
-
-
-
-
 
 @dynamic url;
 
-
-
-
-
-
 @dynamic post;
 
-	
-
-
-
-
-
-
 @end
-
-
-
 

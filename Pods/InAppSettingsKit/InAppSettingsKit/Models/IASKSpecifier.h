@@ -19,17 +19,19 @@
 
 @class IASKSettingsReader;
 
-@interface IASKSpecifier : NSObject {
-    NSDictionary    *_specifierDict;
-    NSDictionary    *_multipleValuesDict;
-    IASKSettingsReader *_settingsReader;
-}
+@interface IASKSpecifier : NSObject
+
 @property (nonatomic, retain) NSDictionary  *specifierDict;
-@property (nonatomic, assign) IASKSettingsReader *settingsReader;
+@property (nonatomic, weak) IASKSettingsReader *settingsReader;
 
 - (id)initWithSpecifier:(NSDictionary*)specifier;
+/// A specifier for one entry in a radio group preceeded by a radio group specifier.
+- (id)initWithSpecifier:(NSDictionary *)specifier
+        radioGroupValue:(NSString *)radioGroupValue;
+
 - (NSString*)localizedObjectForKey:(NSString*)key;
 - (NSString*)title;
+- (NSString*)subtitle;
 - (NSString*)key;
 - (NSString*)type;
 - (NSString*)titleForCurrentValue:(id)currentValue;
@@ -53,10 +55,14 @@
 - (NSString*)footerText;
 - (Class)viewControllerClass;
 - (SEL)viewControllerSelector;
--(Class)buttonClass;
--(SEL)buttonAction;
+- (NSString*)viewControllerStoryBoardFile;
+- (NSString*)viewControllerStoryBoardID;
+- (Class)buttonClass;
+- (SEL)buttonAction;
 - (UIImage *)cellImage;
 - (UIImage *)highlightedCellImage;
 - (BOOL)adjustsFontSizeToFitWidth;
-- (UITextAlignment)textAlignment;
+- (NSTextAlignment)textAlignment;
+- (NSArray *)userInterfaceIdioms;
+- (NSString *)radioGroupValue;
 @end
